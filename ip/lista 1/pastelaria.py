@@ -7,13 +7,13 @@ nome_competidor3 = str(input())
 pasteis_competidor3 = int(input())
 
 # definir campeao
-if pasteis_competidor1 > (pasteis_competidor2 and pasteis_competidor3):
+if pasteis_competidor1 > pasteis_competidor2 and pasteis_competidor1 > pasteis_competidor3:
     nome_campeao = nome_competidor1
     pasteis_campeao = pasteis_competidor1
-elif pasteis_competidor2 > (pasteis_competidor1 and pasteis_competidor3):
+elif pasteis_competidor2 > pasteis_competidor1 and pasteis_competidor2 > pasteis_competidor3:
     nome_campeao = nome_competidor2
     pasteis_campeao = pasteis_competidor2
-elif pasteis_competidor3 > (pasteis_competidor1 and pasteis_competidor2):
+elif pasteis_competidor3 > pasteis_competidor1 and pasteis_competidor3 > pasteis_competidor2:
     nome_campeao = nome_competidor3
     pasteis_campeao = pasteis_competidor3
 
@@ -31,3 +31,4 @@ elif (nome_campeao == "Agostinho"):
         print("Acho que o Agostinho deve ter escondido alguns pastéis na calça, pilantra!")
     elif (50 < pasteis_campeao < 100):
         print("Agostinho madrugou no taxi e veio cheio de fome para a competição!")
+
