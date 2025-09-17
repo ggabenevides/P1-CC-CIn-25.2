@@ -22,13 +22,12 @@ if (nome_competidor1 or nome_competidor2 or nome_competidor3) == "Lineu":
     print("Lineu comeu um pastel com gosto estranho e usou sua autoridade na vigilancia sanitaria para acabar com a competição, Beiçola tá desolado!")
 else:
     print(f"A(O) campeã(o) é {nome_campeao}, com {pasteis_campeao} pastéis consumidos!")
-    
-if ((nome_competidor1 or nome_competidor2 or nome_competidor3) == "Floriano") and (nome_campeao != "Floriano"):
-    print(f"Anos comendo pastel e perdeu justo para {nome_campeao}, lastimável, Sr. Flor!")
 
-if (nome_campeao == "Agostinho"): 
+# comentarios adicionais  
+if ("Floriano" in [nome_competidor1, nome_competidor2, nome_competidor3]) and (nome_campeao != "Floriano"):
+    print(f"Anos comendo pastel e perdeu justo para {nome_campeao}, lastimável, Sr. Flor!")
+elif (nome_campeao == "Agostinho"): 
     if (pasteis_campeao > 100):
         print("Acho que o Agostinho deve ter escondido alguns pastéis na calça, pilantra!")
     elif (50 < pasteis_campeao < 100):
-
         print("Agostinho madrugou no taxi e veio cheio de fome para a competição!")
