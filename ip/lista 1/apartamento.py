@@ -1,9 +1,31 @@
 # coletar dados de entrada
-Número_artigos_lidos_Sheldon = (int(input()))
-Número_artigos_lidos_Leonard = (int(input()))
-Número_artigos_lidos_Raj =  (int(input()))
-Número_artigos_lidos_Howard = (int(input()))
-Número_experimentos_realizados_por_Sheldon = (int(input()))
-Número_experimentos_realizados_por_Leonard = (int(input()))
-Número_experimentos_realizados_por_Raj = (int(input()))
-Número_experimentos_realizados_por_Howard = (int(input()))
+artigos_lidos_Sheldon = (int(input()))
+artigos_lidos_Leonard = (int(input()))
+artigos_lidos_Raj =  (int(input()))
+artigos_lidos_Howard = (int(input()))
+experimentos_realizados_por_Sheldon = (int(input()))
+experimentos_realizados_por_Leonard = (int(input()))
+experimentos_realizados_por_Raj = (int(input()))
+experimentos_realizados_por_Howard = (int(input()))
+
+# processar dados pontuação = artigos * 2 + experimentos * 3
+pontuacao_Sheldon = artigos_lidos_Sheldon * 2 + experimentos_realizados_por_Sheldon * 3
+pontuacao_Leonard = artigos_lidos_Leonard * 2 + experimentos_realizados_por_Leonard * 3
+pontuacao_Raj = artigos_lidos_Raj * 2 + experimentos_realizados_por_Raj * 3
+pontuacao_Howard = artigos_lidos_Howard * 2 + experimentos_realizados_por_Howard * 3
+
+# definir vencedor ou empate 
+if pontuacao_Sheldon > pontuacao_Leonard and pontuacao_Sheldon > pontuacao_Raj and pontuacao_Sheldon > pontuacao_Howard:
+    nome_vencedor = "Sheldon"
+    pontos_vencedor = pontuacao_Sheldon
+elif pontuacao_Leonard > pontuacao_Sheldon and pontuacao_Leonard > pontuacao_Raj and pontuacao_Leonard > pontuacao_Howard:
+    nome_vencedor = "Leonard"
+    pontos_vencedor = pontuacao_Leonard
+elif pontuacao_Raj > pontuacao_Sheldon and pontuacao_Raj > pontuacao_Leonard and pontuacao_Raj > pontuacao_Howard:
+    nome_vencedor = "Raj"
+    pontos_vencedor = pontuacao_Raj
+elif pontuacao_Howard > pontuacao_Sheldon and pontuacao_Howard > pontuacao_Leonard and pontuacao_Howard > pontuacao_Raj:
+    nome_vencedor = "Howard"
+    pontos_vencedor = pontuacao_Howard
+
+
