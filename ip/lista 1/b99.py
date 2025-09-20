@@ -4,12 +4,13 @@ dias = int(input())
 assistências_casos = int(input())
 operações_campo = int(input())
 operação_especial = str(input()).capitalize()
+tipo_operação_especial = ""
 if operação_especial == "Sim":
     tipo_operação_especial = str(input()).capitalize()
-    localização = str(input()).capitalize()
+localização = str(input()).capitalize()
 
 # cálculo da pontuação
-pontuação = (casos*2 + assistências_casos*1.5 + operações_campo*0.5)/3
+pontuação = casos*2 + assistências_casos*1.5 + operações_campo*0.5
 if operação_especial == "Sim":
     if tipo_operação_especial == "Infiltração":
         pontuação = pontuação*1.5
