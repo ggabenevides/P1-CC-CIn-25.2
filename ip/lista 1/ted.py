@@ -151,10 +151,27 @@ if lugar == "Arena de Laser Tag":
 if lugar == "Carmichael’s" and quantidade_pessoas and nome1 == "Robin":
     print("Acho que Ted e Robin vão sair em um date… Tomara que Ted não roube aquela trompa azul da parede de novo.")
 if lugar == "MacLaren’s Pub":
-    if (nome1 == "Robin" or nome1 == "Lily" or nome1 == "Marshall" or nome1 == "Barney") or (nome2 == "Robin" or nome2 == "Lily" or nome2 == "Marshall" or nome2 == "Barney") or (nome3 == "Robin" or nome3 == "Lily" or nome3 == "Marshall" or nome3 == "Barney") or  (nome4 == "Robin" or nome4 == "Lily" or nome4 == "Marshall" or nome4 == "Barney"):
-        print("Não tem erro, né? Estar no MacLaren’s é como estar em casa.")
-    elif (nome1 != "Robin" and nome1 != "Lily" and nome1 != "Marshall" and nome1 != "Barney") and (nome2 != "Robin" and nome2 != "Lily" and nome2 != "Marshall" and nome2 != "Barney") and (nome3 != "Robin" and nome3 != "Lily" and nome3 != "Marshall" and nome3 != "Barney") and (nome4 != "Robin" and nome4 != "Lily" and nome4 != "Marshall" and nome4 != "Barney"):
-        print("Um lugar habitual, mas com uma galera diferente. Será estranho, mas Ted vai.")
+    if quantidade_pessoas == 4:
+        if (nome1 == "Robin" or nome1 == "Lily" or nome1 == "Marshall" or nome1 == "Barney") or (nome2 == "Robin" or nome2 == "Lily" or nome2 == "Marshall" or nome2 == "Barney") or (nome3 == "Robin" or nome3 == "Lily" or nome3 == "Marshall" or nome3 == "Barney") or  (nome4 == "Robin" or nome4 == "Lily" or nome4 == "Marshall" or nome4 == "Barney"):
+            print("Não tem erro, né? Estar no MacLaren’s é como estar em casa.")
+        elif (nome1 != "Robin" and nome1 != "Lily" and nome1 != "Marshall" and nome1 != "Barney") and (nome2 != "Robin" and nome2 != "Lily" and nome2 != "Marshall" and nome2 != "Barney") and (nome3 != "Robin" and nome3 != "Lily" and nome3 != "Marshall" and nome3 != "Barney") and  (nome4 != "Robin" and nome4 != "Lily" and nome4 != "Marshall" and nome4 != "Barney"):
+            print("Um lugar habitual, mas com uma galera diferente. Será estranho, mas Ted vai.")
+    elif quantidade_pessoas == 3: 
+        if (nome1 == "Robin" or nome1 == "Lily" or nome1 == "Marshall" or nome1 == "Barney") or (nome2 == "Robin" or nome2 == "Lily" or nome2 == "Marshall" or nome2 == "Barney") or (nome3 == "Robin" or nome3 == "Lily" or nome3 == "Marshall" or nome3 == "Barney"):
+            print("Não tem erro, né? Estar no MacLaren’s é como estar em casa.")
+        elif (nome1 != "Robin" and nome1 != "Lily" and nome1 != "Marshall" and nome1 != "Barney") and (nome2 != "Robin" and nome2 != "Lily" and nome2 != "Marshall" and nome2 != "Barney") and (nome3 != "Robin" and nome3 != "Lily" and nome3 != "Marshall" and nome3 != "Barney"):
+            print("Um lugar habitual, mas com uma galera diferente. Será estranho, mas Ted vai.") 
+    elif quantidade_pessoas == 2:
+        if (nome1 == "Robin" or nome1 == "Lily" or nome1 == "Marshall" or nome1 == "Barney") or (nome2 == "Robin" or nome2 == "Lily" or nome2 == "Marshall" or nome2 == "Barney"):
+            print("Não tem erro, né? Estar no MacLaren’s é como estar em casa.")
+        elif (nome1 != "Robin" and nome1 != "Lily" and nome1 != "Marshall" and nome1 != "Barney") and (nome2 != "Robin" and nome2 != "Lily" and nome2 != "Marshall" and nome2 != "Barney"):
+            print("Um lugar habitual, mas com uma galera diferente. Será estranho, mas Ted vai.") 
+    elif quantidade_pessoas == 1:
+        if (nome1 == "Robin" or nome1 == "Lily" or nome1 == "Marshall" or nome1 == "Barney"):
+            print("Não tem erro, né? Estar no MacLaren’s é como estar em casa.")
+        elif (nome1 != "Robin" and nome1 != "Lily" and nome1 != "Marshall" and nome1 != "Barney"):
+            print("Um lugar habitual, mas com uma galera diferente. Será estranho, mas Ted vai.") 
+    
 
 # frase especial 
 frase = ""
