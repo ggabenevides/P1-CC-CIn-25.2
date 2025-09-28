@@ -8,9 +8,11 @@ ano = int(input())
 #processar dados
 nome = nome.capitalize()
 contagem_letra= 0
-for letra in nome:
-    contagem_letra += 1
-divisibilidaede = ano%contagem_letra
+contagem_letra = len(nome)
+divisibilidade = ano % contagem_letra
+
+print("Quantidade de letras:", contagem_letra)
+print("Ano % Quantidade de letras =", divisibilidade)
 
 #relatorio final
 if divisibilidaede == 0:
@@ -27,4 +29,5 @@ else:
     if nome == "Frink":
         print("Nem precisava colocar os dados! O rebigulador jamais existiria em qualquer universo!")
     else:
+
             print(f"Previsão instável! {nome} também deve achar que o rebigulador é ridículo...")
