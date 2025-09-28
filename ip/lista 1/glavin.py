@@ -15,7 +15,7 @@ print("Quantidade de letras:", contagem_letra)
 print("Ano % Quantidade de letras =", divisibilidade)
 
 #relatorio final
-if divisibilidaede == 0:
+if divisibilidade == 0:
     previsao_confiavel = True
 else:
     previsao_confiavel = False
@@ -31,3 +31,4 @@ else:
     else:
 
             print(f"Previsão instável! {nome} também deve achar que o rebigulador é ridículo...")
+
