@@ -29,6 +29,7 @@ while num_eliminados < 2:
         jogada_a = str(input())
         # atualizando o placar 
         if jogada_a == "acertou":
+            erros_a = 0
             if num_eliminados==1:
                 bolas_a +=1
             else:
@@ -39,9 +40,7 @@ while num_eliminados < 2:
                 bolas_c -=1
         else: 
             erros_a += 1
-    else:
-        if not ja_estava_fora_a:
-            num_eliminados += 1
+
     # reavaliando os eliminados 
     eliminado_a = bolas_a <= 0 or erros_a >= 3
     eliminado_b = bolas_b <= 0 or erros_b >= 3
@@ -50,6 +49,7 @@ while num_eliminados < 2:
         jogada_b = str(input())
         # atualizando o placar 
         if jogada_b == "acertou":
+            erros_b = 0
             if num_eliminados==1:
                 bolas_b +=1
             else:
@@ -60,9 +60,7 @@ while num_eliminados < 2:
                 bolas_c -=1
         else: 
             erros_b+= 1
-    else:
-        if not ja_estava_fora_b:
-            num_eliminados += 1
+
     # reavaliando os eliminados 
     eliminado_a = bolas_a <= 0 or erros_a >= 3
     eliminado_b = bolas_b <= 0 or erros_b >= 3
@@ -71,6 +69,7 @@ while num_eliminados < 2:
         jogada_c = str(input())
         # atualizando o placar 
         if jogada_c == "acertou":
+            erros_c = 0
             if num_eliminados==1:
                 bolas_c +=1
             else:
@@ -81,9 +80,6 @@ while num_eliminados < 2:
                 bolas_a -=1
         else: 
             erros_c += 1
-    else:
-        if not ja_estava_fora_c:
-            num_eliminados += 1
         
 
     # reavaliando os eliminados 
@@ -95,18 +91,25 @@ while num_eliminados < 2:
     if eliminado_a and not ja_estava_fora_a:
         if erros_a >= 3:
             print("andre perdeu feio")
+            num_eliminados += 1
         else:
             print("andre saiu do jogo")
+            num_eliminados += 1
     if eliminado_b and not ja_estava_fora_b:
         if erros_b >= 3:
             print("bruno perdeu feio")
+            num_eliminados += 1
         else:
             print("bruno saiu do jogo")
+            num_eliminados += 1
     if eliminado_c and not ja_estava_fora_c:
-        if erros_c >= 3:
-            print("clara perdeu feio")
-        else:
-            print("clara saiu do jogo")    
+        if erros_b < 3 and erros_c < 3:
+            if erros_c >= 3:
+                print("clara perdeu feio")
+                num_eliminados += 1
+            else:
+                print("clara saiu do jogo") 
+                num_eliminados += 1 
     
     # estado atual de eliminação
     ja_estava_fora_a = eliminado_a
@@ -117,7 +120,9 @@ else:
 
     # definindo vencedor
     vencedor = ""
-    if not eliminado_a:
+    if eliminado_c and erros_a == 3 and erros_b ==3:
+        vencedor = "clara"
+    elif not eliminado_a:
         vencedor = "andre"
     elif not eliminado_b:
         vencedor = "bruno"
