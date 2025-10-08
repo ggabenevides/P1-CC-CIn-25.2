@@ -25,7 +25,7 @@ while num_eliminados < 2:
     eliminado_a = bolas_a <= 0 or erros_a >= 3
     eliminado_b = bolas_b <= 0 or erros_b >= 3
     eliminado_c = bolas_c <= 0 or erros_c >= 3
-    if not eliminado_a:
+    if not eliminado_a and num_eliminados < 2:
         jogada_a = str(input())
         # atualizando o placar 
         if jogada_a == "acertou":
@@ -41,11 +41,36 @@ while num_eliminados < 2:
         else: 
             erros_a += 1
 
+
     # reavaliando os eliminados 
     eliminado_a = bolas_a <= 0 or erros_a >= 3
+    if eliminado_a and not ja_estava_fora_a:
+        num_eliminados += 1
+        if erros_a >= 3:
+            print("andre perdeu feio")
+        else:
+            print("andre saiu do jogo")
     eliminado_b = bolas_b <= 0 or erros_b >= 3
+    if eliminado_b and not ja_estava_fora_b:
+        num_eliminados += 1
+        if erros_b >= 3:
+            print("bruno perdeu feio")
+        else:
+            print("bruno saiu do jogo")
     eliminado_c = bolas_c <= 0 or erros_c >= 3
-    if not eliminado_b:
+    if eliminado_c and not ja_estava_fora_c:
+        num_eliminados += 1
+        if erros_c >= 3:
+            print("clara perdeu feio")      
+        else:
+            print("clara saiu do jogo")
+
+    # estado atual de eliminação
+    ja_estava_fora_a = eliminado_a
+    ja_estava_fora_b = eliminado_b
+    ja_estava_fora_c = eliminado_c
+    
+    if not eliminado_b and num_eliminados < 2:
         jogada_b = str(input())
         # atualizando o placar 
         if jogada_b == "acertou":
@@ -63,9 +88,33 @@ while num_eliminados < 2:
 
     # reavaliando os eliminados 
     eliminado_a = bolas_a <= 0 or erros_a >= 3
+    if eliminado_a and not ja_estava_fora_a:
+        num_eliminados += 1
+        if erros_a >= 3:
+            print("andre perdeu feio")
+        else:
+            print("andre saiu do jogo")
     eliminado_b = bolas_b <= 0 or erros_b >= 3
+    if eliminado_b and not ja_estava_fora_b:
+        num_eliminados += 1
+        if erros_b >= 3:
+            print("bruno perdeu feio")
+        else:
+            print("bruno saiu do jogo")
     eliminado_c = bolas_c <= 0 or erros_c >= 3
-    if not eliminado_c:
+    if eliminado_c and not ja_estava_fora_c:
+        num_eliminados += 1
+        if erros_c >= 3:
+            print("clara perdeu feio")      
+        else:
+            print("clara saiu do jogo")
+
+    # estado atual de eliminação
+    ja_estava_fora_a = eliminado_a
+    ja_estava_fora_b = eliminado_b
+    ja_estava_fora_c = eliminado_c
+
+    if not eliminado_c and num_eliminados < 2:
         jogada_c = str(input())
         # atualizando o placar 
         if jogada_c == "acertou":
@@ -84,33 +133,27 @@ while num_eliminados < 2:
 
     # reavaliando os eliminados 
     eliminado_a = bolas_a <= 0 or erros_a >= 3
-    eliminado_b = bolas_b <= 0 or erros_b >= 3
-    eliminado_c = bolas_c <= 0 or erros_c >= 3
-
-    #  eliminacao
     if eliminado_a and not ja_estava_fora_a:
+        num_eliminados += 1
         if erros_a >= 3:
             print("andre perdeu feio")
-            num_eliminados += 1
         else:
             print("andre saiu do jogo")
-            num_eliminados += 1
+    eliminado_b = bolas_b <= 0 or erros_b >= 3
     if eliminado_b and not ja_estava_fora_b:
+        num_eliminados += 1
         if erros_b >= 3:
             print("bruno perdeu feio")
-            num_eliminados += 1
         else:
             print("bruno saiu do jogo")
-            num_eliminados += 1
+    eliminado_c = bolas_c <= 0 or erros_c >= 3
     if eliminado_c and not ja_estava_fora_c:
-        if erros_b < 3 and erros_c < 3:
-            if erros_c >= 3:
-                print("clara perdeu feio")
-                num_eliminados += 1
-            else:
-                print("clara saiu do jogo") 
-                num_eliminados += 1 
-    
+        num_eliminados += 1
+        if erros_c >= 3:
+            print("clara perdeu feio")      
+        else:
+            print("clara saiu do jogo")
+        
     # estado atual de eliminação
     ja_estava_fora_a = eliminado_a
     ja_estava_fora_b = eliminado_b
