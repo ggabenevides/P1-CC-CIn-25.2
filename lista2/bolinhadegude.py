@@ -21,10 +21,6 @@ num_eliminados = 0
 while num_eliminados < 2:
     
     # input rodada
-    # reavaliando os eliminados 
-    eliminado_a = bolas_a <= 0 or erros_a >= 3
-    eliminado_b = bolas_b <= 0 or erros_b >= 3
-    eliminado_c = bolas_c <= 0 or erros_c >= 3
     if not eliminado_a and num_eliminados < 2:
         jogada_a = str(input())
         # atualizando o placar 
@@ -40,7 +36,6 @@ while num_eliminados < 2:
                 bolas_c -=1
         else: 
             erros_a += 1
-
 
     # reavaliando os eliminados 
     eliminado_a = bolas_a <= 0 or erros_a >= 3
