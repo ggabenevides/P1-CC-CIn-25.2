@@ -23,7 +23,7 @@ if (nome_competidor1 or nome_competidor2 or nome_competidor3) == "Lineu":
 else:
     print(f"A(O) campeã(o) é {nome_campeao}, com {pasteis_campeao} pastéis consumidos!")
     
-if ((nome_competidor1 or nome_competidor2 or nome_competidor3) == "Floriano") and (nome_campeao not "Floriano"):
+if ((nome_competidor1 or nome_competidor2 or nome_competidor3) == "Floriano") and (nome_campeao != "Floriano"):
     print(f"Anos comendo pastel e perdeu justo para {nome_campeao}, lastimável, Sr. Flor!")
 
 if (nome_campeao == "Agostinho"): 
