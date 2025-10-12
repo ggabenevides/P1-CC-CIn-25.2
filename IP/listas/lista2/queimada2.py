@@ -14,96 +14,83 @@ while atacante != "Front-End" and atacante != "Back-End":
 
 # loop principal
 while num_front > 0 and num_back > 0:
-    while atacante == "Front-End" and num_front > 0 and num_back > 0:
-        defensor = "Back-End"
-        while local == "campo":
-            resultado_ataque =str(input())
-            while resultado_ataque != "acertou" and resultado_ataque != "errou":
-                print("Entrada inválida!")
-                resultado_ataque = str(input())
-            if resultado_ataque == "acertou":
-                print(f"{atacante} acertou um jogador!")
-                num_back -= 1
-                mortos_back += 1
-                atacante = "Back-End"
-                defensor = "Front-End"
-                local = "fora"
-                print(f"Back-End: {num_back} dev(s) em campo. | Front-End: {num_front} dev(s) em campo.")
-            else: 
-                resultado_defesa = str(input())
-                while resultado_defesa != "pegou" and resultado_defesa != "deixou":
-                    print("Entrada inválida!")
-                    resultado_defesa = str(input()) 
-                if resultado_defesa == "pegou":
-                    atacante = "Front-End"
-                else:
-                    atacante = "Back-End"  
-        while local == "fora" and atacante == "Front-End":
-            resultado_ataque =str(input())
-            while resultado_ataque != "acertou" and resultado_ataque != "errou":
-                print("Entrada inválida!")
-                resultado_ataque = str(input())
-            if resultado_ataque == "acertou":
-                print(f"O morto do {atacante} acertou um jogador!")
-                mortos_front -= 1
-                num_front += 1
-                num_back -= 1
-                mortos_back += 1
-                print(f"Back-End: {num_back} dev(s) em campo. | Front-End: {num_front} dev(s) em campo.")
-            else:
-                resultado_defesa = str(input())
-                while resultado_defesa != "pegou" and resultado_defesa != "deixou":
-                    print("Entrada inválida!")
-                    resultado_defesa = str(input()) 
-                if resultado_defesa == "pegou":
-                    atacante = "Front-End"
-                else:
-                    atacante = "Back-End"
-    while atacante == "Back-End" and num_back > 0 and num_front > 0:
-        defensor = "Front-End"
-        while local == "campo":
-            resultado_ataque =str(input())
-            while resultado_ataque != "acertou" and resultado_ataque != "errou":
-                print("Entrada inválida!")
-                resultado_ataque = str(input())
-            if resultado_ataque == "acertou":
-                print(f"{atacante} acertou um jogador!")
+    while local == "campo" and num_front>0 and num_back>0:
+        resultado_ataque =str(input())
+        while resultado_ataque != "acertou" and resultado_ataque != "errou":
+            print("Entrada inválida!")
+            resultado_ataque = str(input())
+        if resultado_ataque == "acertou":
+            if atacante == "Back-End":
                 num_front -= 1
                 mortos_front += 1
+            else:
+                num_back -=1
+                mortos_back += 1
+            print(f"{atacante} acertou um jogador!")
+            print(f"Back-End: {num_back} dev(s) em campo. | Front-End: {num_front} dev(s) em campo.") 
+            local = "fora"
+            if atacante == "Back-End":
                 atacante = "Front-End"
-                defensor = "Back-End"
-                local = "fora"
-                print(f"Back-End: {num_back} dev(s) em campo. | Front-End: {num_front} dev(s) em campo.")
             else: 
-                resultado_defesa = str(input())
-                while resultado_defesa != "pegou" and resultado_defesa != "deixou":
-                    print("Entrada inválida!")
-                    resultado_defesa = str(input()) 
-                if resultado_defesa == "pegou":
+                atacante = "Back-End"
+        else:
+            if atacante == "Back-End":
+                if mortos_back == 0:
                     atacante = "Front-End"
                 else:
-                    atacante = "Back-End"  
-        while local == "fora":
-            resultado_ataque =str(input())
-            while resultado_ataque != "acertou" and resultado_ataque != "errou":
-                print("Entrada inválida!")
-                resultado_ataque = str(input())
-            if resultado_ataque == "acertou":
-                print(f"O morto do {atacante} acertou um jogador!")
-                mortos_back -= 1
-                num_back += 1
-                num_front -= 1
-                mortos_front += 1
-                print(f"Back-End: {num_back} dev(s) em campo. | Front-End: {num_front} dev(s) em campo.")
+                    resultado_defesa = str(input())
+                    while resultado_defesa != "pegou" and resultado_defesa != "deixou":
+                        print("Entrada inválida!")
+                        resultado_defesa = str(input()) 
+                    if resultado_defesa == "pegou":
+                        atacante = "Front-End"
+                    else:
+                        local = "fora"
             else:
-                resultado_defesa = str(input())
-                while resultado_defesa != "pegou" and resultado_defesa != "deixou":
-                    print("Entrada inválida!")
-                    resultado_defesa = str(input()) 
-                if resultado_defesa == "pegou":
+                if mortos_front == 0:
                     atacante = "Back-End"
                 else:
-                    atacante = "Front-End"     
+                    resultado_defesa = str(input())
+                    while resultado_defesa != "pegou" and resultado_defesa != "deixou":
+                        print("Entrada inválida!")
+                        resultado_defesa = str(input()) 
+                    if resultado_defesa == "pegou":
+                        atacante = "Back-End"
+                    else:
+                        local = "fora"
+    while local == "fora" and num_back>0 and num_front>0:
+        resultado_ataque =str(input())
+        while resultado_ataque != "acertou" and resultado_ataque != "errou":
+            print("Entrada inválida!")
+            resultado_ataque = str(input())
+        if resultado_ataque == "acertou":
+            if atacante == "Front-End":
+                if mortos_front>0:
+                    mortos_front -= 1
+                    num_front += 1
+                num_back -= 1
+                mortos_back += 1
+            else: 
+                if mortos_back>0:                
+                    mortos_back -= 1
+                    num_back += 1
+                mortos_front += 1
+                num_front -= 1
+
+            print(f"O morto do {atacante} acertou um jogador!")
+            print(f"Back-End: {num_back} dev(s) em campo. | Front-End: {num_front} dev(s) em campo.")
+        else:
+            resultado_defesa = str(input())
+            while resultado_defesa != "pegou" and resultado_defesa != "deixou":
+                print("Entrada inválida!")
+                resultado_defesa = str(input()) 
+            if resultado_defesa == "pegou":
+                if atacante == "Back-End":
+                    atacante = "Front-End"
+                else:
+                    atacante = "Back-End"
+            local = "campo"
+
 
  # relatorio final
 if num_front == 0:
