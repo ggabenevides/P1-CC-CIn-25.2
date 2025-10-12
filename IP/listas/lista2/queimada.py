@@ -23,9 +23,11 @@ while num_front > 0 and num_back > 0:
             if atacante == "Back-End":
                 num_front -= 1
                 mortos_front += 1
+                local = "fora"
             else:
                 num_back -=1
                 mortos_back += 1
+                local = "fora"
             print(f"{atacante} acertou um jogador!")
             print(f"Back-End: {num_back} dev(s) em campo. | Front-End: {num_front} dev(s) em campo.") 
             local = "fora"
@@ -76,9 +78,13 @@ while num_front > 0 and num_back > 0:
                     num_back += 1
                 mortos_front += 1
                 num_front -= 1
-
             print(f"O morto do {atacante} acertou um jogador!")
             print(f"Back-End: {num_back} dev(s) em campo. | Front-End: {num_front} dev(s) em campo.")
+            if atacante == "Front-End":
+                atacante = "Back-End"
+            else:
+                atacante = "Front-End"
+            local = "fora"
         else:
             resultado_defesa = str(input())
             while resultado_defesa != "pegou" and resultado_defesa != "deixou":
@@ -87,10 +93,12 @@ while num_front > 0 and num_back > 0:
             if resultado_defesa == "pegou":
                 if atacante == "Back-End":
                     atacante = "Front-End"
+                    local = "campo"
                 else:
                     atacante = "Back-End"
-            local = "campo"
-
+                    local = "campo"
+            else:
+                local = "campo"
 
  # relatorio final
 if num_front == 0:
