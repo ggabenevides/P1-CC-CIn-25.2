@@ -15,20 +15,25 @@ for i in range(num_convidados):
         print("você é convidado DE GUÊÊ???, sai da minha festa seu FOFOQUEIRO!!")
     else:
         lista_convidados.append(nome_convidado)
-
     comida_convidado = str(input())
     valor_comida = int(input())
-    if comida_convidado in lista_comidas or valor_comida in valores_comidas:
+    if comida_convidado in lista_comidas:
         print(f"Na Festa do Calabreso não pode comida Repetida SAI FORA {nome_convidado}")
         lista_convidados.remove(nome_convidado)
-    else:
-        lista_comidas.append(comida_convidado)
-        valores_comidas.append(valor_comida)
-    
+    lista_comidas.append(comida_convidado)
+    valores_comidas.append(valor_comida)
+    if not (nome_convidado in lista_convidados):
+        lista_comidas.remove(comida_convidado)
+        valores_comidas.remove(valor_comida)
 # ordenando listas de acordo com os criterios do calabreso
 # primeiro, a lista de preços 
 valores_ordenados = valores_comidas.copy()
 valores_ordenadoss = valores_ordenados.sort(reverse=True)
+
+# checando se valores se repetem
+# FAZER ESSA PARTE
+# se os valores se repetem, é considerada p mais liso/mais rico a primeira pessoa em ordem alfabetica
+# na hora do print da lista de convidados, pessoas com valores repetidos sao ordenadas em ordem alfabetica
 
 # convidado com comida mais barata e mais cara
 if len(lista_convidados) > 1:
@@ -37,21 +42,18 @@ if len(lista_convidados) > 1:
     convidado_mais_liso = lista_convidados[index_menor_valor]
     pior_comida = lista_comidas[index_menor_valor]
 
-maior_valor = max(valores_ordenados)
-index_maior_valor = valores_comidas.index(maior_valor)
-convidado_mais_rico = lista_convidados[index_maior_valor]
-melhor_comida = lista_comidas[index_maior_valor]
+if len(lista_convidados) >= 1:
+    maior_valor = max(valores_ordenados)
+    index_maior_valor = valores_comidas.index(maior_valor)
+    convidado_mais_rico = lista_convidados[index_maior_valor]
+    melhor_comida = lista_comidas[index_maior_valor]
 
 # ordenando lista de convidados de acordo com a ordem de preço
 convidados_ordenada = []
 contagem= 0
 for valor in valores_ordenados:
-    if valor == valores_comidas[contagem]:
-        convidados_ordenada.append(lista_convidados[contagem])
-        contagem += 1
-    else:
-        convidados_ordenada.insert(contagem+1, lista_convidados[contagem])
-        contagem += 1
+    convidados_ordenada.insert(contagem+1, lista_convidados[contagem])
+    contagem += 1
 
 # relatorio final
 if len(lista_convidados) == 0:
