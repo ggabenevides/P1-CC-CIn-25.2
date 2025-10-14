@@ -30,9 +30,37 @@ for i in range(num_convidados):
 valores_ordenados = valores_comidas.copy()
 valores_ordenadoss = valores_ordenados.sort(reverse=True)
 
-# checando se valores se repetem
-# FAZER ESSA PARTE
+# depois, a lista de convidados
+convidados_ordenada = []
+contagem= 0
+for valor in valores_ordenados:
+    convidados_ordenada.insert(contagem+1, lista_convidados[contagem])
+    contagem += 1
+
+# checando se valores se repetem e criando uma lista p eles
+valores_repetidos = [] 
+num_valores_repetidos = 0
+ja_contou = []
+for valor in valores_ordenados:
+    if valores_ordenados.count(valor) > 1:
+        if not(valor in ja_contou):
+            valores_repetidos.append(valor)
+            ja_contou.append(valor)
+            num_valores_repetidos += 1
+    
+valores_repetidoss = valores_repetidos.sort(reverse=True)
+
 # se os valores se repetem, é considerada p mais liso/mais rico a primeira pessoa em ordem alfabetica
+lista_
+if num_valores_repetidos > 0:
+    for valor in valores_ordenados:
+        if valor in valores_repetidos:
+            idx = 
+
+
+
+
+
 # na hora do print da lista de convidados, pessoas com valores repetidos sao ordenadas em ordem alfabetica
 
 # convidado com comida mais barata e mais cara
@@ -49,11 +77,7 @@ if len(lista_convidados) >= 1:
     melhor_comida = lista_comidas[index_maior_valor]
 
 # ordenando lista de convidados de acordo com a ordem de preço
-convidados_ordenada = []
-contagem= 0
-for valor in valores_ordenados:
-    convidados_ordenada.insert(contagem+1, lista_convidados[contagem])
-    contagem += 1
+
 
 # relatorio final
 if len(lista_convidados) == 0:
