@@ -25,6 +25,7 @@ for i in range(num_convidados):
     if not (nome_convidado in lista_convidados):
         lista_comidas.remove(comida_convidado)
         valores_comidas.remove(valor_comida)
+
 # ordenando listas de acordo com os criterios do calabreso
 # primeiro, a lista de preços 
 valores_ordenados = valores_comidas.copy()
@@ -47,21 +48,23 @@ for valor in valores_ordenados:
             valores_repetidos.append(valor)
             ja_contou.append(valor)
             num_valores_repetidos += 1
-    
+
+#organizando a lista dos valores repetidos na mesma ordem que as outras listas
 valores_repetidoss = valores_repetidos.sort(reverse=True)
 
 # se os valores se repetem, é considerada p mais liso/mais rico a primeira pessoa em ordem alfabetica
-lista_
+lista_temp = []
 if num_valores_repetidos > 0:
     for valor in valores_ordenados:
         if valor in valores_repetidos:
-            idx = 
+            for i in range (valores_ordenados.count(valor)):
+                idx = valores_ordenados.index(valor)
+                lista_temp.append(lista_convidados[idx])
+            lista_temp.sort()
+        while len(lista_convidados)>1:
+            lista_temp.pop(-1)
 
-
-
-
-
-# na hora do print da lista de convidados, pessoas com valores repetidos sao ordenadas em ordem alfabetica
+# o resultado final dessa lista será o candidato mais rico no índice 0, o mais liso no índice 1
 
 # convidado com comida mais barata e mais cara
 if len(lista_convidados) > 1:
@@ -77,7 +80,7 @@ if len(lista_convidados) >= 1:
     melhor_comida = lista_comidas[index_maior_valor]
 
 # ordenando lista de convidados de acordo com a ordem de preço
-
+# na hora do print da lista de convidados, pessoas com valores repetidos sao ordenadas em ordem alfabetica
 
 # relatorio final
 if len(lista_convidados) == 0:
