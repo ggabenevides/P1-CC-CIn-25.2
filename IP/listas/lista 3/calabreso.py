@@ -4,7 +4,7 @@ num_convidados = int(input())
 # criando listas
 lista_convidados = []
 lista_comidas = []
-valores_comidas = []
+lista_valores = []
 
 # recebendo inputs sobre os convidados e atualizando listas
 for i in range(num_convidados):
@@ -21,74 +21,71 @@ for i in range(num_convidados):
         print(f"Na Festa do Calabreso não pode comida Repetida SAI FORA {nome_convidado}")
         lista_convidados.remove(nome_convidado)
     lista_comidas.append(comida_convidado)
-    valores_comidas.append(valor_comida)
+    lista_valores.append(valor_comida)
     if not (nome_convidado in lista_convidados):
-        lista_comidas.remove(comida_convidado)
-        valores_comidas.remove(valor_comida)
+        lista_comidas.pop(-1)
+        lista_valores.pop(-1)
 
 # ordenando listas de acordo com os criterios do calabreso
-# primeiro, a lista de preços 
-valores_ordenados = valores_comidas.copy()
-valores_ordenadoss = valores_ordenados.sort(reverse=True)
 
-# depois, a lista de convidados
-convidados_ordenada = []
-contagem= 0
-for valor in valores_ordenados:
-    convidados_ordenada.insert(contagem+1, lista_convidados[contagem])
-    contagem += 1
+# bubble sort - organizando as listas de valores, comidas e convidados a partir da lista de valores
+n = len(lista_comidas)
+for i in range(n):
+    for j in range(0, n-i-1):
+        if lista_valores[j] > lista_valores[j+1]:
+            lista_valores[j], lista_valores[j+1] = lista_valores[j+1], lista_valores[j]
+            lista_comidas[j], lista_comidas[j+1] = lista_comidas[j+1], lista_comidas[j]
+            lista_convidados[j], lista_convidados[j+1] = lista_convidados[j+1], lista_convidados[j]
 
-# checando se valores se repetem e criando uma lista p eles
-valores_repetidos = [] 
-num_valores_repetidos = 0
+# avaliando repeticoes de valores
+num_repeticoes = 0
+idx_valor_repetido = []
 ja_contou = []
-for valor in valores_ordenados:
-    if valores_ordenados.count(valor) > 1:
-        if not(valor in ja_contou):
-            valores_repetidos.append(valor)
-            ja_contou.append(valor)
-            num_valores_repetidos += 1
+for valor in lista_valores:
+    if lista_valores.count(valor) > 1 and not(valor in ja_contou):
+        num_repeticoes += 1
+        idx_valor_repetido.append(lista_valores.index(valor))
+        ja_contou.append(valor)
 
-#organizando a lista dos valores repetidos na mesma ordem que as outras listas
-valores_repetidoss = valores_repetidos.sort(reverse=True)
+# bubble sort alfabetico p repeticoes de valor
+if num_repeticoes > 0:    
+    lista_idx = []
+    for nome in lista_convidados:
+        lista_idx.append(lista_convidados.index(nome))
+    idx = 0
+    for indice in idx_valor_repetido:
+            a = lista_idx[indice]
+            b = lista_idx[indice+1]
+            p1 = lista_convidados[a]
+            p2 = lista_convidados[b]
+            x = min(p1,p2)
+            if p2 == x:
+                lista_convidados.pop(b)
+                lista_convidados.insert(a, p2)
 
-# se os valores se repetem, é considerada p mais liso/mais rico a primeira pessoa em ordem alfabetica
-lista_temp = []
-if num_valores_repetidos > 0:
-    for valor in valores_ordenados:
-        if valor in valores_repetidos:
-            for i in range (valores_ordenados.count(valor)):
-                idx = valores_ordenados.index(valor)
-                lista_temp.append(lista_convidados[idx])
-            lista_temp.sort()
-        while len(lista_convidados)>1:
-            lista_temp.pop(-1)
-
-# o resultado final dessa lista será o candidato mais rico no índice 0, o mais liso no índice 1
-
-# convidado com comida mais barata e mais cara
+# o resultado final dessa lista será o candidato mais rico no índice 0, o mais liso no índice -1
+# so vai ter convidado mais liso se tiver mais de um convidado
 if len(lista_convidados) > 1:
-    menor_valor = min(valores_ordenados)
-    index_menor_valor = valores_comidas.index(menor_valor)
-    convidado_mais_liso = lista_convidados[index_menor_valor]
-    pior_comida = lista_comidas[index_menor_valor]
-
+    pessoa_mais_lisa = lista_convidados[0]
+    pior_comida = lista_comidas[0]
 if len(lista_convidados) >= 1:
-    maior_valor = max(valores_ordenados)
-    index_maior_valor = valores_comidas.index(maior_valor)
-    convidado_mais_rico = lista_convidados[index_maior_valor]
-    melhor_comida = lista_comidas[index_maior_valor]
-
-# ordenando lista de convidados de acordo com a ordem de preço
-# na hora do print da lista de convidados, pessoas com valores repetidos sao ordenadas em ordem alfabetica
-
+    if len(lista_convidados)>1:
+        if lista_convidados[-1] == lista_convidados[-2]:
+            pessoa_mais_rica = lista_convidados[-2]
+            melhor_comida = lista_convidados[-2]
+        else:
+            pessoa_mais_rica = lista_convidados[-1]
+            melhor_comida = lista_comidas[-1]
+    else:
+        pessoa_mais_rica = lista_convidados[-1]
+        melhor_comida = lista_comidas[-1]
 # relatorio final
 if len(lista_convidados) == 0:
     print("Nenhum convidado marcou presença na festa do calabreso!")
 else:
-    print(f"Obrigado para o(a) {convidado_mais_rico} pelo(a) excelente {melhor_comida}")
+    print(f"Obrigado para o(a) {pessoa_mais_rica} pelo(a) excelente {melhor_comida}")
     if len(lista_convidados) > 1:
-        print(f"Rapaz, {convidado_mais_liso} trouxe o(a) {pior_comida} que estava altamente mais ou menos!!!")
+        print(f"Rapaz, {pessoa_mais_lisa} trouxe o(a) {pior_comida} que estava altamente mais ou menos!!!")
     print("Lista de convidados do Calabreso")
-    for nome in convidados_ordenada:
-        print(f"{convidados_ordenada.index(nome)+1}- {nome}")   
+    for nome in lista_convidados:
+        print(f"{lista_convidados.index(nome)+1}- {nome}") 
