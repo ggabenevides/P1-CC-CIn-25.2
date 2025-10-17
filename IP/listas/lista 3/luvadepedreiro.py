@@ -1,39 +1,119 @@
 print("RECEBA! É hoje que eu me torno o melhor dos melhores.")
 num_treinos = int(input())
-habilidade_luva = int(input())
-sequencia_treinos = str(input())
+habilidade_luva_inicial = int(input())
+sequencia_treinos_raw = str(input())
+elementos_treino = sequencia_treinos_raw.split('-')
 
-# iterando sobre a string
+habilidade_luva = habilidade_luva_inicial
+partida_atual = 1
+pontos = 0  
 
-i = 0
-while habilidade_luva < 100 and i < num_treinos:
+# prints iniciais 
+if 0 <= habilidade_luva <= 5:
+    print("A gente tem que começar de algum lugar, né? RECEBA!")
+elif 6 <= habilidade_luva <= 16:
+    print("Não tem jeito, vou ser o melhor do mundo!")
+elif habilidade_luva > 16: 
+    print("O Pai tá estourado! RECEBA!")
 
-    #determinando qual é o tipo de partida, depois removendo ela da string para que a proxima informação a ser interpretada seja sempre a primeira
-    if "Batida de Pênalti" in sequencia_treinos[0:16] and not "Batida de Pênalti" in sequencia_treinos[16:]:
-        tipo_partida = "Batida de Pênalti"
-        sequencia_treinos.remove("Batida de Pênalti-")
-    elif "Batida de Falta" in sequencia_treinos[0:14] and not "Batida de Falta" in sequencia_treinos[14:]:
-        tipo_partida = "Batida de Falta"
-        sequencia_treinos.remove("Batida de Falta-")
-    elif "Batida de Ataque" in sequencia_treinos[0:15] and not "Batida de Ataque" in sequencia_treinos[15:]:
-        tipo_partida = "Batida de Ataque"
-        sequencia_treinos.remove("Batida de Ataque-")
+#calculando meta de habilidade 
+meta = (100 - habilidade_luva) / num_treinos 
+print(f"Meta por Partida: {meta}")
 
-    #determinando quem é o goleiro
-    if "Gabriel Vasconcelos" in sequencia_treinos[0:17] and not "Gabriel Vasconcelos" in sequencia_treinos[17:]:
-        goleiro = "Gabriel Vasconcelos"
-        sequencia_treinos.remove("Gabriel Vasconcelos-")
-    elif "Neymar Jr" in sequencia_treinos[0:8] and not "Neymar Jr" in sequencia_treinos[8:]:
-        goleiro = "Neymar Jr"
-        sequencia_treinos.remove("Neymar Jr-")
-    elif "Sérgio Soares" in sequencia_treinos[0:13] and not "Sérgio Soares" in sequencia_treinos[13:]:
-        goleiro = "Sérgio Soares" 
-        sequencia_treinos.remove("Sérgio Soares-")
-    elif "IShowSpeed" in sequencia_treinos[0:9] and not "IShowSpeed" in sequencia_treinos[9:]:
-        goleiro = "IShowSpeed"
-        sequencia_treinos.remove("IShowSpeed-")
-    elif "Rokenedy" in sequencia_treinos[0:7]  and not "Rokenedy" in sequencia_treinos[7:]:
-        goleiro = "Rokenedy"
-        sequencia_treinos.remove("Rokenedy-")
+while habilidade_luva < 100 and partida_atual <= num_treinos:
+
+    # indices para buscar o tipo e o goleiro na lista de elementos_treino
+    if partida_atual == 1:
+        idx_tipo = partida_atual - 1
+        idx_goleiro = partida_atual
     else:
+        idx_tipo = partida_atual 
+        idx_goleiro = (partida_atual*2)-1
+    
+    tipo_partida = ""
+    goleiro = ""
+    habilidade_goleiro = 0
+    
+    # determinando treino
+    if idx_tipo < len(elementos_treino):
+        tipo_partida = elementos_treino[idx_tipo]
+    if idx_goleiro < len(elementos_treino):
+        goleiro = elementos_treino[idx_goleiro]
+
+    if goleiro not in ["Gabriel Vasconcelos", "Neymar Jr", "Sérgio Soares", "IShowSpeed", "Rokenedy"]:
         habilidade_goleiro = int(input())
+
+    # inputs da partida        
+    matriz_input = input()
+    matriz = eval(matriz_input)
+    x = int(input())
+    y = int(input())
+
+    # relatorio da partida
+
+    print(f"TIPO DE PARTIDA: {tipo_partida}")
+    print(f"Nome do Goleiro: {goleiro}")
+
+    # resultados de acordo com o goleiro
+    if goleiro == "Rokenedy": # nunca vai ser gol 
+        print("Aí não dá, impossível de fazer gol no maior do mundo.")
+        print("A jornada ainda não acabou!")
+    if goleiro == "IShowSpeed": # n tem nenhuma condicao especial
+        print("REBECA? Is that you?")
+        print("Ispidi mai friand, recieve!")
+        if matriz[x][y] == 1:
+            print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
+            pontos += meta*1.5
+        else:
+            print("A jornada ainda não acabou!")
+    elif goleiro == "Gabriel Vasconcelos": # n tem nenhuma condicao especial
+        print("HAHAHA! Eu pedi um desafio, não uma barra sem goleiro…")
+        if matriz[x][y] == 1:
+            print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
+            pontos += meta*2
+        else:
+            print("A jornada ainda não acabou!")
+    elif goleiro == "Sérgio Soares": # so nao defende se for penalti
+        print("DALE DALE, PROFESSOR! Quero ver se esse tal de Python é bom mesmo…")
+        if tipo_partida == "Batida de Pênalti":
+            if matriz[x][y] == 1:
+                print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
+                pontos += meta  
+            else:
+                print("A jornada ainda não acabou!")
+        else :  
+            print("A jornada ainda não acabou!")
+    elif goleiro == "Neymar Jr":
+        print("Ele nem sabe agarrar! A arma dele é a sua fragilidade…")
+        if matriz[x][y] == 1:
+            print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
+            pontos += meta*0.5   
+        else:
+            print("A jornada ainda não acabou!")
+    elif goleiro not in ["Gabriel Vasconcelos", "Neymar Jr", "Sérgio Soares", "IShowSpeed", "Rokenedy"]: # goleiro n/ especial, so pontua se a habilidade do luva for maior que a do goleiro
+        if matriz[x][y] == 1:
+            print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
+            if habilidade_luva > habilidade_goleiro:
+                pontos += habilidade_luva - habilidade_goleiro  
+        else:
+            print("A jornada ainda não acabou!")
+
+    # atualizacao de habilidade
+    if pontos > meta: 
+        habilidade_luva += pontos
+        if habilidade_luva<=100: 
+            print(f"VAMO! PARTIDA {partida_atual} DE {num_treinos}!")
+    else:
+        if pontos<=100: 
+            print("Dá pra recuperar depois! Vamo seguindo!")
+
+    # atualizando num do treino
+    partida_atual += 1
+
+# relatorio final
+if habilidade_luva > 100: 
+    print("NÃO TEM JEITO! EU SEMPRE SOUBE QUE IA SER O MELHOR DO MUNDO! RECEBA!")
+elif habilidade_luva == 100: 
+    print("O trono do futebol hoje tem dois reis. Eu e Pelé! Não podia estar com alguém melhor!")
+else:
+    print("Ano que vem tem InterCIn de novo! É só eu treinar mais…")
