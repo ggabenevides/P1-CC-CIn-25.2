@@ -20,19 +20,24 @@ elif habilidade_luva > 16:
 meta = (100 - habilidade_luva) / num_treinos 
 print(f"Meta por Partida: {meta}")
 
-while habilidade_luva < 100 and partida_atual <= num_treinos:
+idx_tipo_lista = []
+
+while habilidade_luva <= 100 and partida_atual <= num_treinos:
 
     # indices para buscar o tipo e o goleiro na lista de elementos_treino
     if partida_atual == 1:
-        idx_tipo = partida_atual - 1
-        idx_goleiro = partida_atual
-    else:
-        idx_tipo = partida_atual 
-        idx_goleiro = (partida_atual*2)-1
+        idx_tipo = 0
+        idx_tipo_lista.append(idx_tipo)
+    else: 
+        idx_tipo = idx_tipo_lista[partida_atual-2] + 2
+        idx_tipo_lista.append(idx_tipo)
+
+    idx_goleiro = (partida_atual*2)-1
     
     tipo_partida = ""
     goleiro = ""
     habilidade_goleiro = 0
+    pontos = 0
     
     # determinando treino
     if idx_tipo < len(elementos_treino):
@@ -46,11 +51,11 @@ while habilidade_luva < 100 and partida_atual <= num_treinos:
     # inputs da partida        
     matriz_input = input()
     matriz = eval(matriz_input)
+
     x = int(input())
     y = int(input())
 
     # relatorio da partida
-
     print(f"TIPO DE PARTIDA: {tipo_partida}")
     print(f"Nome do Goleiro: {goleiro}")
 
@@ -99,7 +104,7 @@ while habilidade_luva < 100 and partida_atual <= num_treinos:
             print("A jornada ainda não acabou!")
 
     # atualizacao de habilidade
-    if pontos > meta: 
+    if pontos >= meta: 
         habilidade_luva += pontos
         if habilidade_luva<=100: 
             print(f"VAMO! PARTIDA {partida_atual} DE {num_treinos}!")

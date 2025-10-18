@@ -26,8 +26,7 @@ for i in range(num_convidados):
         lista_comidas.pop(-1)
         lista_valores.pop(-1)
 
-# ordenando listas de acordo com os criterios do calabreso
-
+# ordenando listas de acordo com os criterios do calabreso  
 # bubble sort - organizando as listas de valores, comidas e convidados a partir da lista de valores
 n = len(lista_comidas)
 for i in range(n):
@@ -42,26 +41,32 @@ num_repeticoes = 0
 idx_valor_repetido = []
 ja_contou = []
 for valor in lista_valores:
-    if lista_valores.count(valor) > 1 and not(valor in ja_contou):
+    if lista_valores.count(valor) > 1:
         num_repeticoes += 1
-        idx_valor_repetido.append(lista_valores.index(valor))
-        ja_contou.append(valor)
+        if not lista_valores.index(valor) in ja_contou:
+            idx_valor_repetido.append(lista_valores.index(valor))
+            ja_contou.append(lista_valores.index(valor))
+for i in range(1, num_repeticoes-1):
+    idx_valor_repetido.append(i)
 
 # bubble sort alfabetico p repeticoes de valor
 if num_repeticoes > 0:    
     lista_idx = []
     for nome in lista_convidados:
         lista_idx.append(lista_convidados.index(nome))
-    idx = 0
     for indice in idx_valor_repetido:
             a = lista_idx[indice]
             b = lista_idx[indice+1]
             p1 = lista_convidados[a]
             p2 = lista_convidados[b]
+            c1 = lista_comidas [a]
+            c2 = lista_comidas [b]
             x = min(p1,p2)
             if p2 == x:
                 lista_convidados.pop(b)
                 lista_convidados.insert(a, p2)
+                lista_comidas.pop(b)
+                lista_comidas.insert(a, c2)
 
 # o resultado final dessa lista será o candidato mais rico no índice 0, o mais liso no índice -1
 # so vai ter convidado mais liso se tiver mais de um convidado
@@ -69,16 +74,8 @@ if len(lista_convidados) > 1:
     pessoa_mais_lisa = lista_convidados[0]
     pior_comida = lista_comidas[0]
 if len(lista_convidados) >= 1:
-    if len(lista_convidados)>1:
-        if lista_convidados[-1] == lista_convidados[-2]:
-            pessoa_mais_rica = lista_convidados[-2]
-            melhor_comida = lista_convidados[-2]
-        else:
-            pessoa_mais_rica = lista_convidados[-1]
-            melhor_comida = lista_comidas[-1]
-    else:
-        pessoa_mais_rica = lista_convidados[-1]
-        melhor_comida = lista_comidas[-1]
+    pessoa_mais_rica = lista_convidados[lista_valores.index(max(lista_valores))]
+    melhor_comida = lista_comidas[lista_valores.index(max(lista_valores))]
 # relatorio final
 if len(lista_convidados) == 0:
     print("Nenhum convidado marcou presença na festa do calabreso!")
