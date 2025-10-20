@@ -1,3 +1,0 @@
-x = int(input()); operador = str(input()); y = int(input())
-z = x+y if operador == "+" else x-y if operador == "-" else x*y if operador == "*" else x//y if (operador == "/" and y != 0) else "Alerta! Alguém tentou usar um operador que não existe. Só um idiota faria isso. Provavelmente o Jim. Isso é claramente uma tentativa de sabotagem corporativa." if (operador == "/" and y == 0) or operador != "/" or operador != "+" or operador != "-" or operador != "*"  else ""
-print(f"{z}") 
