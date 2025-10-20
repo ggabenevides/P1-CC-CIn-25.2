@@ -17,12 +17,17 @@ lista_quantidades = [[256, 64, 128],
                      [2048, 512, 256, 128],
                      [8192, 2048, 1024, 1024]]
 
-lista_componentes_uteis = []
-lista_quantidades_uteis = []
-lista_componentes_inuteis = []
-lista_quantidades_inuteis = []
+lista_componentes_uteis = [0, 0, 0, 0]
+lista_quantidades_uteis = [0, 0, 0, 0]
+lista_componentes_inuteis = [0, 0, 0, 0]
+lista_quantidades_inuteis = [0, 0, 0, 0]
 
 projeto_in = str(input())
+if projeto_in == "Memória ROM Simples":
+    lista_componentes_uteis = [0, 0, 0]
+    lista_quantidades_uteis = [0, 0, 0]
+    lista_componentes_inuteis = [0, 0, 0]
+    lista_quantidades_inuteis = [0, 0, 0]
 dados = ""
 
 while dados != "Construir!":
@@ -37,11 +42,17 @@ while dados != "Construir!":
             if projeto == projeto_in:
                 if not elementos[0] in lista_componentes[idx]:
                     print(f"Hmm, {elementos[0]} não parece ser útil para este projeto.")
+                    # os componentes e quantidades ja entram na posição correta
                     lista_componentes_inuteis.append(elementos[0])
+                    lista_componentes_inuteis.pop(0)
                     lista_quantidades_inuteis.append(int(elementos[1]))
+                    lista_quantidades_inuteis.pop(0)
                 else:
-                    lista_componentes_uteis.append(elementos[0])
-                    lista_quantidades_uteis.append(int(elementos[1]))
+                    idx_comp = lista_componentes[idx].index(elementos[0])
+                    lista_componentes_uteis.insert(idx_comp, elementos[0])
+                    lista_componentes_uteis.pop(idx_comp+1)
+                    lista_quantidades_uteis.insert(idx_comp, int(elementos[1]))
+                    lista_quantidades_uteis.pop(idx_comp+1)
         if elementos[0] in lista_componentes_uteis:
             if elementos[0] == "Redstone":
                 print(f"Mais redstone! A energia que move o progresso! (+{elementos[1]} Redstone)")
@@ -64,51 +75,6 @@ while dados != "Construir!":
 
 print()
 
-# ordenando as listas de acordo com as listas fonte
-for projeto in lista_projetos:
-    if projeto == projeto_in:
-        idx = lista_projetos.index(projeto)
-        for componente in  lista_componentes[idx]:
-            if componente in lista_componentes_uteis:
-                idx_certo = lista_componentes[idx].index(componente)
-                idx_errado = lista_componentes_uteis.index(componente)
-                if idx_certo != idx_errado:
-                    lista_componentes_uteis.insert(idx_certo, componente)
-                    lista_componentes_uteis.pop(idx_errado+1)
-
-for projeto in lista_projetos:
-    if projeto == projeto_in:
-        idx = lista_projetos.index(projeto)
-        for quantidade in  lista_quantidades[idx]:
-            if quantidade in lista_quantidades_uteis:
-                idx_certo = lista_quantidades[idx].index(quantidade)
-                idx_errado = lista_quantidades_uteis.index(quantidade)
-                if idx_certo != idx_errado:
-                    lista_quantidades_uteis.insert(idx_certo, quantidade)
-                    lista_quantidades_uteis.pop(idx_errado+1)
-
-for projeto in lista_projetos:
-    if projeto == projeto_in:
-        idx = lista_projetos.index(projeto)
-        for componente in  lista_componentes[idx]:
-            if componente in lista_componentes_inuteis:
-                idx_certo = lista_componentes[idx].index(componente)
-                idx_errado = lista_componentes_inuteis.index(componente)
-                if idx_certo != idx_errado:
-                    lista_componentes_inuteis.insert(idx_certo, componente)
-                    lista_componentes_inuteis.pop(idx_errado)
-
-for projeto in lista_projetos:
-    if projeto == projeto_in:
-        idx = lista_projetos.index(projeto)
-        for quantidade in  lista_quantidades[idx]:
-            if quantidade in lista_quantidades_inuteis:
-                idx_certo = lista_quantidades[idx].index(quantidade)
-                idx_errado = lista_quantidades_inuteis.index(quantidade)
-                if idx_certo != idx_errado:
-                    lista_quantidades_inuteis.insert(idx_certo, quantidade)
-                    lista_quantidades_inuteis.pop(idx_errado)
-
 # verificando se a lista de componentes fornecidos contem todos os componentes necessários
 todos_os_componentes = False
 contagem = 0
@@ -127,7 +93,7 @@ for projeto in lista_projetos:
     idx = lista_projetos.index(projeto)
     if projeto == projeto_in:
         for quantidade in lista_quantidades_uteis:
-            if quantidade ==  lista_quantidades[idx][lista_quantidades_uteis.index(quantidade)]:
+            if quantidade >= lista_quantidades[idx][lista_quantidades_uteis.index(quantidade)]:
                 contagem += 1
         if len(lista_quantidades[idx]) == contagem:
             quantidades_suficientes = True
@@ -139,16 +105,24 @@ if quantidades_suficientes and todos_os_componentes:
     print()
     for componente in lista_componentes_uteis:
         print(f"{componente} : {lista_quantidades_uteis[lista_componentes_uteis.index(componente)]}")
-    if lista_componentes_inuteis != []:
+    if projeto_in == 'Memória Rom Simples' and lista_componentes_inuteis != [0, 0, 0]:
         print(f"Mas, em nossa jornada, também coletamos:")
         print()
         for componente in lista_componentes_inuteis:
-            print(f"{componente} : {lista_quantidades_inuteis[lista_quantidades_inuteis.index(componente)]}")
+            if componente != 0:
+                print(f"{componente} : {lista_quantidades_inuteis[lista_quantidades_inuteis.index(componente)]}")
+    elif projeto_in != 'Memória Rom Simples' and (lista_componentes_inuteis != [0, 0, 0, 0] and lista_componentes_inuteis != [0, 0, 0]):
+        print()
+        print(f"Mas, em nossa jornada, também coletamos:")
+        print()
+        for componente in lista_componentes_inuteis:
+            if componente != 0:
+                print(f"{componente} : {lista_quantidades_inuteis[lista_componentes_inuteis.index(componente)]}")
 else:
-    print(f"Ainda não é possível construir o {projeto}! Faltam:")
+    print(f"Ainda não é possível construir o {projeto_in}! Faltam:")
     for projeto in lista_projetos:
         if projeto == projeto_in:
-            idx = lista_projetos.index(projeto)
+            idx = lista_projetos.index(projeto_in)
             for componente in lista_componentes[idx]:
                 if not componente in lista_componentes_uteis:
                     packs_faltantes = lista_quantidades[idx][lista_componentes[idx].index(componente)] // 64

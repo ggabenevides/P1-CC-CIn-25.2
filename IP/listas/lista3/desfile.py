@@ -31,7 +31,9 @@ for i in range(num_desfilantes):
 
 num_invasoes = 0
 ja_printou_core = False
-for i in range(num_desfilantes):
+ja_chegou = False
+i = 0
+while not ja_chegou:
     if num_invasoes == 3 and not ja_printou_core:
         lista_desfilantes.insert(i, "Core")
         num_desfilantes += 1
@@ -55,6 +57,10 @@ for i in range(num_desfilantes):
         else: 
             print(f"Desfilante de n° {i+1}: {desfilante_atual}?! Pelo visto não havia como substituir...")
         num_invasoes += 1
+    i += 1
+    if i == num_desfilantes:
+        ja_chegou = True
+
 
 # relatorio final
 if "Tulla Luana" in intrusos or "Inês Brasil" in intrusos or "Gretchen" in intrusos:
