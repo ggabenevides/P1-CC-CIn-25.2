@@ -25,10 +25,9 @@ while not cabosse: # loop das entradas
 
     if entrada == "WhatsApp: 0 mensagens.":
         #ninguem confirmou ainda - tutorial
-        print(tutorial[idx_tutorial])
-        idx_tutorial += 1
-        if idx_tutorial == len(tutorial):
-            cabosse = True
+        for i in range(len(tutorial)):
+            print(tutorial[i])
+        cabosse = True
 
     else: # alguem confirmou 
         if entrada == "CABOSSE! Bora simbora organizar essa festa.":

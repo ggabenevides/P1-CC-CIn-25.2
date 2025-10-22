@@ -76,9 +76,12 @@ else: #regra definitiva nao foi acionada, analise normal
                         num_encontros_suspeitos += 1
 
     # relatorio final 
-    num_alibis = num_alibis // 2  # cada alibi contado duas vezes
-    num_encontros_suspeitos = num_encontros_suspeitos // 2  # cada encontro contado duas vezes
-    nivel_suspeita = (num_encontros_suspeitos * 35) - (num_alibis * 20)
+    num_encontros_suspeitos = int(num_encontros_suspeitos / 2 ) # cada encontro contado duas vezes
+    if num_alibis == 0:
+        nivel_suspeita = num_encontros_suspeitos * 35
+    else:
+        num_alibis = int(num_alibis / 2)  # cada alibi contado duas vezes
+        nivel_suspeita = (num_encontros_suspeitos * 35) - (num_alibis * 20)
     print()
     print("--- Resumo da Análise ---")
     print(f"Encontros Suspeitos: {num_encontros_suspeitos}")
