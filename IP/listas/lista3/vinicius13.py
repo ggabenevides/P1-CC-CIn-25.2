@@ -26,7 +26,10 @@ projeto_in = str(input())
 idx = lista_projetos.index(projeto_in)
 dados = ""
 
-while dados != "Construir!":
+quantidades_suficientes = False
+todos_os_componentes = False
+
+while not todos_os_componentes:
     elementos = []
     dados = str(input())
 
@@ -62,45 +65,43 @@ while dados != "Construir!":
             elif elementos[0] == "Pistões Aderentes":
                 print(f"Pistões Aderentes! Perfeitos para criar mecanismos retráteis. (+{elementos[1]} Pistões Aderentes)")
 
-print()
 
-# copiando lista na ordem da entrada pra o print final
-lista_componentes_uteis_entrada = lista_componentes_uteis.copy()
-lista_quantidades_uteis_entrada = lista_quantidades_uteis.copy()
 
-# ordenando componentes p comparar com lista fornecida 
-for componente in  lista_componentes[idx]:
-    if componente in lista_componentes_uteis:
-        quantidade = lista_quantidades_uteis[lista_componentes_uteis.index(componente)]
-        idx_certo = lista_componentes[idx].index(componente)
-        idx_errado = lista_componentes_uteis.index(componente)
-        if idx_certo != idx_errado:
-            lista_componentes_uteis.insert(idx_certo, componente)
-            lista_componentes_uteis.pop(idx_errado+1)
-            lista_quantidades_uteis.insert(idx_certo, quantidade)
-            lista_quantidades_uteis.pop(idx_errado+1)
+    # copiando lista na ordem da entrada pra o print final
+    lista_componentes_uteis_entrada = lista_componentes_uteis.copy()
+    lista_quantidades_uteis_entrada = lista_quantidades_uteis.copy()
 
-for componente in  lista_componentes[idx]:
-    if componente in lista_componentes_inuteis:
-        quantidade = lista_quantidades_inuteis[lista_componentes_inuteis.index(componente)]
-        idx_certo = lista_componentes[idx].index(componente)
-        idx_errado = lista_componentes_inuteis.index(componente)
-        if idx_certo != idx_errado:
-            lista_componentes_inuteis.insert(idx_certo, componente)
-            lista_componentes_inuteis.pop(idx_errado)
-            lista_quantidades_inuteis.insert(idx_certo, quantidade)
-            lista_quantidades_inuteis.pop(idx_errado)
+    # ordenando componentes p comparar com lista fornecida 
+    for componente in  lista_componentes[idx]:
+        if componente in lista_componentes_uteis:
+            quantidade = lista_quantidades_uteis[lista_componentes_uteis.index(componente)]
+            idx_certo = lista_componentes[idx].index(componente)
+            idx_errado = lista_componentes_uteis.index(componente)
+            if idx_certo != idx_errado:
+                lista_componentes_uteis.insert(idx_certo, componente)
+                lista_componentes_uteis.pop(idx_errado+1)
+                lista_quantidades_uteis.insert(idx_certo, quantidade)
+                lista_quantidades_uteis.pop(idx_errado+1)
 
-# verificando se a lista de componentes fornecidos contem todos os componentes necessários
-todos_os_componentes = False
-contagem = 0
-for componente in lista_componentes_uteis:
-    if componente == lista_componentes[idx][lista_componentes_uteis.index(componente)]:
-        contagem += 1
-if len(lista_componentes[idx]) ==  contagem:
-    todos_os_componentes = True
+    for componente in  lista_componentes[idx]:
+        if componente in lista_componentes_inuteis:
+            quantidade = lista_quantidades_inuteis[lista_componentes_inuteis.index(componente)]
+            idx_certo = lista_componentes[idx].index(componente)
+            idx_errado = lista_componentes_inuteis.index(componente)
+            if idx_certo != idx_errado:
+                lista_componentes_inuteis.insert(idx_certo, componente)
+                lista_componentes_inuteis.pop(idx_errado)
+                lista_quantidades_inuteis.insert(idx_certo, quantidade)
+                lista_quantidades_inuteis.pop(idx_errado)
 
-quantidades_suficientes = False
+    # verificando se a lista de componentes fornecidos contem todos os componentes necessários
+    contagem = 0
+    for componente in lista_componentes_uteis:
+        if componente == lista_componentes[idx][lista_componentes_uteis.index(componente)]:
+            contagem += 1
+    if len(lista_componentes[idx]) ==  contagem:
+        todos_os_componentes = True
+
 contagem = 0
 for quantidade in lista_quantidades_uteis:
     if quantidade > lista_quantidades[idx][lista_quantidades_uteis.index(quantidade)] or quantidade == lista_quantidades[idx][lista_quantidades_uteis.index(quantidade)]:
@@ -108,7 +109,8 @@ for quantidade in lista_quantidades_uteis:
 if len(lista_quantidades[idx]) == contagem:
     quantidades_suficientes = True
 
-if quantidades_suficientes and todos_os_componentes:
+print()
+if todos_os_componentes:
     print(f"Viniccius13 conseguiu construir o {projeto_in}! Partiu programar!")
     print()
     print(f"Para construirmos a(o) {projeto_in}, utilizamos:")

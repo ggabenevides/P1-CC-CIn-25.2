@@ -24,9 +24,7 @@ while not cabosse: # loop das entradas
     entrada = input()
 
     if entrada == "WhatsApp: 0 mensagens.":
-        #ninguem confirmou ainda - tutorial
-        for i in range(len(tutorial)):
-            print(tutorial[i])
+        #ninguem confirmou
         cabosse = True
 
     else: # alguem confirmou 
@@ -47,7 +45,9 @@ while not cabosse: # loop das entradas
 if cabosse and len(convidados_confirmados) == 0:
      # ninguem confirmou mesmo 
      print("I hate to tell you this BUT")
-     print("Bia tava achando que ia fazer um mousse. O mousse virou uma piada, parceira")
+     print("Bia tava achando que ia fazer um mousse. O mousse virou uma piada, parceira\n")        
+     for i in range(len(tutorial)):
+            print(tutorial[i])
 else:
     # avaliando convidados confirmados 
     num_influencers = 0

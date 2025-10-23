@@ -62,26 +62,23 @@ else: #regra definitiva nao foi acionada, analise normal
     num_encontros_suspeitos = 0
     for i in range(n):
         evento_atual = eventos[i]
-        for j in range(n):
+        for j in range(i+1, n):
             evento_comparado = eventos[j]
             if i != j: # nao comparar a mesma pessoa
                 # checando interseccao de horarios
-                if  inicio[i] < fim[j] and inicio[i] < fim[j] and evento_atual == evento_comparado:
+                if  inicio[i] < fim[j] and inicio[j] < fim[i] and evento_atual == evento_comparado:
                     # eventos ocorreram ao mesmo tempo
                     if pessoas[i] == "Zé Felipe" and pessoas[j] == "Virgínia" or pessoas[i] == "Virgínia" and pessoas[j] == "Zé Felipe":
                         # alibi
                         num_alibis += 1
+                        if nivel_suspeita>0:
+                            nivel_suspeita -= 20
                     elif pessoas[i] == "Jogador Misterioso" and pessoas[j] == "Virgínia" or pessoas[i] == "Virgínia" and pessoas[j] == "Jogador Misterioso":
                         # encontro suspeito
                         num_encontros_suspeitos += 1
+                        nivel_suspeita += 35
 
     # relatorio final 
-    num_encontros_suspeitos = int(num_encontros_suspeitos / 2 ) # cada encontro contado duas vezes
-    if num_alibis == 0:
-        nivel_suspeita = num_encontros_suspeitos * 35
-    else:
-        num_alibis = int(num_alibis / 2)  # cada alibi contado duas vezes
-        nivel_suspeita = (num_encontros_suspeitos * 35) - (num_alibis * 20)
     print()
     print("--- Resumo da Análise ---")
     print(f"Encontros Suspeitos: {num_encontros_suspeitos}")
