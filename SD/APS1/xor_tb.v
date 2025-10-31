@@ -1,0 +1,28 @@
+module xor_tb();
+
+	reg fio1, fio2;
+	wire fio3;
+    
+  	xor xor1(.F(fio3), .A(fio1), .B(fio2));
+    
+  	initial begin
+      $dumpfile("XOR_tb.vcd");
+      $dumpvars(0, XOR_tb);
+
+      fio1 = 1'b0;
+      fio2 = 1'b0;
+      #5;
+
+      fio1 = 1'b1;
+      fio2 = 1'b0;
+      #5;
+
+      fio1 = 1'b0;
+      fio2 = 1'b1;
+      #5;
+
+      fio1 = 1'b1;
+      fio2 = 1'b1;
+      #5;  
+    end
+endmodule
