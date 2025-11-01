@@ -1,9 +1,9 @@
-module inv_tb();
+module not1b_tb();
 
 	reg fio1;
 	wire fio2;
     
-  	not inv1(.F(fio2), .A(fio1));
+  	not1b inv1(.F(fio2), .A(fio1));
     
   	initial begin
       $dumpfile("not1b_tb.vcd");

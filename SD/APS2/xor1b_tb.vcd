@@ -1,0 +1,51 @@
+$date
+	Sat Nov 01 13:49:58 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module xor1b_tb $end
+$var wire 1 ! fio3 $end
+$var reg 1 " fio1 $end
+$var reg 1 # fio2 $end
+$scope module xor1 $end
+$var wire 1 " A $end
+$var wire 1 # B $end
+$var wire 1 ! F $end
+$var wire 1 $ G $end
+$var wire 1 % H $end
+$var wire 1 & P $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1&
+1%
+1$
+0#
+0"
+0!
+$end
+#5
+1!
+0$
+1"
+#10
+0%
+1$
+1#
+0"
+#15
+0!
+1%
+0&
+1$
+1"
+#20

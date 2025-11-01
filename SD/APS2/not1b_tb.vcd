@@ -1,0 +1,30 @@
+$date
+	Sat Nov 01 13:51:45 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module not1b_tb $end
+$var wire 1 ! fio2 $end
+$var reg 1 " fio1 $end
+$scope module inv1 $end
+$var wire 1 " A $end
+$var wire 1 ! F $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0"
+1!
+$end
+#5
+0!
+1"
+#10

@@ -1,0 +1,3276 @@
+#! /mingw64/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_000001b13e385d70 .scope module, "adder8b" "adder8b" 2 164;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "Sum";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 8 "A";
+    .port_info 3 /INPUT 8 "B";
+    .port_info 4 /INPUT 1 "Cin";
+o000001b13e3a05c8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e3fab20_0 .net "A", 7 0, o000001b13e3a05c8;  0 drivers
+o000001b13e3a05f8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e3f9540_0 .net "B", 7 0, o000001b13e3a05f8;  0 drivers
+v000001b13e3f9220_0 .net "C", 7 0, L_000001b13e458d80;  1 drivers
+o000001b13e39c428 .functor BUFZ 1, C4<z>; HiZ drive
+v000001b13e3fabc0_0 .net "Cin", 0 0, o000001b13e39c428;  0 drivers
+v000001b13e3f9d60_0 .net "Cout", 0 0, L_000001b13e45e5b0;  1 drivers
+v000001b13e3fa4e0_0 .net "Sum", 7 0, L_000001b13e44eba0;  1 drivers
+o000001b13e3a0688 .functor BUFZ 1, C4<z>; HiZ drive
+; Elide local net with no drivers, v000001b13e3f92c0_0 name=_ivl_79
+L_000001b13e446e40 .part o000001b13e3a05c8, 0, 1;
+L_000001b13e446ee0 .part o000001b13e3a05f8, 0, 1;
+L_000001b13e44dde0 .part o000001b13e3a05c8, 1, 1;
+L_000001b13e44f8c0 .part o000001b13e3a05f8, 1, 1;
+L_000001b13e450220 .part L_000001b13e458d80, 0, 1;
+L_000001b13e44eec0 .part o000001b13e3a05c8, 2, 1;
+L_000001b13e44f320 .part o000001b13e3a05f8, 2, 1;
+L_000001b13e44fa00 .part L_000001b13e458d80, 1, 1;
+L_000001b13e450040 .part o000001b13e3a05c8, 3, 1;
+L_000001b13e44e740 .part o000001b13e3a05f8, 3, 1;
+L_000001b13e44dc00 .part L_000001b13e458d80, 2, 1;
+L_000001b13e44faa0 .part o000001b13e3a05c8, 4, 1;
+L_000001b13e44fd20 .part o000001b13e3a05f8, 4, 1;
+L_000001b13e44e920 .part L_000001b13e458d80, 3, 1;
+L_000001b13e44e7e0 .part o000001b13e3a05c8, 5, 1;
+L_000001b13e44e880 .part o000001b13e3a05f8, 5, 1;
+L_000001b13e450180 .part L_000001b13e458d80, 4, 1;
+L_000001b13e44ef60 .part o000001b13e3a05c8, 6, 1;
+L_000001b13e44f780 .part o000001b13e3a05f8, 6, 1;
+L_000001b13e44e2e0 .part L_000001b13e458d80, 5, 1;
+LS_000001b13e44eba0_0_0 .concat8 [ 1 1 1 1], L_000001b13e38a860, L_000001b13e38b200, L_000001b13e38a390, L_000001b13e38bf90;
+LS_000001b13e44eba0_0_4 .concat8 [ 1 1 1 1], L_000001b13e45e9a0, L_000001b13e45d820, L_000001b13e45ec40, L_000001b13e45e070;
+L_000001b13e44eba0 .concat8 [ 4 4 0 0], LS_000001b13e44eba0_0_0, LS_000001b13e44eba0_0_4;
+L_000001b13e44e600 .part o000001b13e3a05c8, 7, 1;
+L_000001b13e44fb40 .part o000001b13e3a05f8, 7, 1;
+L_000001b13e44dca0 .part L_000001b13e458d80, 6, 1;
+LS_000001b13e458d80_0_0 .concat [ 1 1 1 1], L_000001b13e38b660, L_000001b13e38af60, L_000001b13e38a470, L_000001b13e45dac0;
+LS_000001b13e458d80_0_4 .concat [ 1 1 1 1], L_000001b13e45ed90, L_000001b13e45e540, L_000001b13e45d430, o000001b13e3a0688;
+L_000001b13e458d80 .concat [ 4 4 0 0], LS_000001b13e458d80_0_0, LS_000001b13e458d80_0_4;
+S_000001b13e1ba6d0 .scope module, "FA0" "full_adder" 2 174, 2 146 0, S_000001b13e385d70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+    .port_info 4 /INPUT 1 "Cin";
+v000001b13e380f50_0 .net "A", 0 0, L_000001b13e446e40;  1 drivers
+v000001b13e3828f0_0 .net "B", 0 0, L_000001b13e446ee0;  1 drivers
+v000001b13e382a30_0 .net "C1", 0 0, L_000001b13e38a9b0;  1 drivers
+v000001b13e383070_0 .net "C2", 0 0, L_000001b13e38bb30;  1 drivers
+v000001b13e383890_0 .net "Cin", 0 0, o000001b13e39c428;  alias, 0 drivers
+v000001b13e383e30_0 .net "Cout", 0 0, L_000001b13e38b660;  1 drivers
+v000001b13e3840b0_0 .net "S", 0 0, L_000001b13e38a860;  1 drivers
+v000001b13e31f8f0_0 .net "Sum1", 0 0, L_000001b13e38b120;  1 drivers
+S_000001b13e1c1150 .scope module, "HA1" "half_adder" 2 153, 2 139 0, S_000001b13e1ba6d0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e382d50_0 .net "A", 0 0, L_000001b13e446e40;  alias, 1 drivers
+v000001b13e382fd0_0 .net "B", 0 0, L_000001b13e446ee0;  alias, 1 drivers
+v000001b13e381a90_0 .net "C", 0 0, L_000001b13e38a9b0;  alias, 1 drivers
+v000001b13e3820d0_0 .net "S", 0 0, L_000001b13e38b120;  alias, 1 drivers
+S_000001b13e1c12e0 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e1c1150;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38bba0 .functor NAND 1, L_000001b13e446e40, L_000001b13e446ee0, C4<1>, C4<1>;
+L_000001b13e38a9b0 .functor NAND 1, L_000001b13e38bba0, L_000001b13e38bba0, C4<1>, C4<1>;
+v000001b13e382e90_0 .net "A", 0 0, L_000001b13e446e40;  alias, 1 drivers
+v000001b13e380af0_0 .net "B", 0 0, L_000001b13e446ee0;  alias, 1 drivers
+v000001b13e381270_0 .net "F", 0 0, L_000001b13e38a9b0;  alias, 1 drivers
+v000001b13e382df0_0 .net "P", 0 0, L_000001b13e38bba0;  1 drivers
+S_000001b13e1b99e0 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e1c1150;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38b970 .functor NAND 1, L_000001b13e446e40, L_000001b13e446ee0, C4<1>, C4<1>;
+L_000001b13e38a240 .functor NAND 1, L_000001b13e446e40, L_000001b13e38b970, C4<1>, C4<1>;
+L_000001b13e38b5f0 .functor NAND 1, L_000001b13e446ee0, L_000001b13e38b970, C4<1>, C4<1>;
+L_000001b13e38b120 .functor NAND 1, L_000001b13e38a240, L_000001b13e38b5f0, C4<1>, C4<1>;
+v000001b13e3813b0_0 .net "A", 0 0, L_000001b13e446e40;  alias, 1 drivers
+v000001b13e383110_0 .net "B", 0 0, L_000001b13e446ee0;  alias, 1 drivers
+v000001b13e382850_0 .net "F", 0 0, L_000001b13e38b120;  alias, 1 drivers
+v000001b13e381630_0 .net "G", 0 0, L_000001b13e38a240;  1 drivers
+v000001b13e382530_0 .net "H", 0 0, L_000001b13e38b5f0;  1 drivers
+v000001b13e381b30_0 .net "P", 0 0, L_000001b13e38b970;  1 drivers
+S_000001b13e1b9b70 .scope module, "HA2" "half_adder" 2 156, 2 139 0, S_000001b13e1ba6d0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e381770_0 .net "A", 0 0, L_000001b13e38b120;  alias, 1 drivers
+v000001b13e3819f0_0 .net "B", 0 0, o000001b13e39c428;  alias, 0 drivers
+v000001b13e382f30_0 .net "C", 0 0, L_000001b13e38bb30;  alias, 1 drivers
+v000001b13e381810_0 .net "S", 0 0, L_000001b13e38a860;  alias, 1 drivers
+S_000001b13e1be0a0 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e1b9b70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38ba50 .functor NAND 1, L_000001b13e38b120, o000001b13e39c428, C4<1>, C4<1>;
+L_000001b13e38bb30 .functor NAND 1, L_000001b13e38ba50, L_000001b13e38ba50, C4<1>, C4<1>;
+v000001b13e381f90_0 .net "A", 0 0, L_000001b13e38b120;  alias, 1 drivers
+v000001b13e3818b0_0 .net "B", 0 0, o000001b13e39c428;  alias, 0 drivers
+v000001b13e382170_0 .net "F", 0 0, L_000001b13e38bb30;  alias, 1 drivers
+v000001b13e382350_0 .net "P", 0 0, L_000001b13e38ba50;  1 drivers
+S_000001b13e1be230 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e1b9b70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38a710 .functor NAND 1, L_000001b13e38b120, o000001b13e39c428, C4<1>, C4<1>;
+L_000001b13e38bac0 .functor NAND 1, L_000001b13e38b120, L_000001b13e38a710, C4<1>, C4<1>;
+L_000001b13e38a5c0 .functor NAND 1, o000001b13e39c428, L_000001b13e38a710, C4<1>, C4<1>;
+L_000001b13e38a860 .functor NAND 1, L_000001b13e38bac0, L_000001b13e38a5c0, C4<1>, C4<1>;
+v000001b13e380d70_0 .net "A", 0 0, L_000001b13e38b120;  alias, 1 drivers
+v000001b13e381310_0 .net "B", 0 0, o000001b13e39c428;  alias, 0 drivers
+v000001b13e381950_0 .net "F", 0 0, L_000001b13e38a860;  alias, 1 drivers
+v000001b13e3816d0_0 .net "G", 0 0, L_000001b13e38bac0;  1 drivers
+v000001b13e382490_0 .net "H", 0 0, L_000001b13e38a5c0;  1 drivers
+v000001b13e380cd0_0 .net "P", 0 0, L_000001b13e38a710;  1 drivers
+S_000001b13e2cdc30 .scope module, "or1" "or1b" 2 159, 2 17 0, S_000001b13e1ba6d0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38abe0 .functor NAND 1, L_000001b13e38a9b0, L_000001b13e38a9b0, C4<1>, C4<1>;
+L_000001b13e38bc10 .functor NAND 1, L_000001b13e38bb30, L_000001b13e38bb30, C4<1>, C4<1>;
+L_000001b13e38b660 .functor NAND 1, L_000001b13e38abe0, L_000001b13e38bc10, C4<1>, C4<1>;
+v000001b13e3825d0_0 .net "A", 0 0, L_000001b13e38a9b0;  alias, 1 drivers
+v000001b13e382670_0 .net "B", 0 0, L_000001b13e38bb30;  alias, 1 drivers
+v000001b13e382710_0 .net "F", 0 0, L_000001b13e38b660;  alias, 1 drivers
+v000001b13e380eb0_0 .net "G", 0 0, L_000001b13e38abe0;  1 drivers
+v000001b13e3827b0_0 .net "H", 0 0, L_000001b13e38bc10;  1 drivers
+S_000001b13e2cddc0 .scope module, "FA1" "full_adder" 2 177, 2 146 0, S_000001b13e385d70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+    .port_info 4 /INPUT 1 "Cin";
+v000001b13e3f41a0_0 .net "A", 0 0, L_000001b13e44dde0;  1 drivers
+v000001b13e3f49c0_0 .net "B", 0 0, L_000001b13e44f8c0;  1 drivers
+v000001b13e3f3980_0 .net "C1", 0 0, L_000001b13e38a780;  1 drivers
+v000001b13e3f5000_0 .net "C2", 0 0, L_000001b13e38b2e0;  1 drivers
+v000001b13e3f4600_0 .net "Cin", 0 0, L_000001b13e450220;  1 drivers
+v000001b13e3f4a60_0 .net "Cout", 0 0, L_000001b13e38af60;  1 drivers
+v000001b13e3f3b60_0 .net "S", 0 0, L_000001b13e38b200;  1 drivers
+v000001b13e3f4ba0_0 .net "Sum1", 0 0, L_000001b13e38ae10;  1 drivers
+S_000001b13e1c60b0 .scope module, "HA1" "half_adder" 2 153, 2 139 0, S_000001b13e2cddc0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3f37a0_0 .net "A", 0 0, L_000001b13e44dde0;  alias, 1 drivers
+v000001b13e3f53c0_0 .net "B", 0 0, L_000001b13e44f8c0;  alias, 1 drivers
+v000001b13e3f4560_0 .net "C", 0 0, L_000001b13e38a780;  alias, 1 drivers
+v000001b13e3f46a0_0 .net "S", 0 0, L_000001b13e38ae10;  alias, 1 drivers
+S_000001b13e1c6240 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e1c60b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38b7b0 .functor NAND 1, L_000001b13e44dde0, L_000001b13e44f8c0, C4<1>, C4<1>;
+L_000001b13e38a780 .functor NAND 1, L_000001b13e38b7b0, L_000001b13e38b7b0, C4<1>, C4<1>;
+v000001b13e31db90_0 .net "A", 0 0, L_000001b13e44dde0;  alias, 1 drivers
+v000001b13e31deb0_0 .net "B", 0 0, L_000001b13e44f8c0;  alias, 1 drivers
+v000001b13e37d910_0 .net "F", 0 0, L_000001b13e38a780;  alias, 1 drivers
+v000001b13e37de10_0 .net "P", 0 0, L_000001b13e38b7b0;  1 drivers
+S_000001b13e3f2cd0 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e1c60b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38bc80 .functor NAND 1, L_000001b13e44dde0, L_000001b13e44f8c0, C4<1>, C4<1>;
+L_000001b13e38ab70 .functor NAND 1, L_000001b13e44dde0, L_000001b13e38bc80, C4<1>, C4<1>;
+L_000001b13e38b890 .functor NAND 1, L_000001b13e44f8c0, L_000001b13e38bc80, C4<1>, C4<1>;
+L_000001b13e38ae10 .functor NAND 1, L_000001b13e38ab70, L_000001b13e38b890, C4<1>, C4<1>;
+v000001b13e31ab70_0 .net "A", 0 0, L_000001b13e44dde0;  alias, 1 drivers
+v000001b13e31b930_0 .net "B", 0 0, L_000001b13e44f8c0;  alias, 1 drivers
+v000001b13e3182f0_0 .net "F", 0 0, L_000001b13e38ae10;  alias, 1 drivers
+v000001b13e3f44c0_0 .net "G", 0 0, L_000001b13e38ab70;  1 drivers
+v000001b13e3f3520_0 .net "H", 0 0, L_000001b13e38b890;  1 drivers
+v000001b13e3f4b00_0 .net "P", 0 0, L_000001b13e38bc80;  1 drivers
+S_000001b13e3f2370 .scope module, "HA2" "half_adder" 2 156, 2 139 0, S_000001b13e2cddc0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3f4920_0 .net "A", 0 0, L_000001b13e38ae10;  alias, 1 drivers
+v000001b13e3f3e80_0 .net "B", 0 0, L_000001b13e450220;  alias, 1 drivers
+v000001b13e3f42e0_0 .net "C", 0 0, L_000001b13e38b2e0;  alias, 1 drivers
+v000001b13e3f55a0_0 .net "S", 0 0, L_000001b13e38b200;  alias, 1 drivers
+S_000001b13e3f2ff0 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e3f2370;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38a8d0 .functor NAND 1, L_000001b13e38ae10, L_000001b13e450220, C4<1>, C4<1>;
+L_000001b13e38b2e0 .functor NAND 1, L_000001b13e38a8d0, L_000001b13e38a8d0, C4<1>, C4<1>;
+v000001b13e3f4880_0 .net "A", 0 0, L_000001b13e38ae10;  alias, 1 drivers
+v000001b13e3f3d40_0 .net "B", 0 0, L_000001b13e450220;  alias, 1 drivers
+v000001b13e3f3c00_0 .net "F", 0 0, L_000001b13e38b2e0;  alias, 1 drivers
+v000001b13e3f3ac0_0 .net "P", 0 0, L_000001b13e38a8d0;  1 drivers
+S_000001b13e3f2e60 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e3f2370;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38a0f0 .functor NAND 1, L_000001b13e38ae10, L_000001b13e450220, C4<1>, C4<1>;
+L_000001b13e38a7f0 .functor NAND 1, L_000001b13e38ae10, L_000001b13e38a0f0, C4<1>, C4<1>;
+L_000001b13e38b190 .functor NAND 1, L_000001b13e450220, L_000001b13e38a0f0, C4<1>, C4<1>;
+L_000001b13e38b200 .functor NAND 1, L_000001b13e38a7f0, L_000001b13e38b190, C4<1>, C4<1>;
+v000001b13e3f4240_0 .net "A", 0 0, L_000001b13e38ae10;  alias, 1 drivers
+v000001b13e3f3700_0 .net "B", 0 0, L_000001b13e450220;  alias, 1 drivers
+v000001b13e3f5460_0 .net "F", 0 0, L_000001b13e38b200;  alias, 1 drivers
+v000001b13e3f5780_0 .net "G", 0 0, L_000001b13e38a7f0;  1 drivers
+v000001b13e3f5500_0 .net "H", 0 0, L_000001b13e38b190;  1 drivers
+v000001b13e3f5820_0 .net "P", 0 0, L_000001b13e38a0f0;  1 drivers
+S_000001b13e3f2820 .scope module, "or1" "or1b" 2 159, 2 17 0, S_000001b13e2cddc0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38b350 .functor NAND 1, L_000001b13e38a780, L_000001b13e38a780, C4<1>, C4<1>;
+L_000001b13e38b6d0 .functor NAND 1, L_000001b13e38b2e0, L_000001b13e38b2e0, C4<1>, C4<1>;
+L_000001b13e38af60 .functor NAND 1, L_000001b13e38b350, L_000001b13e38b6d0, C4<1>, C4<1>;
+v000001b13e3f4420_0 .net "A", 0 0, L_000001b13e38a780;  alias, 1 drivers
+v000001b13e3f4740_0 .net "B", 0 0, L_000001b13e38b2e0;  alias, 1 drivers
+v000001b13e3f3340_0 .net "F", 0 0, L_000001b13e38af60;  alias, 1 drivers
+v000001b13e3f3840_0 .net "G", 0 0, L_000001b13e38b350;  1 drivers
+v000001b13e3f3200_0 .net "H", 0 0, L_000001b13e38b6d0;  1 drivers
+S_000001b13e3f21e0 .scope module, "FA2" "full_adder" 2 180, 2 146 0, S_000001b13e385d70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+    .port_info 4 /INPUT 1 "Cin";
+v000001b13e3f6fe0_0 .net "A", 0 0, L_000001b13e44eec0;  1 drivers
+v000001b13e3f6cc0_0 .net "B", 0 0, L_000001b13e44f320;  1 drivers
+v000001b13e3f5fa0_0 .net "C1", 0 0, L_000001b13e38a940;  1 drivers
+v000001b13e3f6d60_0 .net "C2", 0 0, L_000001b13e38aa90;  1 drivers
+v000001b13e3f6c20_0 .net "Cin", 0 0, L_000001b13e44fa00;  1 drivers
+v000001b13e3f6ae0_0 .net "Cout", 0 0, L_000001b13e38a470;  1 drivers
+v000001b13e3f7080_0 .net "S", 0 0, L_000001b13e38a390;  1 drivers
+v000001b13e3f6400_0 .net "Sum1", 0 0, L_000001b13e38a160;  1 drivers
+S_000001b13e3f2500 .scope module, "HA1" "half_adder" 2 153, 2 139 0, S_000001b13e3f21e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3f3a20_0 .net "A", 0 0, L_000001b13e44eec0;  alias, 1 drivers
+v000001b13e3f4d80_0 .net "B", 0 0, L_000001b13e44f320;  alias, 1 drivers
+v000001b13e3f4e20_0 .net "C", 0 0, L_000001b13e38a940;  alias, 1 drivers
+v000001b13e3f4ec0_0 .net "S", 0 0, L_000001b13e38a160;  alias, 1 drivers
+S_000001b13e3f2690 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e3f2500;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38b040 .functor NAND 1, L_000001b13e44eec0, L_000001b13e44f320, C4<1>, C4<1>;
+L_000001b13e38a940 .functor NAND 1, L_000001b13e38b040, L_000001b13e38b040, C4<1>, C4<1>;
+v000001b13e3f47e0_0 .net "A", 0 0, L_000001b13e44eec0;  alias, 1 drivers
+v000001b13e3f4c40_0 .net "B", 0 0, L_000001b13e44f320;  alias, 1 drivers
+v000001b13e3f3de0_0 .net "F", 0 0, L_000001b13e38a940;  alias, 1 drivers
+v000001b13e3f4ce0_0 .net "P", 0 0, L_000001b13e38b040;  1 drivers
+S_000001b13e3f29b0 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e3f2500;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38b430 .functor NAND 1, L_000001b13e44eec0, L_000001b13e44f320, C4<1>, C4<1>;
+L_000001b13e38b740 .functor NAND 1, L_000001b13e44eec0, L_000001b13e38b430, C4<1>, C4<1>;
+L_000001b13e38b820 .functor NAND 1, L_000001b13e44f320, L_000001b13e38b430, C4<1>, C4<1>;
+L_000001b13e38a160 .functor NAND 1, L_000001b13e38b740, L_000001b13e38b820, C4<1>, C4<1>;
+v000001b13e3f3660_0 .net "A", 0 0, L_000001b13e44eec0;  alias, 1 drivers
+v000001b13e3f35c0_0 .net "B", 0 0, L_000001b13e44f320;  alias, 1 drivers
+v000001b13e3f50a0_0 .net "F", 0 0, L_000001b13e38a160;  alias, 1 drivers
+v000001b13e3f3ca0_0 .net "G", 0 0, L_000001b13e38b740;  1 drivers
+v000001b13e3f58c0_0 .net "H", 0 0, L_000001b13e38b820;  1 drivers
+v000001b13e3f38e0_0 .net "P", 0 0, L_000001b13e38b430;  1 drivers
+S_000001b13e3f2b40 .scope module, "HA2" "half_adder" 2 156, 2 139 0, S_000001b13e3f21e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3f56e0_0 .net "A", 0 0, L_000001b13e38a160;  alias, 1 drivers
+v000001b13e3f4100_0 .net "B", 0 0, L_000001b13e44fa00;  alias, 1 drivers
+v000001b13e3f4380_0 .net "C", 0 0, L_000001b13e38aa90;  alias, 1 drivers
+v000001b13e3f32a0_0 .net "S", 0 0, L_000001b13e38a390;  alias, 1 drivers
+S_000001b13e3f81a0 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e3f2b40;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38ac50 .functor NAND 1, L_000001b13e38a160, L_000001b13e44fa00, C4<1>, C4<1>;
+L_000001b13e38aa90 .functor NAND 1, L_000001b13e38ac50, L_000001b13e38ac50, C4<1>, C4<1>;
+v000001b13e3f4f60_0 .net "A", 0 0, L_000001b13e38a160;  alias, 1 drivers
+v000001b13e3f5140_0 .net "B", 0 0, L_000001b13e44fa00;  alias, 1 drivers
+v000001b13e3f51e0_0 .net "F", 0 0, L_000001b13e38aa90;  alias, 1 drivers
+v000001b13e3f5280_0 .net "P", 0 0, L_000001b13e38ac50;  1 drivers
+S_000001b13e3f84c0 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e3f2b40;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38a2b0 .functor NAND 1, L_000001b13e38a160, L_000001b13e44fa00, C4<1>, C4<1>;
+L_000001b13e38a320 .functor NAND 1, L_000001b13e38a160, L_000001b13e38a2b0, C4<1>, C4<1>;
+L_000001b13e38aa20 .functor NAND 1, L_000001b13e44fa00, L_000001b13e38a2b0, C4<1>, C4<1>;
+L_000001b13e38a390 .functor NAND 1, L_000001b13e38a320, L_000001b13e38aa20, C4<1>, C4<1>;
+v000001b13e3f5960_0 .net "A", 0 0, L_000001b13e38a160;  alias, 1 drivers
+v000001b13e3f5320_0 .net "B", 0 0, L_000001b13e44fa00;  alias, 1 drivers
+v000001b13e3f3f20_0 .net "F", 0 0, L_000001b13e38a390;  alias, 1 drivers
+v000001b13e3f5640_0 .net "G", 0 0, L_000001b13e38a320;  1 drivers
+v000001b13e3f3fc0_0 .net "H", 0 0, L_000001b13e38aa20;  1 drivers
+v000001b13e3f4060_0 .net "P", 0 0, L_000001b13e38a2b0;  1 drivers
+S_000001b13e3f7b60 .scope module, "or1" "or1b" 2 159, 2 17 0, S_000001b13e3f21e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38a400 .functor NAND 1, L_000001b13e38a940, L_000001b13e38a940, C4<1>, C4<1>;
+L_000001b13e38acc0 .functor NAND 1, L_000001b13e38aa90, L_000001b13e38aa90, C4<1>, C4<1>;
+L_000001b13e38a470 .functor NAND 1, L_000001b13e38a400, L_000001b13e38acc0, C4<1>, C4<1>;
+v000001b13e3f33e0_0 .net "A", 0 0, L_000001b13e38a940;  alias, 1 drivers
+v000001b13e3f3480_0 .net "B", 0 0, L_000001b13e38aa90;  alias, 1 drivers
+v000001b13e3f6e00_0 .net "F", 0 0, L_000001b13e38a470;  alias, 1 drivers
+v000001b13e3f6ea0_0 .net "G", 0 0, L_000001b13e38a400;  1 drivers
+v000001b13e3f6360_0 .net "H", 0 0, L_000001b13e38acc0;  1 drivers
+S_000001b13e3f76b0 .scope module, "FA3" "full_adder" 2 183, 2 146 0, S_000001b13e385d70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+    .port_info 4 /INPUT 1 "Cin";
+v000001b13e3fc2e0_0 .net "A", 0 0, L_000001b13e450040;  1 drivers
+v000001b13e3fe040_0 .net "B", 0 0, L_000001b13e44e740;  1 drivers
+v000001b13e3fcf60_0 .net "C1", 0 0, L_000001b13e38be40;  1 drivers
+v000001b13e3fc6a0_0 .net "C2", 0 0, L_000001b13e38c000;  1 drivers
+v000001b13e3fcd80_0 .net "Cin", 0 0, L_000001b13e44dc00;  1 drivers
+v000001b13e3fc9c0_0 .net "Cout", 0 0, L_000001b13e45dac0;  1 drivers
+v000001b13e3fc240_0 .net "S", 0 0, L_000001b13e38bf90;  1 drivers
+v000001b13e3fd3c0_0 .net "Sum1", 0 0, L_000001b13e38a630;  1 drivers
+S_000001b13e3f8e20 .scope module, "HA1" "half_adder" 2 153, 2 139 0, S_000001b13e3f76b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3f6b80_0 .net "A", 0 0, L_000001b13e450040;  alias, 1 drivers
+v000001b13e3f5be0_0 .net "B", 0 0, L_000001b13e44e740;  alias, 1 drivers
+v000001b13e3f5d20_0 .net "C", 0 0, L_000001b13e38be40;  alias, 1 drivers
+v000001b13e3f5dc0_0 .net "S", 0 0, L_000001b13e38a630;  alias, 1 drivers
+S_000001b13e3f8330 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e3f8e20;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38bd60 .functor NAND 1, L_000001b13e450040, L_000001b13e44e740, C4<1>, C4<1>;
+L_000001b13e38be40 .functor NAND 1, L_000001b13e38bd60, L_000001b13e38bd60, C4<1>, C4<1>;
+v000001b13e3f5c80_0 .net "A", 0 0, L_000001b13e450040;  alias, 1 drivers
+v000001b13e3f6f40_0 .net "B", 0 0, L_000001b13e44e740;  alias, 1 drivers
+v000001b13e3f67c0_0 .net "F", 0 0, L_000001b13e38be40;  alias, 1 drivers
+v000001b13e3f6040_0 .net "P", 0 0, L_000001b13e38bd60;  1 drivers
+S_000001b13e3f8970 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e3f8e20;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38ad30 .functor NAND 1, L_000001b13e450040, L_000001b13e44e740, C4<1>, C4<1>;
+L_000001b13e38a4e0 .functor NAND 1, L_000001b13e450040, L_000001b13e38ad30, C4<1>, C4<1>;
+L_000001b13e38a550 .functor NAND 1, L_000001b13e44e740, L_000001b13e38ad30, C4<1>, C4<1>;
+L_000001b13e38a630 .functor NAND 1, L_000001b13e38a4e0, L_000001b13e38a550, C4<1>, C4<1>;
+v000001b13e3f5a00_0 .net "A", 0 0, L_000001b13e450040;  alias, 1 drivers
+v000001b13e3f60e0_0 .net "B", 0 0, L_000001b13e44e740;  alias, 1 drivers
+v000001b13e3f6900_0 .net "F", 0 0, L_000001b13e38a630;  alias, 1 drivers
+v000001b13e3f5aa0_0 .net "G", 0 0, L_000001b13e38a4e0;  1 drivers
+v000001b13e3f5b40_0 .net "H", 0 0, L_000001b13e38a550;  1 drivers
+v000001b13e3f64a0_0 .net "P", 0 0, L_000001b13e38ad30;  1 drivers
+S_000001b13e3f7840 .scope module, "HA2" "half_adder" 2 156, 2 139 0, S_000001b13e3f76b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3f6680_0 .net "A", 0 0, L_000001b13e38a630;  alias, 1 drivers
+v000001b13e3f6720_0 .net "B", 0 0, L_000001b13e44dc00;  alias, 1 drivers
+v000001b13e3fde60_0 .net "C", 0 0, L_000001b13e38c000;  alias, 1 drivers
+v000001b13e3fc880_0 .net "S", 0 0, L_000001b13e38bf90;  alias, 1 drivers
+S_000001b13e3f7520 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e3f7840;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38beb0 .functor NAND 1, L_000001b13e38a630, L_000001b13e44dc00, C4<1>, C4<1>;
+L_000001b13e38c000 .functor NAND 1, L_000001b13e38beb0, L_000001b13e38beb0, C4<1>, C4<1>;
+v000001b13e3f6a40_0 .net "A", 0 0, L_000001b13e38a630;  alias, 1 drivers
+v000001b13e3f5f00_0 .net "B", 0 0, L_000001b13e44dc00;  alias, 1 drivers
+v000001b13e3f6180_0 .net "F", 0 0, L_000001b13e38c000;  alias, 1 drivers
+v000001b13e3f6220_0 .net "P", 0 0, L_000001b13e38beb0;  1 drivers
+S_000001b13e3f7cf0 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e3f7840;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e38bcf0 .functor NAND 1, L_000001b13e38a630, L_000001b13e44dc00, C4<1>, C4<1>;
+L_000001b13e38bf20 .functor NAND 1, L_000001b13e38a630, L_000001b13e38bcf0, C4<1>, C4<1>;
+L_000001b13e38bdd0 .functor NAND 1, L_000001b13e44dc00, L_000001b13e38bcf0, C4<1>, C4<1>;
+L_000001b13e38bf90 .functor NAND 1, L_000001b13e38bf20, L_000001b13e38bdd0, C4<1>, C4<1>;
+v000001b13e3f69a0_0 .net "A", 0 0, L_000001b13e38a630;  alias, 1 drivers
+v000001b13e3f5e60_0 .net "B", 0 0, L_000001b13e44dc00;  alias, 1 drivers
+v000001b13e3f62c0_0 .net "F", 0 0, L_000001b13e38bf90;  alias, 1 drivers
+v000001b13e3f6540_0 .net "G", 0 0, L_000001b13e38bf20;  1 drivers
+v000001b13e3f6860_0 .net "H", 0 0, L_000001b13e38bdd0;  1 drivers
+v000001b13e3f65e0_0 .net "P", 0 0, L_000001b13e38bcf0;  1 drivers
+S_000001b13e3f79d0 .scope module, "or1" "or1b" 2 159, 2 17 0, S_000001b13e3f76b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45d580 .functor NAND 1, L_000001b13e38be40, L_000001b13e38be40, C4<1>, C4<1>;
+L_000001b13e45e8c0 .functor NAND 1, L_000001b13e38c000, L_000001b13e38c000, C4<1>, C4<1>;
+L_000001b13e45dac0 .functor NAND 1, L_000001b13e45d580, L_000001b13e45e8c0, C4<1>, C4<1>;
+v000001b13e3fdc80_0 .net "A", 0 0, L_000001b13e38be40;  alias, 1 drivers
+v000001b13e3fd1e0_0 .net "B", 0 0, L_000001b13e38c000;  alias, 1 drivers
+v000001b13e3fbb60_0 .net "F", 0 0, L_000001b13e45dac0;  alias, 1 drivers
+v000001b13e3fbe80_0 .net "G", 0 0, L_000001b13e45d580;  1 drivers
+v000001b13e3fd640_0 .net "H", 0 0, L_000001b13e45e8c0;  1 drivers
+S_000001b13e3f8010 .scope module, "FA4" "full_adder" 2 186, 2 146 0, S_000001b13e385d70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+    .port_info 4 /INPUT 1 "Cin";
+v000001b13e3fbfc0_0 .net "A", 0 0, L_000001b13e44faa0;  1 drivers
+v000001b13e3fd960_0 .net "B", 0 0, L_000001b13e44fd20;  1 drivers
+v000001b13e3fdb40_0 .net "C1", 0 0, L_000001b13e45eaf0;  1 drivers
+v000001b13e3fc4c0_0 .net "C2", 0 0, L_000001b13e45e150;  1 drivers
+v000001b13e3fe180_0 .net "Cin", 0 0, L_000001b13e44e920;  1 drivers
+v000001b13e3fdd20_0 .net "Cout", 0 0, L_000001b13e45ed90;  1 drivers
+v000001b13e3fe0e0_0 .net "S", 0 0, L_000001b13e45e9a0;  1 drivers
+v000001b13e3fba20_0 .net "Sum1", 0 0, L_000001b13e45d5f0;  1 drivers
+S_000001b13e3f7e80 .scope module, "HA1" "half_adder" 2 153, 2 139 0, S_000001b13e3f8010;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3fdaa0_0 .net "A", 0 0, L_000001b13e44faa0;  alias, 1 drivers
+v000001b13e3fca60_0 .net "B", 0 0, L_000001b13e44fd20;  alias, 1 drivers
+v000001b13e3fddc0_0 .net "C", 0 0, L_000001b13e45eaf0;  alias, 1 drivers
+v000001b13e3fdf00_0 .net "S", 0 0, L_000001b13e45d5f0;  alias, 1 drivers
+S_000001b13e3f8fb0 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e3f7e80;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45dd60 .functor NAND 1, L_000001b13e44faa0, L_000001b13e44fd20, C4<1>, C4<1>;
+L_000001b13e45eaf0 .functor NAND 1, L_000001b13e45dd60, L_000001b13e45dd60, C4<1>, C4<1>;
+v000001b13e3fc1a0_0 .net "A", 0 0, L_000001b13e44faa0;  alias, 1 drivers
+v000001b13e3fd140_0 .net "B", 0 0, L_000001b13e44fd20;  alias, 1 drivers
+v000001b13e3fd280_0 .net "F", 0 0, L_000001b13e45eaf0;  alias, 1 drivers
+v000001b13e3fce20_0 .net "P", 0 0, L_000001b13e45dd60;  1 drivers
+S_000001b13e3f8650 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e3f7e80;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45ea80 .functor NAND 1, L_000001b13e44faa0, L_000001b13e44fd20, C4<1>, C4<1>;
+L_000001b13e45e770 .functor NAND 1, L_000001b13e44faa0, L_000001b13e45ea80, C4<1>, C4<1>;
+L_000001b13e45deb0 .functor NAND 1, L_000001b13e44fd20, L_000001b13e45ea80, C4<1>, C4<1>;
+L_000001b13e45d5f0 .functor NAND 1, L_000001b13e45e770, L_000001b13e45deb0, C4<1>, C4<1>;
+v000001b13e3fd5a0_0 .net "A", 0 0, L_000001b13e44faa0;  alias, 1 drivers
+v000001b13e3fdfa0_0 .net "B", 0 0, L_000001b13e44fd20;  alias, 1 drivers
+v000001b13e3fbc00_0 .net "F", 0 0, L_000001b13e45d5f0;  alias, 1 drivers
+v000001b13e3fd8c0_0 .net "G", 0 0, L_000001b13e45e770;  1 drivers
+v000001b13e3fdbe0_0 .net "H", 0 0, L_000001b13e45deb0;  1 drivers
+v000001b13e3fcce0_0 .net "P", 0 0, L_000001b13e45ea80;  1 drivers
+S_000001b13e3f87e0 .scope module, "HA2" "half_adder" 2 156, 2 139 0, S_000001b13e3f8010;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3fd500_0 .net "A", 0 0, L_000001b13e45d5f0;  alias, 1 drivers
+v000001b13e3fd000_0 .net "B", 0 0, L_000001b13e44e920;  alias, 1 drivers
+v000001b13e3fd0a0_0 .net "C", 0 0, L_000001b13e45e150;  alias, 1 drivers
+v000001b13e3fc100_0 .net "S", 0 0, L_000001b13e45e9a0;  alias, 1 drivers
+S_000001b13e3f8b00 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e3f87e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45d9e0 .functor NAND 1, L_000001b13e45d5f0, L_000001b13e44e920, C4<1>, C4<1>;
+L_000001b13e45e150 .functor NAND 1, L_000001b13e45d9e0, L_000001b13e45d9e0, C4<1>, C4<1>;
+v000001b13e3fcb00_0 .net "A", 0 0, L_000001b13e45d5f0;  alias, 1 drivers
+v000001b13e3fbca0_0 .net "B", 0 0, L_000001b13e44e920;  alias, 1 drivers
+v000001b13e3fc380_0 .net "F", 0 0, L_000001b13e45e150;  alias, 1 drivers
+v000001b13e3fcba0_0 .net "P", 0 0, L_000001b13e45d9e0;  1 drivers
+S_000001b13e3f8c90 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e3f87e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45df20 .functor NAND 1, L_000001b13e45d5f0, L_000001b13e44e920, C4<1>, C4<1>;
+L_000001b13e45d740 .functor NAND 1, L_000001b13e45d5f0, L_000001b13e45df20, C4<1>, C4<1>;
+L_000001b13e45db30 .functor NAND 1, L_000001b13e44e920, L_000001b13e45df20, C4<1>, C4<1>;
+L_000001b13e45e9a0 .functor NAND 1, L_000001b13e45d740, L_000001b13e45db30, C4<1>, C4<1>;
+v000001b13e3fc420_0 .net "A", 0 0, L_000001b13e45d5f0;  alias, 1 drivers
+v000001b13e3fd320_0 .net "B", 0 0, L_000001b13e44e920;  alias, 1 drivers
+v000001b13e3fd460_0 .net "F", 0 0, L_000001b13e45e9a0;  alias, 1 drivers
+v000001b13e3fcec0_0 .net "G", 0 0, L_000001b13e45d740;  1 drivers
+v000001b13e3fc740_0 .net "H", 0 0, L_000001b13e45db30;  1 drivers
+v000001b13e3fcc40_0 .net "P", 0 0, L_000001b13e45df20;  1 drivers
+S_000001b13e3f7200 .scope module, "or1" "or1b" 2 159, 2 17 0, S_000001b13e3f8010;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45da50 .functor NAND 1, L_000001b13e45eaf0, L_000001b13e45eaf0, C4<1>, C4<1>;
+L_000001b13e45d660 .functor NAND 1, L_000001b13e45e150, L_000001b13e45e150, C4<1>, C4<1>;
+L_000001b13e45ed90 .functor NAND 1, L_000001b13e45da50, L_000001b13e45d660, C4<1>, C4<1>;
+v000001b13e3fd6e0_0 .net "A", 0 0, L_000001b13e45eaf0;  alias, 1 drivers
+v000001b13e3fd780_0 .net "B", 0 0, L_000001b13e45e150;  alias, 1 drivers
+v000001b13e3fd820_0 .net "F", 0 0, L_000001b13e45ed90;  alias, 1 drivers
+v000001b13e3fbd40_0 .net "G", 0 0, L_000001b13e45da50;  1 drivers
+v000001b13e3fda00_0 .net "H", 0 0, L_000001b13e45d660;  1 drivers
+S_000001b13e3f7390 .scope module, "FA5" "full_adder" 2 189, 2 146 0, S_000001b13e385d70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+    .port_info 4 /INPUT 1 "Cin";
+v000001b13e3ff080_0 .net "A", 0 0, L_000001b13e44e7e0;  1 drivers
+v000001b13e3ff9e0_0 .net "B", 0 0, L_000001b13e44e880;  1 drivers
+v000001b13e3fe360_0 .net "C1", 0 0, L_000001b13e45e4d0;  1 drivers
+v000001b13e3ff4e0_0 .net "C2", 0 0, L_000001b13e45d3c0;  1 drivers
+v000001b13e4008e0_0 .net "Cin", 0 0, L_000001b13e450180;  1 drivers
+v000001b13e3ff620_0 .net "Cout", 0 0, L_000001b13e45e540;  1 drivers
+v000001b13e3fff80_0 .net "S", 0 0, L_000001b13e45d820;  1 drivers
+v000001b13e3ffe40_0 .net "Sum1", 0 0, L_000001b13e45ecb0;  1 drivers
+S_000001b13e402350 .scope module, "HA1" "half_adder" 2 153, 2 139 0, S_000001b13e3f7390;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3feae0_0 .net "A", 0 0, L_000001b13e44e7e0;  alias, 1 drivers
+v000001b13e3feb80_0 .net "B", 0 0, L_000001b13e44e880;  alias, 1 drivers
+v000001b13e400660_0 .net "C", 0 0, L_000001b13e45e4d0;  alias, 1 drivers
+v000001b13e3ff8a0_0 .net "S", 0 0, L_000001b13e45ecb0;  alias, 1 drivers
+S_000001b13e4016d0 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e402350;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45df90 .functor NAND 1, L_000001b13e44e7e0, L_000001b13e44e880, C4<1>, C4<1>;
+L_000001b13e45e4d0 .functor NAND 1, L_000001b13e45df90, L_000001b13e45df90, C4<1>, C4<1>;
+v000001b13e3fbde0_0 .net "A", 0 0, L_000001b13e44e7e0;  alias, 1 drivers
+v000001b13e3fbac0_0 .net "B", 0 0, L_000001b13e44e880;  alias, 1 drivers
+v000001b13e3fbf20_0 .net "F", 0 0, L_000001b13e45e4d0;  alias, 1 drivers
+v000001b13e3fc060_0 .net "P", 0 0, L_000001b13e45df90;  1 drivers
+S_000001b13e402670 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e402350;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45d6d0 .functor NAND 1, L_000001b13e44e7e0, L_000001b13e44e880, C4<1>, C4<1>;
+L_000001b13e45ddd0 .functor NAND 1, L_000001b13e44e7e0, L_000001b13e45d6d0, C4<1>, C4<1>;
+L_000001b13e45ea10 .functor NAND 1, L_000001b13e44e880, L_000001b13e45d6d0, C4<1>, C4<1>;
+L_000001b13e45ecb0 .functor NAND 1, L_000001b13e45ddd0, L_000001b13e45ea10, C4<1>, C4<1>;
+v000001b13e3fc560_0 .net "A", 0 0, L_000001b13e44e7e0;  alias, 1 drivers
+v000001b13e3fc600_0 .net "B", 0 0, L_000001b13e44e880;  alias, 1 drivers
+v000001b13e3fc7e0_0 .net "F", 0 0, L_000001b13e45ecb0;  alias, 1 drivers
+v000001b13e3fc920_0 .net "G", 0 0, L_000001b13e45ddd0;  1 drivers
+v000001b13e3fe680_0 .net "H", 0 0, L_000001b13e45ea10;  1 drivers
+v000001b13e3fe9a0_0 .net "P", 0 0, L_000001b13e45d6d0;  1 drivers
+S_000001b13e401540 .scope module, "HA2" "half_adder" 2 156, 2 139 0, S_000001b13e3f7390;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3fef40_0 .net "A", 0 0, L_000001b13e45ecb0;  alias, 1 drivers
+v000001b13e400340_0 .net "B", 0 0, L_000001b13e450180;  alias, 1 drivers
+v000001b13e3ffd00_0 .net "C", 0 0, L_000001b13e45d3c0;  alias, 1 drivers
+v000001b13e3ffee0_0 .net "S", 0 0, L_000001b13e45d820;  alias, 1 drivers
+S_000001b13e401ea0 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e401540;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45dba0 .functor NAND 1, L_000001b13e45ecb0, L_000001b13e450180, C4<1>, C4<1>;
+L_000001b13e45d3c0 .functor NAND 1, L_000001b13e45dba0, L_000001b13e45dba0, C4<1>, C4<1>;
+v000001b13e3ff800_0 .net "A", 0 0, L_000001b13e45ecb0;  alias, 1 drivers
+v000001b13e3ff260_0 .net "B", 0 0, L_000001b13e450180;  alias, 1 drivers
+v000001b13e3ff940_0 .net "F", 0 0, L_000001b13e45d3c0;  alias, 1 drivers
+v000001b13e3fe860_0 .net "P", 0 0, L_000001b13e45dba0;  1 drivers
+S_000001b13e401860 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e401540;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45eb60 .functor NAND 1, L_000001b13e45ecb0, L_000001b13e450180, C4<1>, C4<1>;
+L_000001b13e45de40 .functor NAND 1, L_000001b13e45ecb0, L_000001b13e45eb60, C4<1>, C4<1>;
+L_000001b13e45d7b0 .functor NAND 1, L_000001b13e450180, L_000001b13e45eb60, C4<1>, C4<1>;
+L_000001b13e45d820 .functor NAND 1, L_000001b13e45de40, L_000001b13e45d7b0, C4<1>, C4<1>;
+v000001b13e400160_0 .net "A", 0 0, L_000001b13e45ecb0;  alias, 1 drivers
+v000001b13e4005c0_0 .net "B", 0 0, L_000001b13e450180;  alias, 1 drivers
+v000001b13e4002a0_0 .net "F", 0 0, L_000001b13e45d820;  alias, 1 drivers
+v000001b13e3fecc0_0 .net "G", 0 0, L_000001b13e45de40;  1 drivers
+v000001b13e3fea40_0 .net "H", 0 0, L_000001b13e45d7b0;  1 drivers
+v000001b13e3ffbc0_0 .net "P", 0 0, L_000001b13e45eb60;  1 drivers
+S_000001b13e4013b0 .scope module, "or1" "or1b" 2 159, 2 17 0, S_000001b13e3f7390;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45ebd0 .functor NAND 1, L_000001b13e45e4d0, L_000001b13e45e4d0, C4<1>, C4<1>;
+L_000001b13e45dc10 .functor NAND 1, L_000001b13e45d3c0, L_000001b13e45d3c0, C4<1>, C4<1>;
+L_000001b13e45e540 .functor NAND 1, L_000001b13e45ebd0, L_000001b13e45dc10, C4<1>, C4<1>;
+v000001b13e3fec20_0 .net "A", 0 0, L_000001b13e45e4d0;  alias, 1 drivers
+v000001b13e3ff440_0 .net "B", 0 0, L_000001b13e45d3c0;  alias, 1 drivers
+v000001b13e3fe720_0 .net "F", 0 0, L_000001b13e45e540;  alias, 1 drivers
+v000001b13e3ff6c0_0 .net "G", 0 0, L_000001b13e45ebd0;  1 drivers
+v000001b13e3ff760_0 .net "H", 0 0, L_000001b13e45dc10;  1 drivers
+S_000001b13e4019f0 .scope module, "FA6" "full_adder" 2 192, 2 146 0, S_000001b13e385d70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+    .port_info 4 /INPUT 1 "Cin";
+v000001b13e400b60_0 .net "A", 0 0, L_000001b13e44ef60;  1 drivers
+v000001b13e400ca0_0 .net "B", 0 0, L_000001b13e44f780;  1 drivers
+v000001b13e400f20_0 .net "C1", 0 0, L_000001b13e45ed20;  1 drivers
+v000001b13e401060_0 .net "C2", 0 0, L_000001b13e45ee00;  1 drivers
+v000001b13e400c00_0 .net "Cin", 0 0, L_000001b13e44e2e0;  1 drivers
+v000001b13e401100_0 .net "Cout", 0 0, L_000001b13e45d430;  1 drivers
+v000001b13e400d40_0 .net "S", 0 0, L_000001b13e45ec40;  1 drivers
+v000001b13e400de0_0 .net "Sum1", 0 0, L_000001b13e45e1c0;  1 drivers
+S_000001b13e402030 .scope module, "HA1" "half_adder" 2 153, 2 139 0, S_000001b13e4019f0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3fe540_0 .net "A", 0 0, L_000001b13e44ef60;  alias, 1 drivers
+v000001b13e400980_0 .net "B", 0 0, L_000001b13e44f780;  alias, 1 drivers
+v000001b13e400840_0 .net "C", 0 0, L_000001b13e45ed20;  alias, 1 drivers
+v000001b13e3ffda0_0 .net "S", 0 0, L_000001b13e45e1c0;  alias, 1 drivers
+S_000001b13e401d10 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e402030;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45e000 .functor NAND 1, L_000001b13e44ef60, L_000001b13e44f780, C4<1>, C4<1>;
+L_000001b13e45ed20 .functor NAND 1, L_000001b13e45e000, L_000001b13e45e000, C4<1>, C4<1>;
+v000001b13e4003e0_0 .net "A", 0 0, L_000001b13e44ef60;  alias, 1 drivers
+v000001b13e400480_0 .net "B", 0 0, L_000001b13e44f780;  alias, 1 drivers
+v000001b13e3fe900_0 .net "F", 0 0, L_000001b13e45ed20;  alias, 1 drivers
+v000001b13e3fed60_0 .net "P", 0 0, L_000001b13e45e000;  1 drivers
+S_000001b13e402cb0 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e402030;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45d890 .functor NAND 1, L_000001b13e44ef60, L_000001b13e44f780, C4<1>, C4<1>;
+L_000001b13e45d510 .functor NAND 1, L_000001b13e44ef60, L_000001b13e45d890, C4<1>, C4<1>;
+L_000001b13e45e930 .functor NAND 1, L_000001b13e44f780, L_000001b13e45d890, C4<1>, C4<1>;
+L_000001b13e45e1c0 .functor NAND 1, L_000001b13e45d510, L_000001b13e45e930, C4<1>, C4<1>;
+v000001b13e400200_0 .net "A", 0 0, L_000001b13e44ef60;  alias, 1 drivers
+v000001b13e3fee00_0 .net "B", 0 0, L_000001b13e44f780;  alias, 1 drivers
+v000001b13e3fe5e0_0 .net "F", 0 0, L_000001b13e45e1c0;  alias, 1 drivers
+v000001b13e3ff120_0 .net "G", 0 0, L_000001b13e45d510;  1 drivers
+v000001b13e3ff300_0 .net "H", 0 0, L_000001b13e45e930;  1 drivers
+v000001b13e400520_0 .net "P", 0 0, L_000001b13e45d890;  1 drivers
+S_000001b13e402990 .scope module, "HA2" "half_adder" 2 156, 2 139 0, S_000001b13e4019f0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3ffb20_0 .net "A", 0 0, L_000001b13e45e1c0;  alias, 1 drivers
+v000001b13e400700_0 .net "B", 0 0, L_000001b13e44e2e0;  alias, 1 drivers
+v000001b13e3fe220_0 .net "C", 0 0, L_000001b13e45ee00;  alias, 1 drivers
+v000001b13e400020_0 .net "S", 0 0, L_000001b13e45ec40;  alias, 1 drivers
+S_000001b13e402b20 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e402990;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45e850 .functor NAND 1, L_000001b13e45e1c0, L_000001b13e44e2e0, C4<1>, C4<1>;
+L_000001b13e45ee00 .functor NAND 1, L_000001b13e45e850, L_000001b13e45e850, C4<1>, C4<1>;
+v000001b13e3feea0_0 .net "A", 0 0, L_000001b13e45e1c0;  alias, 1 drivers
+v000001b13e3ffc60_0 .net "B", 0 0, L_000001b13e44e2e0;  alias, 1 drivers
+v000001b13e4007a0_0 .net "F", 0 0, L_000001b13e45ee00;  alias, 1 drivers
+v000001b13e3fefe0_0 .net "P", 0 0, L_000001b13e45e850;  1 drivers
+S_000001b13e402800 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e402990;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45dc80 .functor NAND 1, L_000001b13e45e1c0, L_000001b13e44e2e0, C4<1>, C4<1>;
+L_000001b13e45e230 .functor NAND 1, L_000001b13e45e1c0, L_000001b13e45dc80, C4<1>, C4<1>;
+L_000001b13e45d900 .functor NAND 1, L_000001b13e44e2e0, L_000001b13e45dc80, C4<1>, C4<1>;
+L_000001b13e45ec40 .functor NAND 1, L_000001b13e45e230, L_000001b13e45d900, C4<1>, C4<1>;
+v000001b13e3ff1c0_0 .net "A", 0 0, L_000001b13e45e1c0;  alias, 1 drivers
+v000001b13e4000c0_0 .net "B", 0 0, L_000001b13e44e2e0;  alias, 1 drivers
+v000001b13e3fe400_0 .net "F", 0 0, L_000001b13e45ec40;  alias, 1 drivers
+v000001b13e3ff3a0_0 .net "G", 0 0, L_000001b13e45e230;  1 drivers
+v000001b13e3ff580_0 .net "H", 0 0, L_000001b13e45d900;  1 drivers
+v000001b13e3ffa80_0 .net "P", 0 0, L_000001b13e45dc80;  1 drivers
+S_000001b13e4021c0 .scope module, "or1" "or1b" 2 159, 2 17 0, S_000001b13e4019f0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45d970 .functor NAND 1, L_000001b13e45ed20, L_000001b13e45ed20, C4<1>, C4<1>;
+L_000001b13e45ee70 .functor NAND 1, L_000001b13e45ee00, L_000001b13e45ee00, C4<1>, C4<1>;
+L_000001b13e45d430 .functor NAND 1, L_000001b13e45d970, L_000001b13e45ee70, C4<1>, C4<1>;
+v000001b13e3fe2c0_0 .net "A", 0 0, L_000001b13e45ed20;  alias, 1 drivers
+v000001b13e3fe4a0_0 .net "B", 0 0, L_000001b13e45ee00;  alias, 1 drivers
+v000001b13e3fe7c0_0 .net "F", 0 0, L_000001b13e45d430;  alias, 1 drivers
+v000001b13e400e80_0 .net "G", 0 0, L_000001b13e45d970;  1 drivers
+v000001b13e400ac0_0 .net "H", 0 0, L_000001b13e45ee70;  1 drivers
+S_000001b13e4024e0 .scope module, "FA7" "full_adder" 2 195, 2 146 0, S_000001b13e385d70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+    .port_info 4 /INPUT 1 "Cin";
+v000001b13e3fb8e0_0 .net "A", 0 0, L_000001b13e44e600;  1 drivers
+v000001b13e3f9c20_0 .net "B", 0 0, L_000001b13e44fb40;  1 drivers
+v000001b13e3f9cc0_0 .net "C1", 0 0, L_000001b13e45eee0;  1 drivers
+v000001b13e3fa620_0 .net "C2", 0 0, L_000001b13e45e700;  1 drivers
+v000001b13e3fa440_0 .net "Cin", 0 0, L_000001b13e44dca0;  1 drivers
+v000001b13e3fa120_0 .net "Cout", 0 0, L_000001b13e45e5b0;  alias, 1 drivers
+v000001b13e3f9ae0_0 .net "S", 0 0, L_000001b13e45e070;  1 drivers
+v000001b13e3fa9e0_0 .net "Sum1", 0 0, L_000001b13e45e380;  1 drivers
+S_000001b13e402e40 .scope module, "HA1" "half_adder" 2 153, 2 139 0, S_000001b13e4024e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3fa6c0_0 .net "A", 0 0, L_000001b13e44e600;  alias, 1 drivers
+v000001b13e3f99a0_0 .net "B", 0 0, L_000001b13e44fb40;  alias, 1 drivers
+v000001b13e3f97c0_0 .net "C", 0 0, L_000001b13e45eee0;  alias, 1 drivers
+v000001b13e3fb3e0_0 .net "S", 0 0, L_000001b13e45e380;  alias, 1 drivers
+S_000001b13e402fd0 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e402e40;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45e460 .functor NAND 1, L_000001b13e44e600, L_000001b13e44fb40, C4<1>, C4<1>;
+L_000001b13e45eee0 .functor NAND 1, L_000001b13e45e460, L_000001b13e45e460, C4<1>, C4<1>;
+v000001b13e400fc0_0 .net "A", 0 0, L_000001b13e44e600;  alias, 1 drivers
+v000001b13e400a20_0 .net "B", 0 0, L_000001b13e44fb40;  alias, 1 drivers
+v000001b13e3fb200_0 .net "F", 0 0, L_000001b13e45eee0;  alias, 1 drivers
+v000001b13e3fa760_0 .net "P", 0 0, L_000001b13e45e460;  1 drivers
+S_000001b13e401220 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e402e40;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45dcf0 .functor NAND 1, L_000001b13e44e600, L_000001b13e44fb40, C4<1>, C4<1>;
+L_000001b13e45e310 .functor NAND 1, L_000001b13e44e600, L_000001b13e45dcf0, C4<1>, C4<1>;
+L_000001b13e45e7e0 .functor NAND 1, L_000001b13e44fb40, L_000001b13e45dcf0, C4<1>, C4<1>;
+L_000001b13e45e380 .functor NAND 1, L_000001b13e45e310, L_000001b13e45e7e0, C4<1>, C4<1>;
+v000001b13e3fb980_0 .net "A", 0 0, L_000001b13e44e600;  alias, 1 drivers
+v000001b13e3fb700_0 .net "B", 0 0, L_000001b13e44fb40;  alias, 1 drivers
+v000001b13e3faf80_0 .net "F", 0 0, L_000001b13e45e380;  alias, 1 drivers
+v000001b13e3f9900_0 .net "G", 0 0, L_000001b13e45e310;  1 drivers
+v000001b13e3f9b80_0 .net "H", 0 0, L_000001b13e45e7e0;  1 drivers
+v000001b13e3f9720_0 .net "P", 0 0, L_000001b13e45dcf0;  1 drivers
+S_000001b13e401b80 .scope module, "HA2" "half_adder" 2 156, 2 139 0, S_000001b13e4024e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+v000001b13e3fb340_0 .net "A", 0 0, L_000001b13e45e380;  alias, 1 drivers
+v000001b13e3fb160_0 .net "B", 0 0, L_000001b13e44dca0;  alias, 1 drivers
+v000001b13e3fa300_0 .net "C", 0 0, L_000001b13e45e700;  alias, 1 drivers
+v000001b13e3fb660_0 .net "S", 0 0, L_000001b13e45e070;  alias, 1 drivers
+S_000001b13e404b30 .scope module, "and1" "and1b" 2 142, 2 8 0, S_000001b13e401b80;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45d4a0 .functor NAND 1, L_000001b13e45e380, L_000001b13e44dca0, C4<1>, C4<1>;
+L_000001b13e45e700 .functor NAND 1, L_000001b13e45d4a0, L_000001b13e45d4a0, C4<1>, C4<1>;
+v000001b13e3fb5c0_0 .net "A", 0 0, L_000001b13e45e380;  alias, 1 drivers
+v000001b13e3f9a40_0 .net "B", 0 0, L_000001b13e44dca0;  alias, 1 drivers
+v000001b13e3fb2a0_0 .net "F", 0 0, L_000001b13e45e700;  alias, 1 drivers
+v000001b13e3f9e00_0 .net "P", 0 0, L_000001b13e45d4a0;  1 drivers
+S_000001b13e403d20 .scope module, "xor1" "xor1b" 2 141, 2 27 0, S_000001b13e401b80;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45d350 .functor NAND 1, L_000001b13e45e380, L_000001b13e44dca0, C4<1>, C4<1>;
+L_000001b13e45e2a0 .functor NAND 1, L_000001b13e45e380, L_000001b13e45d350, C4<1>, C4<1>;
+L_000001b13e45e690 .functor NAND 1, L_000001b13e44dca0, L_000001b13e45d350, C4<1>, C4<1>;
+L_000001b13e45e070 .functor NAND 1, L_000001b13e45e2a0, L_000001b13e45e690, C4<1>, C4<1>;
+v000001b13e3fb520_0 .net "A", 0 0, L_000001b13e45e380;  alias, 1 drivers
+v000001b13e3fa800_0 .net "B", 0 0, L_000001b13e44dca0;  alias, 1 drivers
+v000001b13e3fa260_0 .net "F", 0 0, L_000001b13e45e070;  alias, 1 drivers
+v000001b13e3fa8a0_0 .net "G", 0 0, L_000001b13e45e2a0;  1 drivers
+v000001b13e3fb480_0 .net "H", 0 0, L_000001b13e45e690;  1 drivers
+v000001b13e3faa80_0 .net "P", 0 0, L_000001b13e45d350;  1 drivers
+S_000001b13e404680 .scope module, "or1" "or1b" 2 159, 2 17 0, S_000001b13e4024e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45e0e0 .functor NAND 1, L_000001b13e45eee0, L_000001b13e45eee0, C4<1>, C4<1>;
+L_000001b13e45e3f0 .functor NAND 1, L_000001b13e45e700, L_000001b13e45e700, C4<1>, C4<1>;
+L_000001b13e45e5b0 .functor NAND 1, L_000001b13e45e0e0, L_000001b13e45e3f0, C4<1>, C4<1>;
+v000001b13e3fb7a0_0 .net "A", 0 0, L_000001b13e45eee0;  alias, 1 drivers
+v000001b13e3fb840_0 .net "B", 0 0, L_000001b13e45e700;  alias, 1 drivers
+v000001b13e3fa3a0_0 .net "F", 0 0, L_000001b13e45e5b0;  alias, 1 drivers
+v000001b13e3fa940_0 .net "G", 0 0, L_000001b13e45e0e0;  1 drivers
+v000001b13e3f94a0_0 .net "H", 0 0, L_000001b13e45e3f0;  1 drivers
+S_000001b13e3175b0 .scope module, "mux8_2to1" "mux8_2to1" 2 120;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+    .port_info 3 /INPUT 1 "Sel";
+o000001b13e3a1228 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e40c9b0_0 .net "A", 7 0, o000001b13e3a1228;  0 drivers
+o000001b13e3a1dc8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e40c230_0 .net "B", 7 0, o000001b13e3a1dc8;  0 drivers
+v000001b13e40bbf0_0 .net "F", 7 0, L_000001b13e4528e0;  1 drivers
+o000001b13e3a1ee8 .functor BUFZ 1, C4<z>; HiZ drive
+v000001b13e40bc90_0 .net "Sel", 0 0, o000001b13e3a1ee8;  0 drivers
+v000001b13e40bf10_0 .net "comp", 0 0, L_000001b13e45e620;  1 drivers
+v000001b13e40ac50_0 .net "prod_A", 7 0, L_000001b13e44e560;  1 drivers
+v000001b13e40bd30_0 .net "prod_B", 7 0, L_000001b13e44ece0;  1 drivers
+LS_000001b13e44e060_0_0 .concat [ 1 1 1 1], L_000001b13e45e620, L_000001b13e45e620, L_000001b13e45e620, L_000001b13e45e620;
+LS_000001b13e44e060_0_4 .concat [ 1 1 1 1], L_000001b13e45e620, L_000001b13e45e620, L_000001b13e45e620, L_000001b13e45e620;
+L_000001b13e44e060 .concat [ 4 4 0 0], LS_000001b13e44e060_0_0, LS_000001b13e44e060_0_4;
+LS_000001b13e44db60_0_0 .concat [ 1 1 1 1], o000001b13e3a1ee8, o000001b13e3a1ee8, o000001b13e3a1ee8, o000001b13e3a1ee8;
+LS_000001b13e44db60_0_4 .concat [ 1 1 1 1], o000001b13e3a1ee8, o000001b13e3a1ee8, o000001b13e3a1ee8, o000001b13e3a1ee8;
+L_000001b13e44db60 .concat [ 4 4 0 0], LS_000001b13e44db60_0_0, LS_000001b13e44db60_0_4;
+S_000001b13e404040 .scope module, "and1" "and8b" 2 131, 2 50 0, S_000001b13e3175b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e407ff0_0 .net "A", 7 0, o000001b13e3a1228;  alias, 0 drivers
+v000001b13e4089f0_0 .net "B", 7 0, L_000001b13e44e060;  1 drivers
+v000001b13e4093f0_0 .net "F", 7 0, L_000001b13e44e560;  alias, 1 drivers
+L_000001b13e44e9c0 .part o000001b13e3a1228, 0, 1;
+L_000001b13e44ea60 .part L_000001b13e44e060, 0, 1;
+L_000001b13e44fbe0 .part o000001b13e3a1228, 1, 1;
+L_000001b13e44df20 .part L_000001b13e44e060, 1, 1;
+L_000001b13e44e6a0 .part o000001b13e3a1228, 2, 1;
+L_000001b13e44e100 .part L_000001b13e44e060, 2, 1;
+L_000001b13e44e380 .part o000001b13e3a1228, 3, 1;
+L_000001b13e44ee20 .part L_000001b13e44e060, 3, 1;
+L_000001b13e44dd40 .part o000001b13e3a1228, 4, 1;
+L_000001b13e44f280 .part L_000001b13e44e060, 4, 1;
+L_000001b13e44f1e0 .part o000001b13e3a1228, 5, 1;
+L_000001b13e44f3c0 .part L_000001b13e44e060, 5, 1;
+L_000001b13e44f820 .part o000001b13e3a1228, 6, 1;
+L_000001b13e44f460 .part L_000001b13e44e060, 6, 1;
+LS_000001b13e44e560_0_0 .concat8 [ 1 1 1 1], L_000001b13e45efc0, L_000001b13e45ef50, L_000001b13e45f110, L_000001b13e45f260;
+LS_000001b13e44e560_0_4 .concat8 [ 1 1 1 1], L_000001b13e45f990, L_000001b13e4601e0, L_000001b13e45f450, L_000001b13e45fc30;
+L_000001b13e44e560 .concat8 [ 4 4 0 0], LS_000001b13e44e560_0_0, LS_000001b13e44e560_0_4;
+L_000001b13e44fc80 .part o000001b13e3a1228, 7, 1;
+L_000001b13e44eb00 .part L_000001b13e44e060, 7, 1;
+S_000001b13e403eb0 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e404040;
+ .timescale -9 -12;
+P_000001b13e373420 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e404cc0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e403eb0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f1f0 .functor NAND 1, L_000001b13e44e9c0, L_000001b13e44ea60, C4<1>, C4<1>;
+L_000001b13e45efc0 .functor NAND 1, L_000001b13e45f1f0, L_000001b13e45f1f0, C4<1>, C4<1>;
+v000001b13e3fa580_0 .net "A", 0 0, L_000001b13e44e9c0;  1 drivers
+v000001b13e3fac60_0 .net "B", 0 0, L_000001b13e44ea60;  1 drivers
+v000001b13e3f9360_0 .net "F", 0 0, L_000001b13e45efc0;  1 drivers
+v000001b13e3f9400_0 .net "P", 0 0, L_000001b13e45f1f0;  1 drivers
+S_000001b13e403230 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e404040;
+ .timescale -9 -12;
+P_000001b13e3746a0 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e403550 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e403230;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f030 .functor NAND 1, L_000001b13e44fbe0, L_000001b13e44df20, C4<1>, C4<1>;
+L_000001b13e45ef50 .functor NAND 1, L_000001b13e45f030, L_000001b13e45f030, C4<1>, C4<1>;
+v000001b13e3fad00_0 .net "A", 0 0, L_000001b13e44fbe0;  1 drivers
+v000001b13e3fada0_0 .net "B", 0 0, L_000001b13e44df20;  1 drivers
+v000001b13e3fae40_0 .net "F", 0 0, L_000001b13e45ef50;  1 drivers
+v000001b13e3f95e0_0 .net "P", 0 0, L_000001b13e45f030;  1 drivers
+S_000001b13e404e50 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e404040;
+ .timescale -9 -12;
+P_000001b13e374120 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e4041d0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e404e50;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f0a0 .functor NAND 1, L_000001b13e44e6a0, L_000001b13e44e100, C4<1>, C4<1>;
+L_000001b13e45f110 .functor NAND 1, L_000001b13e45f0a0, L_000001b13e45f0a0, C4<1>, C4<1>;
+v000001b13e3faee0_0 .net "A", 0 0, L_000001b13e44e6a0;  1 drivers
+v000001b13e3fb020_0 .net "B", 0 0, L_000001b13e44e100;  1 drivers
+v000001b13e3f9ea0_0 .net "F", 0 0, L_000001b13e45f110;  1 drivers
+v000001b13e3fb0c0_0 .net "P", 0 0, L_000001b13e45f0a0;  1 drivers
+S_000001b13e404360 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e404040;
+ .timescale -9 -12;
+P_000001b13e374520 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e4033c0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e404360;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f180 .functor NAND 1, L_000001b13e44e380, L_000001b13e44ee20, C4<1>, C4<1>;
+L_000001b13e45f260 .functor NAND 1, L_000001b13e45f180, L_000001b13e45f180, C4<1>, C4<1>;
+v000001b13e3f9680_0 .net "A", 0 0, L_000001b13e44e380;  1 drivers
+v000001b13e3f9860_0 .net "B", 0 0, L_000001b13e44ee20;  1 drivers
+v000001b13e3f9f40_0 .net "F", 0 0, L_000001b13e45f260;  1 drivers
+v000001b13e3f9fe0_0 .net "P", 0 0, L_000001b13e45f180;  1 drivers
+S_000001b13e4044f0 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e404040;
+ .timescale -9 -12;
+P_000001b13e374560 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e404fe0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4044f0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4605d0 .functor NAND 1, L_000001b13e44dd40, L_000001b13e44f280, C4<1>, C4<1>;
+L_000001b13e45f990 .functor NAND 1, L_000001b13e4605d0, L_000001b13e4605d0, C4<1>, C4<1>;
+v000001b13e3fa080_0 .net "A", 0 0, L_000001b13e44dd40;  1 drivers
+v000001b13e3fa1c0_0 .net "B", 0 0, L_000001b13e44f280;  1 drivers
+v000001b13e409530_0 .net "F", 0 0, L_000001b13e45f990;  1 drivers
+v000001b13e409f30_0 .net "P", 0 0, L_000001b13e4605d0;  1 drivers
+S_000001b13e4049a0 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e404040;
+ .timescale -9 -12;
+P_000001b13e3742e0 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e403870 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4049a0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460170 .functor NAND 1, L_000001b13e44f1e0, L_000001b13e44f3c0, C4<1>, C4<1>;
+L_000001b13e4601e0 .functor NAND 1, L_000001b13e460170, L_000001b13e460170, C4<1>, C4<1>;
+v000001b13e408db0_0 .net "A", 0 0, L_000001b13e44f1e0;  1 drivers
+v000001b13e409170_0 .net "B", 0 0, L_000001b13e44f3c0;  1 drivers
+v000001b13e408e50_0 .net "F", 0 0, L_000001b13e4601e0;  1 drivers
+v000001b13e407a50_0 .net "P", 0 0, L_000001b13e460170;  1 drivers
+S_000001b13e404810 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e404040;
+ .timescale -9 -12;
+P_000001b13e373fe0 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e4036e0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e404810;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45ff40 .functor NAND 1, L_000001b13e44f820, L_000001b13e44f460, C4<1>, C4<1>;
+L_000001b13e45f450 .functor NAND 1, L_000001b13e45ff40, L_000001b13e45ff40, C4<1>, C4<1>;
+v000001b13e409df0_0 .net "A", 0 0, L_000001b13e44f820;  1 drivers
+v000001b13e409210_0 .net "B", 0 0, L_000001b13e44f460;  1 drivers
+v000001b13e408c70_0 .net "F", 0 0, L_000001b13e45f450;  1 drivers
+v000001b13e409030_0 .net "P", 0 0, L_000001b13e45ff40;  1 drivers
+S_000001b13e403a00 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e404040;
+ .timescale -9 -12;
+P_000001b13e373da0 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e403b90 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e403a00;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460950 .functor NAND 1, L_000001b13e44fc80, L_000001b13e44eb00, C4<1>, C4<1>;
+L_000001b13e45fc30 .functor NAND 1, L_000001b13e460950, L_000001b13e460950, C4<1>, C4<1>;
+v000001b13e4092b0_0 .net "A", 0 0, L_000001b13e44fc80;  1 drivers
+v000001b13e409670_0 .net "B", 0 0, L_000001b13e44eb00;  1 drivers
+v000001b13e407d70_0 .net "F", 0 0, L_000001b13e45fc30;  1 drivers
+v000001b13e408ef0_0 .net "P", 0 0, L_000001b13e460950;  1 drivers
+S_000001b13e412b60 .scope module, "and2" "and8b" 2 132, 2 50 0, S_000001b13e3175b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e40a070_0 .net "A", 7 0, o000001b13e3a1dc8;  alias, 0 drivers
+v000001b13e4097b0_0 .net "B", 7 0, L_000001b13e44db60;  1 drivers
+v000001b13e407c30_0 .net "F", 7 0, L_000001b13e44ece0;  alias, 1 drivers
+L_000001b13e44f000 .part o000001b13e3a1dc8, 0, 1;
+L_000001b13e44f960 .part L_000001b13e44db60, 0, 1;
+L_000001b13e44fdc0 .part o000001b13e3a1dc8, 1, 1;
+L_000001b13e44e420 .part L_000001b13e44db60, 1, 1;
+L_000001b13e44fe60 .part o000001b13e3a1dc8, 2, 1;
+L_000001b13e44ffa0 .part L_000001b13e44db60, 2, 1;
+L_000001b13e44ff00 .part o000001b13e3a1dc8, 3, 1;
+L_000001b13e44f500 .part L_000001b13e44db60, 3, 1;
+L_000001b13e4500e0 .part o000001b13e3a1dc8, 4, 1;
+L_000001b13e44f6e0 .part L_000001b13e44db60, 4, 1;
+L_000001b13e44e1a0 .part o000001b13e3a1dc8, 5, 1;
+L_000001b13e44dfc0 .part L_000001b13e44db60, 5, 1;
+L_000001b13e44ec40 .part o000001b13e3a1dc8, 6, 1;
+L_000001b13e44f640 .part L_000001b13e44db60, 6, 1;
+LS_000001b13e44ece0_0_0 .concat8 [ 1 1 1 1], L_000001b13e45f760, L_000001b13e460e20, L_000001b13e45fd80, L_000001b13e460560;
+LS_000001b13e44ece0_0_4 .concat8 [ 1 1 1 1], L_000001b13e460250, L_000001b13e460bf0, L_000001b13e45f4c0, L_000001b13e460100;
+L_000001b13e44ece0 .concat8 [ 4 4 0 0], LS_000001b13e44ece0_0_0, LS_000001b13e44ece0_0_4;
+L_000001b13e44e4c0 .part o000001b13e3a1dc8, 7, 1;
+L_000001b13e4502c0 .part L_000001b13e44db60, 7, 1;
+S_000001b13e412cf0 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e412b60;
+ .timescale -9 -12;
+P_000001b13e3748a0 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e411710 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e412cf0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460db0 .functor NAND 1, L_000001b13e44f000, L_000001b13e44f960, C4<1>, C4<1>;
+L_000001b13e45f760 .functor NAND 1, L_000001b13e460db0, L_000001b13e460db0, C4<1>, C4<1>;
+v000001b13e407b90_0 .net "A", 0 0, L_000001b13e44f000;  1 drivers
+v000001b13e40a110_0 .net "B", 0 0, L_000001b13e44f960;  1 drivers
+v000001b13e409cb0_0 .net "F", 0 0, L_000001b13e45f760;  1 drivers
+v000001b13e409710_0 .net "P", 0 0, L_000001b13e460db0;  1 drivers
+S_000001b13e4126b0 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e412b60;
+ .timescale -9 -12;
+P_000001b13e3748e0 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e411580 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4126b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4604f0 .functor NAND 1, L_000001b13e44fdc0, L_000001b13e44e420, C4<1>, C4<1>;
+L_000001b13e460e20 .functor NAND 1, L_000001b13e4604f0, L_000001b13e4604f0, C4<1>, C4<1>;
+v000001b13e408810_0 .net "A", 0 0, L_000001b13e44fdc0;  1 drivers
+v000001b13e407eb0_0 .net "B", 0 0, L_000001b13e44e420;  1 drivers
+v000001b13e408d10_0 .net "F", 0 0, L_000001b13e460e20;  1 drivers
+v000001b13e4088b0_0 .net "P", 0 0, L_000001b13e4604f0;  1 drivers
+S_000001b13e4118a0 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e412b60;
+ .timescale -9 -12;
+P_000001b13e373ca0 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e411a30 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4118a0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f680 .functor NAND 1, L_000001b13e44fe60, L_000001b13e44ffa0, C4<1>, C4<1>;
+L_000001b13e45fd80 .functor NAND 1, L_000001b13e45f680, L_000001b13e45f680, C4<1>, C4<1>;
+v000001b13e407e10_0 .net "A", 0 0, L_000001b13e44fe60;  1 drivers
+v000001b13e408950_0 .net "B", 0 0, L_000001b13e44ffa0;  1 drivers
+v000001b13e407af0_0 .net "F", 0 0, L_000001b13e45fd80;  1 drivers
+v000001b13e408a90_0 .net "P", 0 0, L_000001b13e45f680;  1 drivers
+S_000001b13e411bc0 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e412b60;
+ .timescale -9 -12;
+P_000001b13e374760 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e412e80 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e411bc0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460330 .functor NAND 1, L_000001b13e44ff00, L_000001b13e44f500, C4<1>, C4<1>;
+L_000001b13e460560 .functor NAND 1, L_000001b13e460330, L_000001b13e460330, C4<1>, C4<1>;
+v000001b13e409a30_0 .net "A", 0 0, L_000001b13e44ff00;  1 drivers
+v000001b13e409990_0 .net "B", 0 0, L_000001b13e44f500;  1 drivers
+v000001b13e408b30_0 .net "F", 0 0, L_000001b13e460560;  1 drivers
+v000001b13e409d50_0 .net "P", 0 0, L_000001b13e460330;  1 drivers
+S_000001b13e411ee0 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e412b60;
+ .timescale -9 -12;
+P_000001b13e373d60 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e411d50 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e411ee0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f6f0 .functor NAND 1, L_000001b13e4500e0, L_000001b13e44f6e0, C4<1>, C4<1>;
+L_000001b13e460250 .functor NAND 1, L_000001b13e45f6f0, L_000001b13e45f6f0, C4<1>, C4<1>;
+v000001b13e408bd0_0 .net "A", 0 0, L_000001b13e4500e0;  1 drivers
+v000001b13e409ad0_0 .net "B", 0 0, L_000001b13e44f6e0;  1 drivers
+v000001b13e409b70_0 .net "F", 0 0, L_000001b13e460250;  1 drivers
+v000001b13e409e90_0 .net "P", 0 0, L_000001b13e45f6f0;  1 drivers
+S_000001b13e412070 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e412b60;
+ .timescale -9 -12;
+P_000001b13e373aa0 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e412200 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e412070;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45ffb0 .functor NAND 1, L_000001b13e44e1a0, L_000001b13e44dfc0, C4<1>, C4<1>;
+L_000001b13e460bf0 .functor NAND 1, L_000001b13e45ffb0, L_000001b13e45ffb0, C4<1>, C4<1>;
+v000001b13e409c10_0 .net "A", 0 0, L_000001b13e44e1a0;  1 drivers
+v000001b13e4090d0_0 .net "B", 0 0, L_000001b13e44dfc0;  1 drivers
+v000001b13e408f90_0 .net "F", 0 0, L_000001b13e460bf0;  1 drivers
+v000001b13e409350_0 .net "P", 0 0, L_000001b13e45ffb0;  1 drivers
+S_000001b13e413010 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e412b60;
+ .timescale -9 -12;
+P_000001b13e373b60 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e412840 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e413010;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f530 .functor NAND 1, L_000001b13e44ec40, L_000001b13e44f640, C4<1>, C4<1>;
+L_000001b13e45f4c0 .functor NAND 1, L_000001b13e45f530, L_000001b13e45f530, C4<1>, C4<1>;
+v000001b13e4098f0_0 .net "A", 0 0, L_000001b13e44ec40;  1 drivers
+v000001b13e4084f0_0 .net "B", 0 0, L_000001b13e44f640;  1 drivers
+v000001b13e4081d0_0 .net "F", 0 0, L_000001b13e45f4c0;  1 drivers
+v000001b13e409490_0 .net "P", 0 0, L_000001b13e45f530;  1 drivers
+S_000001b13e412390 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e412b60;
+ .timescale -9 -12;
+P_000001b13e3747a0 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e412520 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e412390;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460d40 .functor NAND 1, L_000001b13e44e4c0, L_000001b13e4502c0, C4<1>, C4<1>;
+L_000001b13e460100 .functor NAND 1, L_000001b13e460d40, L_000001b13e460d40, C4<1>, C4<1>;
+v000001b13e4095d0_0 .net "A", 0 0, L_000001b13e44e4c0;  1 drivers
+v000001b13e409fd0_0 .net "B", 0 0, L_000001b13e4502c0;  1 drivers
+v000001b13e4086d0_0 .net "F", 0 0, L_000001b13e460100;  1 drivers
+v000001b13e408450_0 .net "P", 0 0, L_000001b13e460d40;  1 drivers
+S_000001b13e4129d0 .scope module, "not1" "not1b" 2 126, 2 2 0, S_000001b13e3175b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e45e620 .functor NAND 1, o000001b13e3a1ee8, o000001b13e3a1ee8, C4<1>, C4<1>;
+v000001b13e40a1b0_0 .net "A", 0 0, o000001b13e3a1ee8;  alias, 0 drivers
+v000001b13e408270_0 .net "F", 0 0, L_000001b13e45e620;  alias, 1 drivers
+S_000001b13e411260 .scope module, "or1" "or8b" 2 134, 2 61 0, S_000001b13e3175b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e40bb50_0 .net "A", 7 0, L_000001b13e44e560;  alias, 1 drivers
+v000001b13e40abb0_0 .net "B", 7 0, L_000001b13e44ece0;  alias, 1 drivers
+v000001b13e40acf0_0 .net "F", 7 0, L_000001b13e4528e0;  alias, 1 drivers
+L_000001b13e44ed80 .part L_000001b13e44e560, 0, 1;
+L_000001b13e44de80 .part L_000001b13e44ece0, 0, 1;
+L_000001b13e44e240 .part L_000001b13e44e560, 1, 1;
+L_000001b13e44f0a0 .part L_000001b13e44ece0, 1, 1;
+L_000001b13e44f140 .part L_000001b13e44e560, 2, 1;
+L_000001b13e44f5a0 .part L_000001b13e44ece0, 2, 1;
+L_000001b13e4511c0 .part L_000001b13e44e560, 3, 1;
+L_000001b13e451300 .part L_000001b13e44ece0, 3, 1;
+L_000001b13e452980 .part L_000001b13e44e560, 4, 1;
+L_000001b13e451b20 .part L_000001b13e44ece0, 4, 1;
+L_000001b13e450cc0 .part L_000001b13e44e560, 5, 1;
+L_000001b13e452660 .part L_000001b13e44ece0, 5, 1;
+L_000001b13e451260 .part L_000001b13e44e560, 6, 1;
+L_000001b13e452700 .part L_000001b13e44ece0, 6, 1;
+LS_000001b13e4528e0_0_0 .concat8 [ 1 1 1 1], L_000001b13e460480, L_000001b13e460410, L_000001b13e45fe60, L_000001b13e460640;
+LS_000001b13e4528e0_0_4 .concat8 [ 1 1 1 1], L_000001b13e4606b0, L_000001b13e460020, L_000001b13e460090, L_000001b13e4608e0;
+L_000001b13e4528e0 .concat8 [ 4 4 0 0], LS_000001b13e4528e0_0_0, LS_000001b13e4528e0_0_4;
+L_000001b13e452520 .part L_000001b13e44e560, 7, 1;
+L_000001b13e451800 .part L_000001b13e44ece0, 7, 1;
+S_000001b13e4113f0 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 65, 2 65 0, S_000001b13e411260;
+ .timescale -9 -12;
+P_000001b13e374820 .param/l "i" 1 2 65, +C4<00>;
+S_000001b13e413270 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e4113f0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f7d0 .functor NAND 1, L_000001b13e44ed80, L_000001b13e44ed80, C4<1>, C4<1>;
+L_000001b13e45fa00 .functor NAND 1, L_000001b13e44de80, L_000001b13e44de80, C4<1>, C4<1>;
+L_000001b13e460480 .functor NAND 1, L_000001b13e45f7d0, L_000001b13e45fa00, C4<1>, C4<1>;
+v000001b13e407cd0_0 .net "A", 0 0, L_000001b13e44ed80;  1 drivers
+v000001b13e407f50_0 .net "B", 0 0, L_000001b13e44de80;  1 drivers
+v000001b13e409850_0 .net "F", 0 0, L_000001b13e460480;  1 drivers
+v000001b13e408090_0 .net "G", 0 0, L_000001b13e45f7d0;  1 drivers
+v000001b13e408130_0 .net "H", 0 0, L_000001b13e45fa00;  1 drivers
+S_000001b13e414e90 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 65, 2 65 0, S_000001b13e411260;
+ .timescale -9 -12;
+P_000001b13e373fa0 .param/l "i" 1 2 65, +C4<01>;
+S_000001b13e4146c0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e414e90;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4602c0 .functor NAND 1, L_000001b13e44e240, L_000001b13e44e240, C4<1>, C4<1>;
+L_000001b13e460800 .functor NAND 1, L_000001b13e44f0a0, L_000001b13e44f0a0, C4<1>, C4<1>;
+L_000001b13e460410 .functor NAND 1, L_000001b13e4602c0, L_000001b13e460800, C4<1>, C4<1>;
+v000001b13e408310_0 .net "A", 0 0, L_000001b13e44e240;  1 drivers
+v000001b13e4083b0_0 .net "B", 0 0, L_000001b13e44f0a0;  1 drivers
+v000001b13e408590_0 .net "F", 0 0, L_000001b13e460410;  1 drivers
+v000001b13e408630_0 .net "G", 0 0, L_000001b13e4602c0;  1 drivers
+v000001b13e408770_0 .net "H", 0 0, L_000001b13e460800;  1 drivers
+S_000001b13e414850 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 65, 2 65 0, S_000001b13e411260;
+ .timescale -9 -12;
+P_000001b13e3741e0 .param/l "i" 1 2 65, +C4<010>;
+S_000001b13e4138b0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e414850;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4603a0 .functor NAND 1, L_000001b13e44f140, L_000001b13e44f140, C4<1>, C4<1>;
+L_000001b13e45fdf0 .functor NAND 1, L_000001b13e44f5a0, L_000001b13e44f5a0, C4<1>, C4<1>;
+L_000001b13e45fe60 .functor NAND 1, L_000001b13e4603a0, L_000001b13e45fdf0, C4<1>, C4<1>;
+v000001b13e40a750_0 .net "A", 0 0, L_000001b13e44f140;  1 drivers
+v000001b13e40b790_0 .net "B", 0 0, L_000001b13e44f5a0;  1 drivers
+v000001b13e40b6f0_0 .net "F", 0 0, L_000001b13e45fe60;  1 drivers
+v000001b13e40a9d0_0 .net "G", 0 0, L_000001b13e4603a0;  1 drivers
+v000001b13e40c190_0 .net "H", 0 0, L_000001b13e45fdf0;  1 drivers
+S_000001b13e4143a0 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 65, 2 65 0, S_000001b13e411260;
+ .timescale -9 -12;
+P_000001b13e3745a0 .param/l "i" 1 2 65, +C4<011>;
+S_000001b13e413400 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e4143a0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460790 .functor NAND 1, L_000001b13e4511c0, L_000001b13e4511c0, C4<1>, C4<1>;
+L_000001b13e45fae0 .functor NAND 1, L_000001b13e451300, L_000001b13e451300, C4<1>, C4<1>;
+L_000001b13e460640 .functor NAND 1, L_000001b13e460790, L_000001b13e45fae0, C4<1>, C4<1>;
+v000001b13e40a4d0_0 .net "A", 0 0, L_000001b13e4511c0;  1 drivers
+v000001b13e40c870_0 .net "B", 0 0, L_000001b13e451300;  1 drivers
+v000001b13e40ba10_0 .net "F", 0 0, L_000001b13e460640;  1 drivers
+v000001b13e40ae30_0 .net "G", 0 0, L_000001b13e460790;  1 drivers
+v000001b13e40af70_0 .net "H", 0 0, L_000001b13e45fae0;  1 drivers
+S_000001b13e413a40 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 65, 2 65 0, S_000001b13e411260;
+ .timescale -9 -12;
+P_000001b13e373f20 .param/l "i" 1 2 65, +C4<0100>;
+S_000001b13e414d00 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e413a40;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45fa70 .functor NAND 1, L_000001b13e452980, L_000001b13e452980, C4<1>, C4<1>;
+L_000001b13e460870 .functor NAND 1, L_000001b13e451b20, L_000001b13e451b20, C4<1>, C4<1>;
+L_000001b13e4606b0 .functor NAND 1, L_000001b13e45fa70, L_000001b13e460870, C4<1>, C4<1>;
+v000001b13e40c730_0 .net "A", 0 0, L_000001b13e452980;  1 drivers
+v000001b13e40b650_0 .net "B", 0 0, L_000001b13e451b20;  1 drivers
+v000001b13e40c5f0_0 .net "F", 0 0, L_000001b13e4606b0;  1 drivers
+v000001b13e40b010_0 .net "G", 0 0, L_000001b13e45fa70;  1 drivers
+v000001b13e40b1f0_0 .net "H", 0 0, L_000001b13e460870;  1 drivers
+S_000001b13e413bd0 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 65, 2 65 0, S_000001b13e411260;
+ .timescale -9 -12;
+P_000001b13e373b20 .param/l "i" 1 2 65, +C4<0101>;
+S_000001b13e413590 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e413bd0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45fed0 .functor NAND 1, L_000001b13e450cc0, L_000001b13e450cc0, C4<1>, C4<1>;
+L_000001b13e45f840 .functor NAND 1, L_000001b13e452660, L_000001b13e452660, C4<1>, C4<1>;
+L_000001b13e460020 .functor NAND 1, L_000001b13e45fed0, L_000001b13e45f840, C4<1>, C4<1>;
+v000001b13e40ab10_0 .net "A", 0 0, L_000001b13e450cc0;  1 drivers
+v000001b13e40c050_0 .net "B", 0 0, L_000001b13e452660;  1 drivers
+v000001b13e40b8d0_0 .net "F", 0 0, L_000001b13e460020;  1 drivers
+v000001b13e40a2f0_0 .net "G", 0 0, L_000001b13e45fed0;  1 drivers
+v000001b13e40aa70_0 .net "H", 0 0, L_000001b13e45f840;  1 drivers
+S_000001b13e413d60 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 65, 2 65 0, S_000001b13e411260;
+ .timescale -9 -12;
+P_000001b13e373f60 .param/l "i" 1 2 65, +C4<0110>;
+S_000001b13e413720 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e413d60;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f8b0 .functor NAND 1, L_000001b13e451260, L_000001b13e451260, C4<1>, C4<1>;
+L_000001b13e45f920 .functor NAND 1, L_000001b13e452700, L_000001b13e452700, C4<1>, C4<1>;
+L_000001b13e460090 .functor NAND 1, L_000001b13e45f8b0, L_000001b13e45f920, C4<1>, C4<1>;
+v000001b13e40b470_0 .net "A", 0 0, L_000001b13e451260;  1 drivers
+v000001b13e40b830_0 .net "B", 0 0, L_000001b13e452700;  1 drivers
+v000001b13e40a930_0 .net "F", 0 0, L_000001b13e460090;  1 drivers
+v000001b13e40b510_0 .net "G", 0 0, L_000001b13e45f8b0;  1 drivers
+v000001b13e40b970_0 .net "H", 0 0, L_000001b13e45f920;  1 drivers
+S_000001b13e413ef0 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 65, 2 65 0, S_000001b13e411260;
+ .timescale -9 -12;
+P_000001b13e3743e0 .param/l "i" 1 2 65, +C4<0111>;
+S_000001b13e414210 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e413ef0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460720 .functor NAND 1, L_000001b13e452520, L_000001b13e452520, C4<1>, C4<1>;
+L_000001b13e45fb50 .functor NAND 1, L_000001b13e451800, L_000001b13e451800, C4<1>, C4<1>;
+L_000001b13e4608e0 .functor NAND 1, L_000001b13e460720, L_000001b13e45fb50, C4<1>, C4<1>;
+v000001b13e40b5b0_0 .net "A", 0 0, L_000001b13e452520;  1 drivers
+v000001b13e40c910_0 .net "B", 0 0, L_000001b13e451800;  1 drivers
+v000001b13e40a7f0_0 .net "F", 0 0, L_000001b13e4608e0;  1 drivers
+v000001b13e40bab0_0 .net "G", 0 0, L_000001b13e460720;  1 drivers
+v000001b13e40a570_0 .net "H", 0 0, L_000001b13e45fb50;  1 drivers
+S_000001b13e1c4750 .scope module, "mux8_4to1" "mux8_4to1" 2 84;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+    .port_info 3 /INPUT 8 "C";
+    .port_info 4 /INPUT 8 "D";
+    .port_info 5 /INPUT 2 "Sel";
+o000001b13e3a37a8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e444140_0 .net "A", 7 0, o000001b13e3a37a8;  0 drivers
+o000001b13e3a4eb8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e443ba0_0 .net "B", 7 0, o000001b13e3a4eb8;  0 drivers
+o000001b13e3a65c8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e441b20_0 .net "C", 7 0, o000001b13e3a65c8;  0 drivers
+o000001b13e3a7cd8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e4422a0_0 .net "D", 7 0, o000001b13e3a7cd8;  0 drivers
+v000001b13e443ce0_0 .net "F", 7 0, L_000001b13e458ce0;  1 drivers
+o000001b13e3ab128 .functor BUFZ 2, C4<zz>; HiZ drive
+v000001b13e443ec0_0 .net "Sel", 1 0, o000001b13e3ab128;  0 drivers
+v000001b13e443f60_0 .net *"_ivl_11", 0 0, L_000001b13e453ba0;  1 drivers
+v000001b13e442d40_0 .net *"_ivl_15", 0 0, L_000001b13e454780;  1 drivers
+v000001b13e441d00_0 .net *"_ivl_21", 0 0, L_000001b13e4555e0;  1 drivers
+v000001b13e442520_0 .net *"_ivl_25", 0 0, L_000001b13e4573e0;  1 drivers
+v000001b13e441da0_0 .net "comp_S0", 0 0, L_000001b13e4609c0;  1 drivers
+v000001b13e441e40_0 .net "comp_S1", 0 0, L_000001b13e45fbc0;  1 drivers
+v000001b13e441ee0_0 .net "or_temp1", 7 0, L_000001b13e456580;  1 drivers
+v000001b13e442660_0 .net "or_temp2", 7 0, L_000001b13e458920;  1 drivers
+v000001b13e442700_0 .net "prod_A", 7 0, L_000001b13e451620;  1 drivers
+v000001b13e442a20_0 .net "prod_A_temp", 7 0, L_000001b13e4520c0;  1 drivers
+v000001b13e4428e0_0 .net "prod_B", 7 0, L_000001b13e4550e0;  1 drivers
+v000001b13e4431a0_0 .net "prod_B_temp", 7 0, L_000001b13e451120;  1 drivers
+v000001b13e442980_0 .net "prod_C", 7 0, L_000001b13e452d40;  1 drivers
+v000001b13e445900_0 .net "prod_C_temp", 7 0, L_000001b13e453060;  1 drivers
+v000001b13e444960_0 .net "prod_D", 7 0, L_000001b13e456800;  1 drivers
+v000001b13e4463a0_0 .net "prod_D_temp", 7 0, L_000001b13e456c60;  1 drivers
+L_000001b13e4518a0 .part o000001b13e3ab128, 0, 1;
+L_000001b13e4519e0 .part o000001b13e3ab128, 1, 1;
+LS_000001b13e4507c0_0_0 .concat [ 1 1 1 1], L_000001b13e45fbc0, L_000001b13e45fbc0, L_000001b13e45fbc0, L_000001b13e45fbc0;
+LS_000001b13e4507c0_0_4 .concat [ 1 1 1 1], L_000001b13e45fbc0, L_000001b13e45fbc0, L_000001b13e45fbc0, L_000001b13e45fbc0;
+L_000001b13e4507c0 .concat [ 4 4 0 0], LS_000001b13e4507c0_0_0, LS_000001b13e4507c0_0_4;
+LS_000001b13e4522a0_0_0 .concat [ 1 1 1 1], L_000001b13e4609c0, L_000001b13e4609c0, L_000001b13e4609c0, L_000001b13e4609c0;
+LS_000001b13e4522a0_0_4 .concat [ 1 1 1 1], L_000001b13e4609c0, L_000001b13e4609c0, L_000001b13e4609c0, L_000001b13e4609c0;
+L_000001b13e4522a0 .concat [ 4 4 0 0], LS_000001b13e4522a0_0_0, LS_000001b13e4522a0_0_4;
+LS_000001b13e453b00_0_0 .concat [ 1 1 1 1], L_000001b13e45fbc0, L_000001b13e45fbc0, L_000001b13e45fbc0, L_000001b13e45fbc0;
+LS_000001b13e453b00_0_4 .concat [ 1 1 1 1], L_000001b13e45fbc0, L_000001b13e45fbc0, L_000001b13e45fbc0, L_000001b13e45fbc0;
+L_000001b13e453b00 .concat [ 4 4 0 0], LS_000001b13e453b00_0_0, LS_000001b13e453b00_0_4;
+L_000001b13e453ba0 .part o000001b13e3ab128, 0, 1;
+LS_000001b13e454e60_0_0 .concat [ 1 1 1 1], L_000001b13e453ba0, L_000001b13e453ba0, L_000001b13e453ba0, L_000001b13e453ba0;
+LS_000001b13e454e60_0_4 .concat [ 1 1 1 1], L_000001b13e453ba0, L_000001b13e453ba0, L_000001b13e453ba0, L_000001b13e453ba0;
+L_000001b13e454e60 .concat [ 4 4 0 0], LS_000001b13e454e60_0_0, LS_000001b13e454e60_0_4;
+L_000001b13e454780 .part o000001b13e3ab128, 1, 1;
+LS_000001b13e4539c0_0_0 .concat [ 1 1 1 1], L_000001b13e454780, L_000001b13e454780, L_000001b13e454780, L_000001b13e454780;
+LS_000001b13e4539c0_0_4 .concat [ 1 1 1 1], L_000001b13e454780, L_000001b13e454780, L_000001b13e454780, L_000001b13e454780;
+L_000001b13e4539c0 .concat [ 4 4 0 0], LS_000001b13e4539c0_0_0, LS_000001b13e4539c0_0_4;
+LS_000001b13e452de0_0_0 .concat [ 1 1 1 1], L_000001b13e4609c0, L_000001b13e4609c0, L_000001b13e4609c0, L_000001b13e4609c0;
+LS_000001b13e452de0_0_4 .concat [ 1 1 1 1], L_000001b13e4609c0, L_000001b13e4609c0, L_000001b13e4609c0, L_000001b13e4609c0;
+L_000001b13e452de0 .concat [ 4 4 0 0], LS_000001b13e452de0_0_0, LS_000001b13e452de0_0_4;
+L_000001b13e4555e0 .part o000001b13e3ab128, 1, 1;
+LS_000001b13e457200_0_0 .concat [ 1 1 1 1], L_000001b13e4555e0, L_000001b13e4555e0, L_000001b13e4555e0, L_000001b13e4555e0;
+LS_000001b13e457200_0_4 .concat [ 1 1 1 1], L_000001b13e4555e0, L_000001b13e4555e0, L_000001b13e4555e0, L_000001b13e4555e0;
+L_000001b13e457200 .concat [ 4 4 0 0], LS_000001b13e457200_0_0, LS_000001b13e457200_0_4;
+L_000001b13e4573e0 .part o000001b13e3ab128, 0, 1;
+LS_000001b13e455360_0_0 .concat [ 1 1 1 1], L_000001b13e4573e0, L_000001b13e4573e0, L_000001b13e4573e0, L_000001b13e4573e0;
+LS_000001b13e455360_0_4 .concat [ 1 1 1 1], L_000001b13e4573e0, L_000001b13e4573e0, L_000001b13e4573e0, L_000001b13e4573e0;
+L_000001b13e455360 .concat [ 4 4 0 0], LS_000001b13e455360_0_0, LS_000001b13e455360_0_4;
+S_000001b13e414530 .scope module, "and1" "and8b" 2 101, 2 50 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e40ccd0_0 .net "A", 7 0, o000001b13e3a37a8;  alias, 0 drivers
+v000001b13e40ceb0_0 .net "B", 7 0, L_000001b13e4507c0;  1 drivers
+v000001b13e40ce10_0 .net "F", 7 0, L_000001b13e4520c0;  alias, 1 drivers
+L_000001b13e4523e0 .part o000001b13e3a37a8, 0, 1;
+L_000001b13e4527a0 .part L_000001b13e4507c0, 0, 1;
+L_000001b13e452200 .part o000001b13e3a37a8, 1, 1;
+L_000001b13e451c60 .part L_000001b13e4507c0, 1, 1;
+L_000001b13e450f40 .part o000001b13e3a37a8, 2, 1;
+L_000001b13e451080 .part L_000001b13e4507c0, 2, 1;
+L_000001b13e4513a0 .part o000001b13e3a37a8, 3, 1;
+L_000001b13e450720 .part L_000001b13e4507c0, 3, 1;
+L_000001b13e451440 .part o000001b13e3a37a8, 4, 1;
+L_000001b13e4514e0 .part L_000001b13e4507c0, 4, 1;
+L_000001b13e451a80 .part o000001b13e3a37a8, 5, 1;
+L_000001b13e451760 .part L_000001b13e4507c0, 5, 1;
+L_000001b13e4525c0 .part o000001b13e3a37a8, 6, 1;
+L_000001b13e450400 .part L_000001b13e4507c0, 6, 1;
+LS_000001b13e4520c0_0_0 .concat8 [ 1 1 1 1], L_000001b13e45fca0, L_000001b13e460aa0, L_000001b13e460b80, L_000001b13e460cd0;
+LS_000001b13e4520c0_0_4 .concat8 [ 1 1 1 1], L_000001b13e460f00, L_000001b13e45f3e0, L_000001b13e461050, L_000001b13e461bb0;
+L_000001b13e4520c0 .concat8 [ 4 4 0 0], LS_000001b13e4520c0_0_0, LS_000001b13e4520c0_0_4;
+L_000001b13e452a20 .part o000001b13e3a37a8, 7, 1;
+L_000001b13e451bc0 .part L_000001b13e4507c0, 7, 1;
+S_000001b13e414080 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e414530;
+ .timescale -9 -12;
+P_000001b13e3739a0 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e4149e0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e414080;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460a30 .functor NAND 1, L_000001b13e4523e0, L_000001b13e4527a0, C4<1>, C4<1>;
+L_000001b13e45fca0 .functor NAND 1, L_000001b13e460a30, L_000001b13e460a30, C4<1>, C4<1>;
+v000001b13e40c2d0_0 .net "A", 0 0, L_000001b13e4523e0;  1 drivers
+v000001b13e40c370_0 .net "B", 0 0, L_000001b13e4527a0;  1 drivers
+v000001b13e40c550_0 .net "F", 0 0, L_000001b13e45fca0;  1 drivers
+v000001b13e40c690_0 .net "P", 0 0, L_000001b13e460a30;  1 drivers
+S_000001b13e415020 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e414530;
+ .timescale -9 -12;
+P_000001b13e3740a0 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e414b70 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e415020;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45fd10 .functor NAND 1, L_000001b13e452200, L_000001b13e451c60, C4<1>, C4<1>;
+L_000001b13e460aa0 .functor NAND 1, L_000001b13e45fd10, L_000001b13e45fd10, C4<1>, C4<1>;
+v000001b13e40c7d0_0 .net "A", 0 0, L_000001b13e452200;  1 drivers
+v000001b13e40a610_0 .net "B", 0 0, L_000001b13e451c60;  1 drivers
+v000001b13e40a250_0 .net "F", 0 0, L_000001b13e460aa0;  1 drivers
+v000001b13e40a390_0 .net "P", 0 0, L_000001b13e45fd10;  1 drivers
+S_000001b13e415410 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e414530;
+ .timescale -9 -12;
+P_000001b13e373a20 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e416b80 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e415410;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460b10 .functor NAND 1, L_000001b13e450f40, L_000001b13e451080, C4<1>, C4<1>;
+L_000001b13e460b80 .functor NAND 1, L_000001b13e460b10, L_000001b13e460b10, C4<1>, C4<1>;
+v000001b13e40ad90_0 .net "A", 0 0, L_000001b13e450f40;  1 drivers
+v000001b13e40bdd0_0 .net "B", 0 0, L_000001b13e451080;  1 drivers
+v000001b13e40a430_0 .net "F", 0 0, L_000001b13e460b80;  1 drivers
+v000001b13e40a890_0 .net "P", 0 0, L_000001b13e460b10;  1 drivers
+S_000001b13e4155a0 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e414530;
+ .timescale -9 -12;
+P_000001b13e373a60 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e4166d0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4155a0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460c60 .functor NAND 1, L_000001b13e4513a0, L_000001b13e450720, C4<1>, C4<1>;
+L_000001b13e460cd0 .functor NAND 1, L_000001b13e460c60, L_000001b13e460c60, C4<1>, C4<1>;
+v000001b13e40aed0_0 .net "A", 0 0, L_000001b13e4513a0;  1 drivers
+v000001b13e40b0b0_0 .net "B", 0 0, L_000001b13e450720;  1 drivers
+v000001b13e40be70_0 .net "F", 0 0, L_000001b13e460cd0;  1 drivers
+v000001b13e40a6b0_0 .net "P", 0 0, L_000001b13e460c60;  1 drivers
+S_000001b13e416d10 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e414530;
+ .timescale -9 -12;
+P_000001b13e373c60 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e415be0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e416d10;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460e90 .functor NAND 1, L_000001b13e451440, L_000001b13e4514e0, C4<1>, C4<1>;
+L_000001b13e460f00 .functor NAND 1, L_000001b13e460e90, L_000001b13e460e90, C4<1>, C4<1>;
+v000001b13e40b150_0 .net "A", 0 0, L_000001b13e451440;  1 drivers
+v000001b13e40b290_0 .net "B", 0 0, L_000001b13e4514e0;  1 drivers
+v000001b13e40b330_0 .net "F", 0 0, L_000001b13e460f00;  1 drivers
+v000001b13e40bfb0_0 .net "P", 0 0, L_000001b13e460e90;  1 drivers
+S_000001b13e415f00 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e414530;
+ .timescale -9 -12;
+P_000001b13e374460 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e415730 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e415f00;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f370 .functor NAND 1, L_000001b13e451a80, L_000001b13e451760, C4<1>, C4<1>;
+L_000001b13e45f3e0 .functor NAND 1, L_000001b13e45f370, L_000001b13e45f370, C4<1>, C4<1>;
+v000001b13e40b3d0_0 .net "A", 0 0, L_000001b13e451a80;  1 drivers
+v000001b13e40c0f0_0 .net "B", 0 0, L_000001b13e451760;  1 drivers
+v000001b13e40c410_0 .net "F", 0 0, L_000001b13e45f3e0;  1 drivers
+v000001b13e40c4b0_0 .net "P", 0 0, L_000001b13e45f370;  1 drivers
+S_000001b13e4158c0 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e414530;
+ .timescale -9 -12;
+P_000001b13e374220 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e415a50 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4158c0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f610 .functor NAND 1, L_000001b13e4525c0, L_000001b13e450400, C4<1>, C4<1>;
+L_000001b13e461050 .functor NAND 1, L_000001b13e45f610, L_000001b13e45f610, C4<1>, C4<1>;
+v000001b13e40ca50_0 .net "A", 0 0, L_000001b13e4525c0;  1 drivers
+v000001b13e40cf50_0 .net "B", 0 0, L_000001b13e450400;  1 drivers
+v000001b13e40cc30_0 .net "F", 0 0, L_000001b13e461050;  1 drivers
+v000001b13e40d130_0 .net "P", 0 0, L_000001b13e45f610;  1 drivers
+S_000001b13e416860 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e414530;
+ .timescale -9 -12;
+P_000001b13e374e20 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e415d70 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e416860;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461fa0 .functor NAND 1, L_000001b13e452a20, L_000001b13e451bc0, C4<1>, C4<1>;
+L_000001b13e461bb0 .functor NAND 1, L_000001b13e461fa0, L_000001b13e461fa0, C4<1>, C4<1>;
+v000001b13e40cd70_0 .net "A", 0 0, L_000001b13e452a20;  1 drivers
+v000001b13e40d090_0 .net "B", 0 0, L_000001b13e451bc0;  1 drivers
+v000001b13e40caf0_0 .net "F", 0 0, L_000001b13e461bb0;  1 drivers
+v000001b13e40cb90_0 .net "P", 0 0, L_000001b13e461fa0;  1 drivers
+S_000001b13e416220 .scope module, "and2" "and8b" 2 102, 2 50 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e406e70_0 .net "A", 7 0, L_000001b13e4520c0;  alias, 1 drivers
+v000001b13e4074b0_0 .net "B", 7 0, L_000001b13e4522a0;  1 drivers
+v000001b13e405a70_0 .net "F", 7 0, L_000001b13e451620;  alias, 1 drivers
+L_000001b13e4516c0 .part L_000001b13e4520c0, 0, 1;
+L_000001b13e452840 .part L_000001b13e4522a0, 0, 1;
+L_000001b13e452480 .part L_000001b13e4520c0, 1, 1;
+L_000001b13e452ac0 .part L_000001b13e4522a0, 1, 1;
+L_000001b13e451940 .part L_000001b13e4520c0, 2, 1;
+L_000001b13e450360 .part L_000001b13e4522a0, 2, 1;
+L_000001b13e450680 .part L_000001b13e4520c0, 3, 1;
+L_000001b13e4504a0 .part L_000001b13e4522a0, 3, 1;
+L_000001b13e452160 .part L_000001b13e4520c0, 4, 1;
+L_000001b13e450540 .part L_000001b13e4522a0, 4, 1;
+L_000001b13e4505e0 .part L_000001b13e4520c0, 5, 1;
+L_000001b13e4509a0 .part L_000001b13e4522a0, 5, 1;
+L_000001b13e450860 .part L_000001b13e4520c0, 6, 1;
+L_000001b13e451580 .part L_000001b13e4522a0, 6, 1;
+LS_000001b13e451620_0_0 .concat8 [ 1 1 1 1], L_000001b13e4619f0, L_000001b13e462630, L_000001b13e461360, L_000001b13e461ad0;
+LS_000001b13e451620_0_4 .concat8 [ 1 1 1 1], L_000001b13e462940, L_000001b13e4617c0, L_000001b13e4624e0, L_000001b13e4618a0;
+L_000001b13e451620 .concat8 [ 4 4 0 0], LS_000001b13e451620_0_0, LS_000001b13e451620_0_4;
+L_000001b13e451d00 .part L_000001b13e4520c0, 7, 1;
+L_000001b13e451da0 .part L_000001b13e4522a0, 7, 1;
+S_000001b13e416ea0 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e416220;
+ .timescale -9 -12;
+P_000001b13e374ba0 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e4163b0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e416ea0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4625c0 .functor NAND 1, L_000001b13e4516c0, L_000001b13e452840, C4<1>, C4<1>;
+L_000001b13e4619f0 .functor NAND 1, L_000001b13e4625c0, L_000001b13e4625c0, C4<1>, C4<1>;
+v000001b13e40cff0_0 .net "A", 0 0, L_000001b13e4516c0;  1 drivers
+v000001b13e406970_0 .net "B", 0 0, L_000001b13e452840;  1 drivers
+v000001b13e406a10_0 .net "F", 0 0, L_000001b13e4619f0;  1 drivers
+v000001b13e406650_0 .net "P", 0 0, L_000001b13e4625c0;  1 drivers
+S_000001b13e416090 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e416220;
+ .timescale -9 -12;
+P_000001b13e374ae0 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e417030 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e416090;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4613d0 .functor NAND 1, L_000001b13e452480, L_000001b13e452ac0, C4<1>, C4<1>;
+L_000001b13e462630 .functor NAND 1, L_000001b13e4613d0, L_000001b13e4613d0, C4<1>, C4<1>;
+v000001b13e4057f0_0 .net "A", 0 0, L_000001b13e452480;  1 drivers
+v000001b13e407410_0 .net "B", 0 0, L_000001b13e452ac0;  1 drivers
+v000001b13e406510_0 .net "F", 0 0, L_000001b13e462630;  1 drivers
+v000001b13e4066f0_0 .net "P", 0 0, L_000001b13e4613d0;  1 drivers
+S_000001b13e416540 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e416220;
+ .timescale -9 -12;
+P_000001b13e3756a0 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e415280 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e416540;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4629b0 .functor NAND 1, L_000001b13e451940, L_000001b13e450360, C4<1>, C4<1>;
+L_000001b13e461360 .functor NAND 1, L_000001b13e4629b0, L_000001b13e4629b0, C4<1>, C4<1>;
+v000001b13e405b10_0 .net "A", 0 0, L_000001b13e451940;  1 drivers
+v000001b13e4054d0_0 .net "B", 0 0, L_000001b13e450360;  1 drivers
+v000001b13e406ab0_0 .net "F", 0 0, L_000001b13e461360;  1 drivers
+v000001b13e4072d0_0 .net "P", 0 0, L_000001b13e4629b0;  1 drivers
+S_000001b13e4169f0 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e416220;
+ .timescale -9 -12;
+P_000001b13e375020 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e418b90 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4169f0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461a60 .functor NAND 1, L_000001b13e450680, L_000001b13e4504a0, C4<1>, C4<1>;
+L_000001b13e461ad0 .functor NAND 1, L_000001b13e461a60, L_000001b13e461a60, C4<1>, C4<1>;
+v000001b13e406790_0 .net "A", 0 0, L_000001b13e450680;  1 drivers
+v000001b13e4065b0_0 .net "B", 0 0, L_000001b13e4504a0;  1 drivers
+v000001b13e405570_0 .net "F", 0 0, L_000001b13e461ad0;  1 drivers
+v000001b13e406bf0_0 .net "P", 0 0, L_000001b13e461a60;  1 drivers
+S_000001b13e418870 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e416220;
+ .timescale -9 -12;
+P_000001b13e3754a0 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e418d20 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e418870;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462080 .functor NAND 1, L_000001b13e452160, L_000001b13e450540, C4<1>, C4<1>;
+L_000001b13e462940 .functor NAND 1, L_000001b13e462080, L_000001b13e462080, C4<1>, C4<1>;
+v000001b13e406830_0 .net "A", 0 0, L_000001b13e452160;  1 drivers
+v000001b13e4059d0_0 .net "B", 0 0, L_000001b13e450540;  1 drivers
+v000001b13e406b50_0 .net "F", 0 0, L_000001b13e462940;  1 drivers
+v000001b13e406c90_0 .net "P", 0 0, L_000001b13e462080;  1 drivers
+S_000001b13e418a00 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e416220;
+ .timescale -9 -12;
+P_000001b13e374d60 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e417420 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e418a00;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4622b0 .functor NAND 1, L_000001b13e4505e0, L_000001b13e4509a0, C4<1>, C4<1>;
+L_000001b13e4617c0 .functor NAND 1, L_000001b13e4622b0, L_000001b13e4622b0, C4<1>, C4<1>;
+v000001b13e407870_0 .net "A", 0 0, L_000001b13e4505e0;  1 drivers
+v000001b13e406d30_0 .net "B", 0 0, L_000001b13e4509a0;  1 drivers
+v000001b13e4060b0_0 .net "F", 0 0, L_000001b13e4617c0;  1 drivers
+v000001b13e406010_0 .net "P", 0 0, L_000001b13e4622b0;  1 drivers
+S_000001b13e4180a0 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e416220;
+ .timescale -9 -12;
+P_000001b13e374f60 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e417a60 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4180a0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461280 .functor NAND 1, L_000001b13e450860, L_000001b13e451580, C4<1>, C4<1>;
+L_000001b13e4624e0 .functor NAND 1, L_000001b13e461280, L_000001b13e461280, C4<1>, C4<1>;
+v000001b13e407690_0 .net "A", 0 0, L_000001b13e450860;  1 drivers
+v000001b13e4068d0_0 .net "B", 0 0, L_000001b13e451580;  1 drivers
+v000001b13e405d90_0 .net "F", 0 0, L_000001b13e4624e0;  1 drivers
+v000001b13e405c50_0 .net "P", 0 0, L_000001b13e461280;  1 drivers
+S_000001b13e417f10 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e416220;
+ .timescale -9 -12;
+P_000001b13e3757e0 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e417d80 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e417f10;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461b40 .functor NAND 1, L_000001b13e451d00, L_000001b13e451da0, C4<1>, C4<1>;
+L_000001b13e4618a0 .functor NAND 1, L_000001b13e461b40, L_000001b13e461b40, C4<1>, C4<1>;
+v000001b13e407910_0 .net "A", 0 0, L_000001b13e451d00;  1 drivers
+v000001b13e4079b0_0 .net "B", 0 0, L_000001b13e451da0;  1 drivers
+v000001b13e406dd0_0 .net "F", 0 0, L_000001b13e4618a0;  1 drivers
+v000001b13e407730_0 .net "P", 0 0, L_000001b13e461b40;  1 drivers
+S_000001b13e418eb0 .scope module, "and3" "and8b" 2 104, 2 50 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e429ef0_0 .net "A", 7 0, o000001b13e3a4eb8;  alias, 0 drivers
+v000001b13e429bd0_0 .net "B", 7 0, L_000001b13e453b00;  1 drivers
+v000001b13e429c70_0 .net "F", 7 0, L_000001b13e451120;  alias, 1 drivers
+L_000001b13e451e40 .part o000001b13e3a4eb8, 0, 1;
+L_000001b13e451ee0 .part L_000001b13e453b00, 0, 1;
+L_000001b13e451f80 .part o000001b13e3a4eb8, 1, 1;
+L_000001b13e450a40 .part L_000001b13e453b00, 1, 1;
+L_000001b13e450900 .part o000001b13e3a4eb8, 2, 1;
+L_000001b13e450b80 .part L_000001b13e453b00, 2, 1;
+L_000001b13e452020 .part o000001b13e3a4eb8, 3, 1;
+L_000001b13e450ae0 .part L_000001b13e453b00, 3, 1;
+L_000001b13e452340 .part o000001b13e3a4eb8, 4, 1;
+L_000001b13e450c20 .part L_000001b13e453b00, 4, 1;
+L_000001b13e450d60 .part o000001b13e3a4eb8, 5, 1;
+L_000001b13e450e00 .part L_000001b13e453b00, 5, 1;
+L_000001b13e450ea0 .part o000001b13e3a4eb8, 6, 1;
+L_000001b13e450fe0 .part L_000001b13e453b00, 6, 1;
+LS_000001b13e451120_0_0 .concat8 [ 1 1 1 1], L_000001b13e4626a0, L_000001b13e462320, L_000001b13e462160, L_000001b13e461d00;
+LS_000001b13e451120_0_4 .concat8 [ 1 1 1 1], L_000001b13e4612f0, L_000001b13e462b00, L_000001b13e461d70, L_000001b13e461440;
+L_000001b13e451120 .concat8 [ 4 4 0 0], LS_000001b13e451120_0_0, LS_000001b13e451120_0_4;
+L_000001b13e453920 .part o000001b13e3a4eb8, 7, 1;
+L_000001b13e454c80 .part L_000001b13e453b00, 7, 1;
+S_000001b13e417740 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e418eb0;
+ .timescale -9 -12;
+P_000001b13e3752e0 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e4186e0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e417740;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4610c0 .functor NAND 1, L_000001b13e451e40, L_000001b13e451ee0, C4<1>, C4<1>;
+L_000001b13e4626a0 .functor NAND 1, L_000001b13e4610c0, L_000001b13e4610c0, C4<1>, C4<1>;
+v000001b13e4075f0_0 .net "A", 0 0, L_000001b13e451e40;  1 drivers
+v000001b13e4077d0_0 .net "B", 0 0, L_000001b13e451ee0;  1 drivers
+v000001b13e406f10_0 .net "F", 0 0, L_000001b13e4626a0;  1 drivers
+v000001b13e405250_0 .net "P", 0 0, L_000001b13e4610c0;  1 drivers
+S_000001b13e418230 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e418eb0;
+ .timescale -9 -12;
+P_000001b13e375720 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e417290 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e418230;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4620f0 .functor NAND 1, L_000001b13e451f80, L_000001b13e450a40, C4<1>, C4<1>;
+L_000001b13e462320 .functor NAND 1, L_000001b13e4620f0, L_000001b13e4620f0, C4<1>, C4<1>;
+v000001b13e4052f0_0 .net "A", 0 0, L_000001b13e451f80;  1 drivers
+v000001b13e407230_0 .net "B", 0 0, L_000001b13e450a40;  1 drivers
+v000001b13e405bb0_0 .net "F", 0 0, L_000001b13e462320;  1 drivers
+v000001b13e406fb0_0 .net "P", 0 0, L_000001b13e4620f0;  1 drivers
+S_000001b13e419040 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e418eb0;
+ .timescale -9 -12;
+P_000001b13e374fe0 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e417bf0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e419040;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462a90 .functor NAND 1, L_000001b13e450900, L_000001b13e450b80, C4<1>, C4<1>;
+L_000001b13e462160 .functor NAND 1, L_000001b13e462a90, L_000001b13e462a90, C4<1>, C4<1>;
+v000001b13e407050_0 .net "A", 0 0, L_000001b13e450900;  1 drivers
+v000001b13e405cf0_0 .net "B", 0 0, L_000001b13e450b80;  1 drivers
+v000001b13e407370_0 .net "F", 0 0, L_000001b13e462160;  1 drivers
+v000001b13e4070f0_0 .net "P", 0 0, L_000001b13e462a90;  1 drivers
+S_000001b13e4183c0 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e418eb0;
+ .timescale -9 -12;
+P_000001b13e374da0 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e4175b0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4183c0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462a20 .functor NAND 1, L_000001b13e452020, L_000001b13e450ae0, C4<1>, C4<1>;
+L_000001b13e461d00 .functor NAND 1, L_000001b13e462a20, L_000001b13e462a20, C4<1>, C4<1>;
+v000001b13e407190_0 .net "A", 0 0, L_000001b13e452020;  1 drivers
+v000001b13e407550_0 .net "B", 0 0, L_000001b13e450ae0;  1 drivers
+v000001b13e406290_0 .net "F", 0 0, L_000001b13e461d00;  1 drivers
+v000001b13e405e30_0 .net "P", 0 0, L_000001b13e462a20;  1 drivers
+S_000001b13e4178d0 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e418eb0;
+ .timescale -9 -12;
+P_000001b13e3755a0 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e418550 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4178d0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4621d0 .functor NAND 1, L_000001b13e452340, L_000001b13e450c20, C4<1>, C4<1>;
+L_000001b13e4612f0 .functor NAND 1, L_000001b13e4621d0, L_000001b13e4621d0, C4<1>, C4<1>;
+v000001b13e405750_0 .net "A", 0 0, L_000001b13e452340;  1 drivers
+v000001b13e405ed0_0 .net "B", 0 0, L_000001b13e450c20;  1 drivers
+v000001b13e405f70_0 .net "F", 0 0, L_000001b13e4612f0;  1 drivers
+v000001b13e406150_0 .net "P", 0 0, L_000001b13e4621d0;  1 drivers
+S_000001b13e422890 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e418eb0;
+ .timescale -9 -12;
+P_000001b13e375060 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e421760 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e422890;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461980 .functor NAND 1, L_000001b13e450d60, L_000001b13e450e00, C4<1>, C4<1>;
+L_000001b13e462b00 .functor NAND 1, L_000001b13e461980, L_000001b13e461980, C4<1>, C4<1>;
+v000001b13e405390_0 .net "A", 0 0, L_000001b13e450d60;  1 drivers
+v000001b13e405430_0 .net "B", 0 0, L_000001b13e450e00;  1 drivers
+v000001b13e405610_0 .net "F", 0 0, L_000001b13e462b00;  1 drivers
+v000001b13e4056b0_0 .net "P", 0 0, L_000001b13e461980;  1 drivers
+S_000001b13e422d40 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e418eb0;
+ .timescale -9 -12;
+P_000001b13e3753e0 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e422bb0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e422d40;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4611a0 .functor NAND 1, L_000001b13e450ea0, L_000001b13e450fe0, C4<1>, C4<1>;
+L_000001b13e461d70 .functor NAND 1, L_000001b13e4611a0, L_000001b13e4611a0, C4<1>, C4<1>;
+v000001b13e4061f0_0 .net "A", 0 0, L_000001b13e450ea0;  1 drivers
+v000001b13e406330_0 .net "B", 0 0, L_000001b13e450fe0;  1 drivers
+v000001b13e405890_0 .net "F", 0 0, L_000001b13e461d70;  1 drivers
+v000001b13e405930_0 .net "P", 0 0, L_000001b13e4611a0;  1 drivers
+S_000001b13e4218f0 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e418eb0;
+ .timescale -9 -12;
+P_000001b13e374ea0 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e421c10 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4218f0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461de0 .functor NAND 1, L_000001b13e453920, L_000001b13e454c80, C4<1>, C4<1>;
+L_000001b13e461440 .functor NAND 1, L_000001b13e461de0, L_000001b13e461de0, C4<1>, C4<1>;
+v000001b13e4063d0_0 .net "A", 0 0, L_000001b13e453920;  1 drivers
+v000001b13e406470_0 .net "B", 0 0, L_000001b13e454c80;  1 drivers
+v000001b13e428870_0 .net "F", 0 0, L_000001b13e461440;  1 drivers
+v000001b13e42a990_0 .net "P", 0 0, L_000001b13e461de0;  1 drivers
+S_000001b13e421da0 .scope module, "and4" "and8b" 2 105, 2 50 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e429590_0 .net "A", 7 0, L_000001b13e451120;  alias, 1 drivers
+v000001b13e4284b0_0 .net "B", 7 0, L_000001b13e454e60;  1 drivers
+v000001b13e428550_0 .net "F", 7 0, L_000001b13e4550e0;  alias, 1 drivers
+L_000001b13e455220 .part L_000001b13e451120, 0, 1;
+L_000001b13e454280 .part L_000001b13e454e60, 0, 1;
+L_000001b13e454be0 .part L_000001b13e451120, 1, 1;
+L_000001b13e454d20 .part L_000001b13e454e60, 1, 1;
+L_000001b13e454000 .part L_000001b13e451120, 2, 1;
+L_000001b13e453f60 .part L_000001b13e454e60, 2, 1;
+L_000001b13e452ca0 .part L_000001b13e451120, 3, 1;
+L_000001b13e452fc0 .part L_000001b13e454e60, 3, 1;
+L_000001b13e4537e0 .part L_000001b13e451120, 4, 1;
+L_000001b13e4546e0 .part L_000001b13e454e60, 4, 1;
+L_000001b13e453880 .part L_000001b13e451120, 5, 1;
+L_000001b13e454dc0 .part L_000001b13e454e60, 5, 1;
+L_000001b13e4534c0 .part L_000001b13e451120, 6, 1;
+L_000001b13e4540a0 .part L_000001b13e454e60, 6, 1;
+LS_000001b13e4550e0_0_0 .concat8 [ 1 1 1 1], L_000001b13e462710, L_000001b13e462240, L_000001b13e462390, L_000001b13e460f70;
+LS_000001b13e4550e0_0_4 .concat8 [ 1 1 1 1], L_000001b13e462780, L_000001b13e462400, L_000001b13e462860, L_000001b13e4628d0;
+L_000001b13e4550e0 .concat8 [ 4 4 0 0], LS_000001b13e4550e0_0_0, LS_000001b13e4550e0_0_4;
+L_000001b13e453e20 .part L_000001b13e451120, 7, 1;
+L_000001b13e454140 .part L_000001b13e454e60, 7, 1;
+S_000001b13e4220c0 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e421da0;
+ .timescale -9 -12;
+P_000001b13e375820 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e421f30 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4220c0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461e50 .functor NAND 1, L_000001b13e455220, L_000001b13e454280, C4<1>, C4<1>;
+L_000001b13e462710 .functor NAND 1, L_000001b13e461e50, L_000001b13e461e50, C4<1>, C4<1>;
+v000001b13e42a350_0 .net "A", 0 0, L_000001b13e455220;  1 drivers
+v000001b13e42a5d0_0 .net "B", 0 0, L_000001b13e454280;  1 drivers
+v000001b13e42a670_0 .net "F", 0 0, L_000001b13e462710;  1 drivers
+v000001b13e428b90_0 .net "P", 0 0, L_000001b13e461e50;  1 drivers
+S_000001b13e422570 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e421da0;
+ .timescale -9 -12;
+P_000001b13e3750a0 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e422250 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e422570;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462470 .functor NAND 1, L_000001b13e454be0, L_000001b13e454d20, C4<1>, C4<1>;
+L_000001b13e462240 .functor NAND 1, L_000001b13e462470, L_000001b13e462470, C4<1>, C4<1>;
+v000001b13e4285f0_0 .net "A", 0 0, L_000001b13e454be0;  1 drivers
+v000001b13e42aa30_0 .net "B", 0 0, L_000001b13e454d20;  1 drivers
+v000001b13e42a8f0_0 .net "F", 0 0, L_000001b13e462240;  1 drivers
+v000001b13e429e50_0 .net "P", 0 0, L_000001b13e462470;  1 drivers
+S_000001b13e4223e0 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e421da0;
+ .timescale -9 -12;
+P_000001b13e375860 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e421a80 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4223e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461520 .functor NAND 1, L_000001b13e454000, L_000001b13e453f60, C4<1>, C4<1>;
+L_000001b13e462390 .functor NAND 1, L_000001b13e461520, L_000001b13e461520, C4<1>, C4<1>;
+v000001b13e429450_0 .net "A", 0 0, L_000001b13e454000;  1 drivers
+v000001b13e428eb0_0 .net "B", 0 0, L_000001b13e453f60;  1 drivers
+v000001b13e42a710_0 .net "F", 0 0, L_000001b13e462390;  1 drivers
+v000001b13e4282d0_0 .net "P", 0 0, L_000001b13e461520;  1 drivers
+S_000001b13e422700 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e421da0;
+ .timescale -9 -12;
+P_000001b13e374ee0 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e422a20 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e422700;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461c20 .functor NAND 1, L_000001b13e452ca0, L_000001b13e452fc0, C4<1>, C4<1>;
+L_000001b13e460f70 .functor NAND 1, L_000001b13e461c20, L_000001b13e461c20, C4<1>, C4<1>;
+v000001b13e42a7b0_0 .net "A", 0 0, L_000001b13e452ca0;  1 drivers
+v000001b13e4296d0_0 .net "B", 0 0, L_000001b13e452fc0;  1 drivers
+v000001b13e42a850_0 .net "F", 0 0, L_000001b13e460f70;  1 drivers
+v000001b13e428ff0_0 .net "P", 0 0, L_000001b13e461c20;  1 drivers
+S_000001b13e4212b0 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e421da0;
+ .timescale -9 -12;
+P_000001b13e375160 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e422ed0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4212b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e460fe0 .functor NAND 1, L_000001b13e4537e0, L_000001b13e4546e0, C4<1>, C4<1>;
+L_000001b13e462780 .functor NAND 1, L_000001b13e460fe0, L_000001b13e460fe0, C4<1>, C4<1>;
+v000001b13e428c30_0 .net "A", 0 0, L_000001b13e4537e0;  1 drivers
+v000001b13e429770_0 .net "B", 0 0, L_000001b13e4546e0;  1 drivers
+v000001b13e429f90_0 .net "F", 0 0, L_000001b13e462780;  1 drivers
+v000001b13e428cd0_0 .net "P", 0 0, L_000001b13e460fe0;  1 drivers
+S_000001b13e4215d0 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e421da0;
+ .timescale -9 -12;
+P_000001b13e375920 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e423060 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4215d0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461c90 .functor NAND 1, L_000001b13e453880, L_000001b13e454dc0, C4<1>, C4<1>;
+L_000001b13e462400 .functor NAND 1, L_000001b13e461c90, L_000001b13e461c90, C4<1>, C4<1>;
+v000001b13e429090_0 .net "A", 0 0, L_000001b13e453880;  1 drivers
+v000001b13e428730_0 .net "B", 0 0, L_000001b13e454dc0;  1 drivers
+v000001b13e4294f0_0 .net "F", 0 0, L_000001b13e462400;  1 drivers
+v000001b13e429130_0 .net "P", 0 0, L_000001b13e461c90;  1 drivers
+S_000001b13e421440 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e421da0;
+ .timescale -9 -12;
+P_000001b13e375960 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e42cbd0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e421440;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4627f0 .functor NAND 1, L_000001b13e4534c0, L_000001b13e4540a0, C4<1>, C4<1>;
+L_000001b13e462860 .functor NAND 1, L_000001b13e4627f0, L_000001b13e4627f0, C4<1>, C4<1>;
+v000001b13e428370_0 .net "A", 0 0, L_000001b13e4534c0;  1 drivers
+v000001b13e4291d0_0 .net "B", 0 0, L_000001b13e4540a0;  1 drivers
+v000001b13e428410_0 .net "F", 0 0, L_000001b13e462860;  1 drivers
+v000001b13e429270_0 .net "P", 0 0, L_000001b13e4627f0;  1 drivers
+S_000001b13e42baa0 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e421da0;
+ .timescale -9 -12;
+P_000001b13e3749a0 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e42e4d0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42baa0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462550 .functor NAND 1, L_000001b13e453e20, L_000001b13e454140, C4<1>, C4<1>;
+L_000001b13e4628d0 .functor NAND 1, L_000001b13e462550, L_000001b13e462550, C4<1>, C4<1>;
+v000001b13e428690_0 .net "A", 0 0, L_000001b13e453e20;  1 drivers
+v000001b13e429310_0 .net "B", 0 0, L_000001b13e454140;  1 drivers
+v000001b13e42a2b0_0 .net "F", 0 0, L_000001b13e4628d0;  1 drivers
+v000001b13e42a530_0 .net "P", 0 0, L_000001b13e462550;  1 drivers
+S_000001b13e42e020 .scope module, "and5" "and8b" 2 107, 2 50 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e42ab70_0 .net "A", 7 0, o000001b13e3a65c8;  alias, 0 drivers
+v000001b13e42ad50_0 .net "B", 7 0, L_000001b13e4539c0;  1 drivers
+v000001b13e42b070_0 .net "F", 7 0, L_000001b13e453060;  alias, 1 drivers
+L_000001b13e452b60 .part o000001b13e3a65c8, 0, 1;
+L_000001b13e454f00 .part L_000001b13e4539c0, 0, 1;
+L_000001b13e4531a0 .part o000001b13e3a65c8, 1, 1;
+L_000001b13e454fa0 .part L_000001b13e4539c0, 1, 1;
+L_000001b13e453600 .part o000001b13e3a65c8, 2, 1;
+L_000001b13e454460 .part L_000001b13e4539c0, 2, 1;
+L_000001b13e454640 .part o000001b13e3a65c8, 3, 1;
+L_000001b13e454820 .part L_000001b13e4539c0, 3, 1;
+L_000001b13e453a60 .part o000001b13e3a65c8, 4, 1;
+L_000001b13e455040 .part L_000001b13e4539c0, 4, 1;
+L_000001b13e4543c0 .part o000001b13e3a65c8, 5, 1;
+L_000001b13e4536a0 .part L_000001b13e4539c0, 5, 1;
+L_000001b13e453740 .part o000001b13e3a65c8, 6, 1;
+L_000001b13e453ce0 .part L_000001b13e4539c0, 6, 1;
+LS_000001b13e453060_0_0 .concat8 [ 1 1 1 1], L_000001b13e461ec0, L_000001b13e4614b0, L_000001b13e461600, L_000001b13e4616e0;
+LS_000001b13e453060_0_4 .concat8 [ 1 1 1 1], L_000001b13e461f30, L_000001b13e461830, L_000001b13e463270, L_000001b13e462b70;
+L_000001b13e453060 .concat8 [ 4 4 0 0], LS_000001b13e453060_0_0, LS_000001b13e453060_0_4;
+L_000001b13e452f20 .part o000001b13e3a65c8, 7, 1;
+L_000001b13e453c40 .part L_000001b13e4539c0, 7, 1;
+S_000001b13e42cd60 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e42e020;
+ .timescale -9 -12;
+P_000001b13e375220 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e42bf50 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42cd60;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461130 .functor NAND 1, L_000001b13e452b60, L_000001b13e454f00, C4<1>, C4<1>;
+L_000001b13e461ec0 .functor NAND 1, L_000001b13e461130, L_000001b13e461130, C4<1>, C4<1>;
+v000001b13e42a3f0_0 .net "A", 0 0, L_000001b13e452b60;  1 drivers
+v000001b13e4293b0_0 .net "B", 0 0, L_000001b13e454f00;  1 drivers
+v000001b13e42a490_0 .net "F", 0 0, L_000001b13e461ec0;  1 drivers
+v000001b13e4287d0_0 .net "P", 0 0, L_000001b13e461130;  1 drivers
+S_000001b13e42b910 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e42e020;
+ .timescale -9 -12;
+P_000001b13e3752a0 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e42c0e0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42b910;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461210 .functor NAND 1, L_000001b13e4531a0, L_000001b13e454fa0, C4<1>, C4<1>;
+L_000001b13e4614b0 .functor NAND 1, L_000001b13e461210, L_000001b13e461210, C4<1>, C4<1>;
+v000001b13e428910_0 .net "A", 0 0, L_000001b13e4531a0;  1 drivers
+v000001b13e428d70_0 .net "B", 0 0, L_000001b13e454fa0;  1 drivers
+v000001b13e428af0_0 .net "F", 0 0, L_000001b13e4614b0;  1 drivers
+v000001b13e429630_0 .net "P", 0 0, L_000001b13e461210;  1 drivers
+S_000001b13e42b460 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e42e020;
+ .timescale -9 -12;
+P_000001b13e375560 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e42de90 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42b460;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461590 .functor NAND 1, L_000001b13e453600, L_000001b13e454460, C4<1>, C4<1>;
+L_000001b13e461600 .functor NAND 1, L_000001b13e461590, L_000001b13e461590, C4<1>, C4<1>;
+v000001b13e429810_0 .net "A", 0 0, L_000001b13e453600;  1 drivers
+v000001b13e428e10_0 .net "B", 0 0, L_000001b13e454460;  1 drivers
+v000001b13e4298b0_0 .net "F", 0 0, L_000001b13e461600;  1 drivers
+v000001b13e428f50_0 .net "P", 0 0, L_000001b13e461590;  1 drivers
+S_000001b13e42d850 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e42e020;
+ .timescale -9 -12;
+P_000001b13e375620 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e42e7f0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42d850;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461670 .functor NAND 1, L_000001b13e454640, L_000001b13e454820, C4<1>, C4<1>;
+L_000001b13e4616e0 .functor NAND 1, L_000001b13e461670, L_000001b13e461670, C4<1>, C4<1>;
+v000001b13e4289b0_0 .net "A", 0 0, L_000001b13e454640;  1 drivers
+v000001b13e428a50_0 .net "B", 0 0, L_000001b13e454820;  1 drivers
+v000001b13e429950_0 .net "F", 0 0, L_000001b13e4616e0;  1 drivers
+v000001b13e4299f0_0 .net "P", 0 0, L_000001b13e461670;  1 drivers
+S_000001b13e42dd00 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e42e020;
+ .timescale -9 -12;
+P_000001b13e374b60 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e42e660 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42dd00;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e461750 .functor NAND 1, L_000001b13e453a60, L_000001b13e455040, C4<1>, C4<1>;
+L_000001b13e461f30 .functor NAND 1, L_000001b13e461750, L_000001b13e461750, C4<1>, C4<1>;
+v000001b13e429a90_0 .net "A", 0 0, L_000001b13e453a60;  1 drivers
+v000001b13e429b30_0 .net "B", 0 0, L_000001b13e455040;  1 drivers
+v000001b13e429d10_0 .net "F", 0 0, L_000001b13e461f30;  1 drivers
+v000001b13e429db0_0 .net "P", 0 0, L_000001b13e461750;  1 drivers
+S_000001b13e42cef0 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e42e020;
+ .timescale -9 -12;
+P_000001b13e376320 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e42bc30 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42cef0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462010 .functor NAND 1, L_000001b13e4543c0, L_000001b13e4536a0, C4<1>, C4<1>;
+L_000001b13e461830 .functor NAND 1, L_000001b13e462010, L_000001b13e462010, C4<1>, C4<1>;
+v000001b13e42a030_0 .net "A", 0 0, L_000001b13e4543c0;  1 drivers
+v000001b13e42a0d0_0 .net "B", 0 0, L_000001b13e4536a0;  1 drivers
+v000001b13e42a170_0 .net "F", 0 0, L_000001b13e461830;  1 drivers
+v000001b13e42a210_0 .net "P", 0 0, L_000001b13e462010;  1 drivers
+S_000001b13e42c270 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e42e020;
+ .timescale -9 -12;
+P_000001b13e375ce0 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e42c400 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42c270;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e463200 .functor NAND 1, L_000001b13e453740, L_000001b13e453ce0, C4<1>, C4<1>;
+L_000001b13e463270 .functor NAND 1, L_000001b13e463200, L_000001b13e463200, C4<1>, C4<1>;
+v000001b13e42aad0_0 .net "A", 0 0, L_000001b13e453740;  1 drivers
+v000001b13e42afd0_0 .net "B", 0 0, L_000001b13e453ce0;  1 drivers
+v000001b13e42af30_0 .net "F", 0 0, L_000001b13e463270;  1 drivers
+v000001b13e42ae90_0 .net "P", 0 0, L_000001b13e463200;  1 drivers
+S_000001b13e42bdc0 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e42e020;
+ .timescale -9 -12;
+P_000001b13e376760 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e42c590 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42bdc0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462da0 .functor NAND 1, L_000001b13e452f20, L_000001b13e453c40, C4<1>, C4<1>;
+L_000001b13e462b70 .functor NAND 1, L_000001b13e462da0, L_000001b13e462da0, C4<1>, C4<1>;
+v000001b13e42adf0_0 .net "A", 0 0, L_000001b13e452f20;  1 drivers
+v000001b13e42b110_0 .net "B", 0 0, L_000001b13e453c40;  1 drivers
+v000001b13e42b1b0_0 .net "F", 0 0, L_000001b13e462b70;  1 drivers
+v000001b13e42ac10_0 .net "P", 0 0, L_000001b13e462da0;  1 drivers
+S_000001b13e42d210 .scope module, "and6" "and8b" 2 108, 2 50 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e423d70_0 .net "A", 7 0, L_000001b13e453060;  alias, 1 drivers
+v000001b13e424450_0 .net "B", 7 0, L_000001b13e452de0;  1 drivers
+v000001b13e425850_0 .net "F", 7 0, L_000001b13e452d40;  alias, 1 drivers
+L_000001b13e453ec0 .part L_000001b13e453060, 0, 1;
+L_000001b13e453420 .part L_000001b13e452de0, 0, 1;
+L_000001b13e453560 .part L_000001b13e453060, 1, 1;
+L_000001b13e453d80 .part L_000001b13e452de0, 1, 1;
+L_000001b13e4548c0 .part L_000001b13e453060, 2, 1;
+L_000001b13e4541e0 .part L_000001b13e452de0, 2, 1;
+L_000001b13e455180 .part L_000001b13e453060, 3, 1;
+L_000001b13e4552c0 .part L_000001b13e452de0, 3, 1;
+L_000001b13e454320 .part L_000001b13e453060, 4, 1;
+L_000001b13e454500 .part L_000001b13e452de0, 4, 1;
+L_000001b13e4545a0 .part L_000001b13e453060, 5, 1;
+L_000001b13e454960 .part L_000001b13e452de0, 5, 1;
+L_000001b13e454a00 .part L_000001b13e453060, 6, 1;
+L_000001b13e454aa0 .part L_000001b13e452de0, 6, 1;
+LS_000001b13e452d40_0_0 .concat8 [ 1 1 1 1], L_000001b13e462c50, L_000001b13e462be0, L_000001b13e462cc0, L_000001b13e462d30;
+LS_000001b13e452d40_0_4 .concat8 [ 1 1 1 1], L_000001b13e462f60, L_000001b13e462fd0, L_000001b13e461910, L_000001b13e46daa0;
+L_000001b13e452d40 .concat8 [ 4 4 0 0], LS_000001b13e452d40_0_0, LS_000001b13e452d40_0_4;
+L_000001b13e454b40 .part L_000001b13e453060, 7, 1;
+L_000001b13e452c00 .part L_000001b13e452de0, 7, 1;
+S_000001b13e42c720 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e42d210;
+ .timescale -9 -12;
+P_000001b13e375de0 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e42d3a0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42c720;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462e80 .functor NAND 1, L_000001b13e453ec0, L_000001b13e453420, C4<1>, C4<1>;
+L_000001b13e462c50 .functor NAND 1, L_000001b13e462e80, L_000001b13e462e80, C4<1>, C4<1>;
+v000001b13e42acb0_0 .net "A", 0 0, L_000001b13e453ec0;  1 drivers
+v000001b13e4249f0_0 .net "B", 0 0, L_000001b13e453420;  1 drivers
+v000001b13e423c30_0 .net "F", 0 0, L_000001b13e462c50;  1 drivers
+v000001b13e4246d0_0 .net "P", 0 0, L_000001b13e462e80;  1 drivers
+S_000001b13e42c8b0 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e42d210;
+ .timescale -9 -12;
+P_000001b13e375ae0 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e42eca0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42c8b0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462ef0 .functor NAND 1, L_000001b13e453560, L_000001b13e453d80, C4<1>, C4<1>;
+L_000001b13e462be0 .functor NAND 1, L_000001b13e462ef0, L_000001b13e462ef0, C4<1>, C4<1>;
+v000001b13e423870_0 .net "A", 0 0, L_000001b13e453560;  1 drivers
+v000001b13e425490_0 .net "B", 0 0, L_000001b13e453d80;  1 drivers
+v000001b13e424590_0 .net "F", 0 0, L_000001b13e462be0;  1 drivers
+v000001b13e424770_0 .net "P", 0 0, L_000001b13e462ef0;  1 drivers
+S_000001b13e42ca40 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e42d210;
+ .timescale -9 -12;
+P_000001b13e3766a0 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e42eb10 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42ca40;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e463190 .functor NAND 1, L_000001b13e4548c0, L_000001b13e4541e0, C4<1>, C4<1>;
+L_000001b13e462cc0 .functor NAND 1, L_000001b13e463190, L_000001b13e463190, C4<1>, C4<1>;
+v000001b13e424310_0 .net "A", 0 0, L_000001b13e4548c0;  1 drivers
+v000001b13e424090_0 .net "B", 0 0, L_000001b13e4541e0;  1 drivers
+v000001b13e425530_0 .net "F", 0 0, L_000001b13e462cc0;  1 drivers
+v000001b13e425350_0 .net "P", 0 0, L_000001b13e463190;  1 drivers
+S_000001b13e42d530 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e42d210;
+ .timescale -9 -12;
+P_000001b13e376020 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e42ee30 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42d530;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e462e10 .functor NAND 1, L_000001b13e455180, L_000001b13e4552c0, C4<1>, C4<1>;
+L_000001b13e462d30 .functor NAND 1, L_000001b13e462e10, L_000001b13e462e10, C4<1>, C4<1>;
+v000001b13e4253f0_0 .net "A", 0 0, L_000001b13e455180;  1 drivers
+v000001b13e423730_0 .net "B", 0 0, L_000001b13e4552c0;  1 drivers
+v000001b13e4234b0_0 .net "F", 0 0, L_000001b13e462d30;  1 drivers
+v000001b13e4255d0_0 .net "P", 0 0, L_000001b13e462e10;  1 drivers
+S_000001b13e42d080 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e42d210;
+ .timescale -9 -12;
+P_000001b13e3764a0 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e42d6c0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42d080;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4630b0 .functor NAND 1, L_000001b13e454320, L_000001b13e454500, C4<1>, C4<1>;
+L_000001b13e462f60 .functor NAND 1, L_000001b13e4630b0, L_000001b13e4630b0, C4<1>, C4<1>;
+v000001b13e423370_0 .net "A", 0 0, L_000001b13e454320;  1 drivers
+v000001b13e423910_0 .net "B", 0 0, L_000001b13e454500;  1 drivers
+v000001b13e4237d0_0 .net "F", 0 0, L_000001b13e462f60;  1 drivers
+v000001b13e423550_0 .net "P", 0 0, L_000001b13e4630b0;  1 drivers
+S_000001b13e42b5f0 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e42d210;
+ .timescale -9 -12;
+P_000001b13e375da0 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e42d9e0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42b5f0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e463120 .functor NAND 1, L_000001b13e4545a0, L_000001b13e454960, C4<1>, C4<1>;
+L_000001b13e462fd0 .functor NAND 1, L_000001b13e463120, L_000001b13e463120, C4<1>, C4<1>;
+v000001b13e424130_0 .net "A", 0 0, L_000001b13e4545a0;  1 drivers
+v000001b13e4241d0_0 .net "B", 0 0, L_000001b13e454960;  1 drivers
+v000001b13e4239b0_0 .net "F", 0 0, L_000001b13e462fd0;  1 drivers
+v000001b13e4244f0_0 .net "P", 0 0, L_000001b13e463120;  1 drivers
+S_000001b13e42db70 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e42d210;
+ .timescale -9 -12;
+P_000001b13e375d60 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e42e1b0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42db70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e45f5a0 .functor NAND 1, L_000001b13e454a00, L_000001b13e454aa0, C4<1>, C4<1>;
+L_000001b13e461910 .functor NAND 1, L_000001b13e45f5a0, L_000001b13e45f5a0, C4<1>, C4<1>;
+v000001b13e424270_0 .net "A", 0 0, L_000001b13e454a00;  1 drivers
+v000001b13e424bd0_0 .net "B", 0 0, L_000001b13e454aa0;  1 drivers
+v000001b13e423b90_0 .net "F", 0 0, L_000001b13e461910;  1 drivers
+v000001b13e4243b0_0 .net "P", 0 0, L_000001b13e45f5a0;  1 drivers
+S_000001b13e42e980 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e42d210;
+ .timescale -9 -12;
+P_000001b13e375b60 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e42efc0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42e980;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e463040 .functor NAND 1, L_000001b13e454b40, L_000001b13e452c00, C4<1>, C4<1>;
+L_000001b13e46daa0 .functor NAND 1, L_000001b13e463040, L_000001b13e463040, C4<1>, C4<1>;
+v000001b13e424e50_0 .net "A", 0 0, L_000001b13e454b40;  1 drivers
+v000001b13e4257b0_0 .net "B", 0 0, L_000001b13e452c00;  1 drivers
+v000001b13e424630_0 .net "F", 0 0, L_000001b13e46daa0;  1 drivers
+v000001b13e424ef0_0 .net "P", 0 0, L_000001b13e463040;  1 drivers
+S_000001b13e42e340 .scope module, "and7" "and8b" 2 110, 2 50 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e427330_0 .net "A", 7 0, o000001b13e3a7cd8;  alias, 0 drivers
+v000001b13e427d30_0 .net "B", 7 0, L_000001b13e457200;  1 drivers
+v000001b13e427650_0 .net "F", 7 0, L_000001b13e456c60;  alias, 1 drivers
+L_000001b13e453100 .part o000001b13e3a7cd8, 0, 1;
+L_000001b13e452e80 .part L_000001b13e457200, 0, 1;
+L_000001b13e453240 .part o000001b13e3a7cd8, 1, 1;
+L_000001b13e4532e0 .part L_000001b13e457200, 1, 1;
+L_000001b13e453380 .part o000001b13e3a7cd8, 2, 1;
+L_000001b13e4564e0 .part L_000001b13e457200, 2, 1;
+L_000001b13e455b80 .part o000001b13e3a7cd8, 3, 1;
+L_000001b13e457520 .part L_000001b13e457200, 3, 1;
+L_000001b13e457660 .part o000001b13e3a7cd8, 4, 1;
+L_000001b13e457700 .part L_000001b13e457200, 4, 1;
+L_000001b13e455400 .part o000001b13e3a7cd8, 5, 1;
+L_000001b13e456260 .part L_000001b13e457200, 5, 1;
+L_000001b13e456ee0 .part o000001b13e3a7cd8, 6, 1;
+L_000001b13e457840 .part L_000001b13e457200, 6, 1;
+LS_000001b13e456c60_0_0 .concat8 [ 1 1 1 1], L_000001b13e46ec20, L_000001b13e46d720, L_000001b13e46e670, L_000001b13e46e440;
+LS_000001b13e456c60_0_4 .concat8 [ 1 1 1 1], L_000001b13e46e210, L_000001b13e46eb40, L_000001b13e46ebb0, L_000001b13e46ec90;
+L_000001b13e456c60 .concat8 [ 4 4 0 0], LS_000001b13e456c60_0_0, LS_000001b13e456c60_0_4;
+L_000001b13e457480 .part o000001b13e3a7cd8, 7, 1;
+L_000001b13e456e40 .part L_000001b13e457200, 7, 1;
+S_000001b13e42b2d0 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e42e340;
+ .timescale -9 -12;
+P_000001b13e376620 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e42b780 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e42b2d0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46ea60 .functor NAND 1, L_000001b13e453100, L_000001b13e452e80, C4<1>, C4<1>;
+L_000001b13e46ec20 .functor NAND 1, L_000001b13e46ea60, L_000001b13e46ea60, C4<1>, C4<1>;
+v000001b13e423af0_0 .net "A", 0 0, L_000001b13e453100;  1 drivers
+v000001b13e424db0_0 .net "B", 0 0, L_000001b13e452e80;  1 drivers
+v000001b13e4258f0_0 .net "F", 0 0, L_000001b13e46ec20;  1 drivers
+v000001b13e424810_0 .net "P", 0 0, L_000001b13e46ea60;  1 drivers
+S_000001b13e439230 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e42e340;
+ .timescale -9 -12;
+P_000001b13e375be0 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e4390a0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e439230;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46df00 .functor NAND 1, L_000001b13e453240, L_000001b13e4532e0, C4<1>, C4<1>;
+L_000001b13e46d720 .functor NAND 1, L_000001b13e46df00, L_000001b13e46df00, C4<1>, C4<1>;
+v000001b13e423a50_0 .net "A", 0 0, L_000001b13e453240;  1 drivers
+v000001b13e4248b0_0 .net "B", 0 0, L_000001b13e4532e0;  1 drivers
+v000001b13e425710_0 .net "F", 0 0, L_000001b13e46d720;  1 drivers
+v000001b13e424b30_0 .net "P", 0 0, L_000001b13e46df00;  1 drivers
+S_000001b13e43a810 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e42e340;
+ .timescale -9 -12;
+P_000001b13e3759e0 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e439870 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e43a810;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e3d0 .functor NAND 1, L_000001b13e453380, L_000001b13e4564e0, C4<1>, C4<1>;
+L_000001b13e46e670 .functor NAND 1, L_000001b13e46e3d0, L_000001b13e46e3d0, C4<1>, C4<1>;
+v000001b13e424950_0 .net "A", 0 0, L_000001b13e453380;  1 drivers
+v000001b13e425670_0 .net "B", 0 0, L_000001b13e4564e0;  1 drivers
+v000001b13e423cd0_0 .net "F", 0 0, L_000001b13e46e670;  1 drivers
+v000001b13e425990_0 .net "P", 0 0, L_000001b13e46e3d0;  1 drivers
+S_000001b13e4393c0 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e42e340;
+ .timescale -9 -12;
+P_000001b13e375fa0 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e439a00 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4393c0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46db10 .functor NAND 1, L_000001b13e455b80, L_000001b13e457520, C4<1>, C4<1>;
+L_000001b13e46e440 .functor NAND 1, L_000001b13e46db10, L_000001b13e46db10, C4<1>, C4<1>;
+v000001b13e423e10_0 .net "A", 0 0, L_000001b13e455b80;  1 drivers
+v000001b13e424f90_0 .net "B", 0 0, L_000001b13e457520;  1 drivers
+v000001b13e425a30_0 .net "F", 0 0, L_000001b13e46e440;  1 drivers
+v000001b13e424a90_0 .net "P", 0 0, L_000001b13e46db10;  1 drivers
+S_000001b13e4377a0 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e42e340;
+ .timescale -9 -12;
+P_000001b13e376520 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e43acc0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4377a0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e050 .functor NAND 1, L_000001b13e457660, L_000001b13e457700, C4<1>, C4<1>;
+L_000001b13e46e210 .functor NAND 1, L_000001b13e46e050, L_000001b13e46e050, C4<1>, C4<1>;
+v000001b13e425030_0 .net "A", 0 0, L_000001b13e457660;  1 drivers
+v000001b13e423eb0_0 .net "B", 0 0, L_000001b13e457700;  1 drivers
+v000001b13e423f50_0 .net "F", 0 0, L_000001b13e46e210;  1 drivers
+v000001b13e4250d0_0 .net "P", 0 0, L_000001b13e46e050;  1 drivers
+S_000001b13e4396e0 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e42e340;
+ .timescale -9 -12;
+P_000001b13e375e60 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e439550 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e4396e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46df70 .functor NAND 1, L_000001b13e455400, L_000001b13e456260, C4<1>, C4<1>;
+L_000001b13e46eb40 .functor NAND 1, L_000001b13e46df70, L_000001b13e46df70, C4<1>, C4<1>;
+v000001b13e423ff0_0 .net "A", 0 0, L_000001b13e455400;  1 drivers
+v000001b13e424c70_0 .net "B", 0 0, L_000001b13e456260;  1 drivers
+v000001b13e4235f0_0 .net "F", 0 0, L_000001b13e46eb40;  1 drivers
+v000001b13e4232d0_0 .net "P", 0 0, L_000001b13e46df70;  1 drivers
+S_000001b13e438a60 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e42e340;
+ .timescale -9 -12;
+P_000001b13e375ea0 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e438f10 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e438a60;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46dd40 .functor NAND 1, L_000001b13e456ee0, L_000001b13e457840, C4<1>, C4<1>;
+L_000001b13e46ebb0 .functor NAND 1, L_000001b13e46dd40, L_000001b13e46dd40, C4<1>, C4<1>;
+v000001b13e423410_0 .net "A", 0 0, L_000001b13e456ee0;  1 drivers
+v000001b13e424d10_0 .net "B", 0 0, L_000001b13e457840;  1 drivers
+v000001b13e425170_0 .net "F", 0 0, L_000001b13e46ebb0;  1 drivers
+v000001b13e425210_0 .net "P", 0 0, L_000001b13e46dd40;  1 drivers
+S_000001b13e439b90 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e42e340;
+ .timescale -9 -12;
+P_000001b13e3765a0 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e4388d0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e439b90;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46ead0 .functor NAND 1, L_000001b13e457480, L_000001b13e456e40, C4<1>, C4<1>;
+L_000001b13e46ec90 .functor NAND 1, L_000001b13e46ead0, L_000001b13e46ead0, C4<1>, C4<1>;
+v000001b13e4252b0_0 .net "A", 0 0, L_000001b13e457480;  1 drivers
+v000001b13e423690_0 .net "B", 0 0, L_000001b13e456e40;  1 drivers
+v000001b13e4264d0_0 .net "F", 0 0, L_000001b13e46ec90;  1 drivers
+v000001b13e4280f0_0 .net "P", 0 0, L_000001b13e46ead0;  1 drivers
+S_000001b13e4385b0 .scope module, "and8" "and8b" 2 111, 2 50 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e426750_0 .net "A", 7 0, L_000001b13e456c60;  alias, 1 drivers
+v000001b13e427290_0 .net "B", 7 0, L_000001b13e455360;  1 drivers
+v000001b13e427c90_0 .net "F", 7 0, L_000001b13e456800;  alias, 1 drivers
+L_000001b13e456080 .part L_000001b13e456c60, 0, 1;
+L_000001b13e4566c0 .part L_000001b13e455360, 0, 1;
+L_000001b13e456a80 .part L_000001b13e456c60, 1, 1;
+L_000001b13e456760 .part L_000001b13e455360, 1, 1;
+L_000001b13e4575c0 .part L_000001b13e456c60, 2, 1;
+L_000001b13e4554a0 .part L_000001b13e455360, 2, 1;
+L_000001b13e4570c0 .part L_000001b13e456c60, 3, 1;
+L_000001b13e4569e0 .part L_000001b13e455360, 3, 1;
+L_000001b13e4557c0 .part L_000001b13e456c60, 4, 1;
+L_000001b13e457ac0 .part L_000001b13e455360, 4, 1;
+L_000001b13e456300 .part L_000001b13e456c60, 5, 1;
+L_000001b13e4578e0 .part L_000001b13e455360, 5, 1;
+L_000001b13e455cc0 .part L_000001b13e456c60, 6, 1;
+L_000001b13e455c20 .part L_000001b13e455360, 6, 1;
+LS_000001b13e456800_0_0 .concat8 [ 1 1 1 1], L_000001b13e46e6e0, L_000001b13e46d950, L_000001b13e46d790, L_000001b13e46dfe0;
+LS_000001b13e456800_0_4 .concat8 [ 1 1 1 1], L_000001b13e46de20, L_000001b13e46e2f0, L_000001b13e46e9f0, L_000001b13e46d8e0;
+L_000001b13e456800 .concat8 [ 4 4 0 0], LS_000001b13e456800_0_0, LS_000001b13e456800_0_4;
+L_000001b13e456b20 .part L_000001b13e456c60, 7, 1;
+L_000001b13e455540 .part L_000001b13e455360, 7, 1;
+S_000001b13e437930 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 54, 2 54 0, S_000001b13e4385b0;
+ .timescale -9 -12;
+P_000001b13e376720 .param/l "i" 1 2 54, +C4<00>;
+S_000001b13e43ae50 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e437930;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e280 .functor NAND 1, L_000001b13e456080, L_000001b13e4566c0, C4<1>, C4<1>;
+L_000001b13e46e6e0 .functor NAND 1, L_000001b13e46e280, L_000001b13e46e280, C4<1>, C4<1>;
+v000001b13e4276f0_0 .net "A", 0 0, L_000001b13e456080;  1 drivers
+v000001b13e425fd0_0 .net "B", 0 0, L_000001b13e4566c0;  1 drivers
+v000001b13e426070_0 .net "F", 0 0, L_000001b13e46e6e0;  1 drivers
+v000001b13e427790_0 .net "P", 0 0, L_000001b13e46e280;  1 drivers
+S_000001b13e439d20 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 54, 2 54 0, S_000001b13e4385b0;
+ .timescale -9 -12;
+P_000001b13e3760e0 .param/l "i" 1 2 54, +C4<01>;
+S_000001b13e43a9a0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e439d20;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e1a0 .functor NAND 1, L_000001b13e456a80, L_000001b13e456760, C4<1>, C4<1>;
+L_000001b13e46d950 .functor NAND 1, L_000001b13e46e1a0, L_000001b13e46e1a0, C4<1>, C4<1>;
+v000001b13e428190_0 .net "A", 0 0, L_000001b13e456a80;  1 drivers
+v000001b13e425df0_0 .net "B", 0 0, L_000001b13e456760;  1 drivers
+v000001b13e4273d0_0 .net "F", 0 0, L_000001b13e46d950;  1 drivers
+v000001b13e426e30_0 .net "P", 0 0, L_000001b13e46e1a0;  1 drivers
+S_000001b13e43ab30 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 54, 2 54 0, S_000001b13e4385b0;
+ .timescale -9 -12;
+P_000001b13e376820 .param/l "i" 1 2 54, +C4<010>;
+S_000001b13e439eb0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e43ab30;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e360 .functor NAND 1, L_000001b13e4575c0, L_000001b13e4554a0, C4<1>, C4<1>;
+L_000001b13e46d790 .functor NAND 1, L_000001b13e46e360, L_000001b13e46e360, C4<1>, C4<1>;
+v000001b13e427b50_0 .net "A", 0 0, L_000001b13e4575c0;  1 drivers
+v000001b13e427bf0_0 .net "B", 0 0, L_000001b13e4554a0;  1 drivers
+v000001b13e427dd0_0 .net "F", 0 0, L_000001b13e46d790;  1 drivers
+v000001b13e427e70_0 .net "P", 0 0, L_000001b13e46e360;  1 drivers
+S_000001b13e438bf0 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 54, 2 54 0, S_000001b13e4385b0;
+ .timescale -9 -12;
+P_000001b13e376860 .param/l "i" 1 2 54, +C4<011>;
+S_000001b13e438d80 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e438bf0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e4b0 .functor NAND 1, L_000001b13e4570c0, L_000001b13e4569e0, C4<1>, C4<1>;
+L_000001b13e46dfe0 .functor NAND 1, L_000001b13e46e4b0, L_000001b13e46e4b0, C4<1>, C4<1>;
+v000001b13e4270b0_0 .net "A", 0 0, L_000001b13e4570c0;  1 drivers
+v000001b13e426b10_0 .net "B", 0 0, L_000001b13e4569e0;  1 drivers
+v000001b13e427150_0 .net "F", 0 0, L_000001b13e46dfe0;  1 drivers
+v000001b13e426110_0 .net "P", 0 0, L_000001b13e46e4b0;  1 drivers
+S_000001b13e437ac0 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 54, 2 54 0, S_000001b13e4385b0;
+ .timescale -9 -12;
+P_000001b13e376120 .param/l "i" 1 2 54, +C4<0100>;
+S_000001b13e43a360 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e437ac0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46d800 .functor NAND 1, L_000001b13e4557c0, L_000001b13e457ac0, C4<1>, C4<1>;
+L_000001b13e46de20 .functor NAND 1, L_000001b13e46d800, L_000001b13e46d800, C4<1>, C4<1>;
+v000001b13e426570_0 .net "A", 0 0, L_000001b13e4557c0;  1 drivers
+v000001b13e427470_0 .net "B", 0 0, L_000001b13e457ac0;  1 drivers
+v000001b13e427fb0_0 .net "F", 0 0, L_000001b13e46de20;  1 drivers
+v000001b13e4266b0_0 .net "P", 0 0, L_000001b13e46d800;  1 drivers
+S_000001b13e437c50 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 54, 2 54 0, S_000001b13e4385b0;
+ .timescale -9 -12;
+P_000001b13e375ca0 .param/l "i" 1 2 54, +C4<0101>;
+S_000001b13e438740 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e437c50;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e590 .functor NAND 1, L_000001b13e456300, L_000001b13e4578e0, C4<1>, C4<1>;
+L_000001b13e46e2f0 .functor NAND 1, L_000001b13e46e590, L_000001b13e46e590, C4<1>, C4<1>;
+v000001b13e425cb0_0 .net "A", 0 0, L_000001b13e456300;  1 drivers
+v000001b13e426610_0 .net "B", 0 0, L_000001b13e4578e0;  1 drivers
+v000001b13e4262f0_0 .net "F", 0 0, L_000001b13e46e2f0;  1 drivers
+v000001b13e4275b0_0 .net "P", 0 0, L_000001b13e46e590;  1 drivers
+S_000001b13e43a040 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 54, 2 54 0, S_000001b13e4385b0;
+ .timescale -9 -12;
+P_000001b13e3761a0 .param/l "i" 1 2 54, +C4<0110>;
+S_000001b13e43a1d0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e43a040;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46d6b0 .functor NAND 1, L_000001b13e455cc0, L_000001b13e455c20, C4<1>, C4<1>;
+L_000001b13e46e9f0 .functor NAND 1, L_000001b13e46d6b0, L_000001b13e46d6b0, C4<1>, C4<1>;
+v000001b13e426390_0 .net "A", 0 0, L_000001b13e455cc0;  1 drivers
+v000001b13e4278d0_0 .net "B", 0 0, L_000001b13e455c20;  1 drivers
+v000001b13e4271f0_0 .net "F", 0 0, L_000001b13e46e9f0;  1 drivers
+v000001b13e425b70_0 .net "P", 0 0, L_000001b13e46d6b0;  1 drivers
+S_000001b13e437f70 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 54, 2 54 0, S_000001b13e4385b0;
+ .timescale -9 -12;
+P_000001b13e376220 .param/l "i" 1 2 54, +C4<0111>;
+S_000001b13e43a4f0 .scope module, "AND_inst" "and1b" 2 55, 2 8 0, S_000001b13e437f70;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e520 .functor NAND 1, L_000001b13e456b20, L_000001b13e455540, C4<1>, C4<1>;
+L_000001b13e46d8e0 .functor NAND 1, L_000001b13e46e520, L_000001b13e46e520, C4<1>, C4<1>;
+v000001b13e427510_0 .net "A", 0 0, L_000001b13e456b20;  1 drivers
+v000001b13e426250_0 .net "B", 0 0, L_000001b13e455540;  1 drivers
+v000001b13e4267f0_0 .net "F", 0 0, L_000001b13e46d8e0;  1 drivers
+v000001b13e426430_0 .net "P", 0 0, L_000001b13e46e520;  1 drivers
+S_000001b13e43a680 .scope module, "not1" "not1b" 2 97, 2 2 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e4609c0 .functor NAND 1, L_000001b13e4518a0, L_000001b13e4518a0, C4<1>, C4<1>;
+v000001b13e428230_0 .net "A", 0 0, L_000001b13e4518a0;  1 drivers
+v000001b13e4261b0_0 .net "F", 0 0, L_000001b13e4609c0;  alias, 1 drivers
+S_000001b13e438100 .scope module, "not2" "not1b" 2 98, 2 2 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e45fbc0 .functor NAND 1, L_000001b13e4519e0, L_000001b13e4519e0, C4<1>, C4<1>;
+v000001b13e428050_0 .net "A", 0 0, L_000001b13e4519e0;  1 drivers
+v000001b13e425ad0_0 .net "F", 0 0, L_000001b13e45fbc0;  alias, 1 drivers
+S_000001b13e43afe0 .scope module, "or1" "or8b" 2 114, 2 61 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e4409a0_0 .net "A", 7 0, L_000001b13e451620;  alias, 1 drivers
+v000001b13e441940_0 .net "B", 7 0, L_000001b13e4550e0;  alias, 1 drivers
+v000001b13e43f460_0 .net "F", 7 0, L_000001b13e456580;  alias, 1 drivers
+L_000001b13e457020 .part L_000001b13e451620, 0, 1;
+L_000001b13e457340 .part L_000001b13e4550e0, 0, 1;
+L_000001b13e456440 .part L_000001b13e451620, 1, 1;
+L_000001b13e4568a0 .part L_000001b13e4550e0, 1, 1;
+L_000001b13e4561c0 .part L_000001b13e451620, 2, 1;
+L_000001b13e455d60 .part L_000001b13e4550e0, 2, 1;
+L_000001b13e455ae0 .part L_000001b13e451620, 3, 1;
+L_000001b13e456bc0 .part L_000001b13e4550e0, 3, 1;
+L_000001b13e4563a0 .part L_000001b13e451620, 4, 1;
+L_000001b13e456940 .part L_000001b13e4550e0, 4, 1;
+L_000001b13e455e00 .part L_000001b13e451620, 5, 1;
+L_000001b13e456f80 .part L_000001b13e4550e0, 5, 1;
+L_000001b13e455680 .part L_000001b13e451620, 6, 1;
+L_000001b13e456da0 .part L_000001b13e4550e0, 6, 1;
+LS_000001b13e456580_0_0 .concat8 [ 1 1 1 1], L_000001b13e46de90, L_000001b13e46ddb0, L_000001b13e46ee50, L_000001b13e46dbf0;
+LS_000001b13e456580_0_4 .concat8 [ 1 1 1 1], L_000001b13e46ede0, L_000001b13e46eec0, L_000001b13e46dcd0, L_000001b13e46d3a0;
+L_000001b13e456580 .concat8 [ 4 4 0 0], LS_000001b13e456580_0_0, LS_000001b13e456580_0_4;
+L_000001b13e455ea0 .part L_000001b13e451620, 7, 1;
+L_000001b13e457a20 .part L_000001b13e4550e0, 7, 1;
+S_000001b13e4372f0 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 65, 2 65 0, S_000001b13e43afe0;
+ .timescale -9 -12;
+P_000001b13e3759a0 .param/l "i" 1 2 65, +C4<00>;
+S_000001b13e437480 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e4372f0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46ed00 .functor NAND 1, L_000001b13e457020, L_000001b13e457020, C4<1>, C4<1>;
+L_000001b13e46e130 .functor NAND 1, L_000001b13e457340, L_000001b13e457340, C4<1>, C4<1>;
+L_000001b13e46de90 .functor NAND 1, L_000001b13e46ed00, L_000001b13e46e130, C4<1>, C4<1>;
+v000001b13e426890_0 .net "A", 0 0, L_000001b13e457020;  1 drivers
+v000001b13e426ed0_0 .net "B", 0 0, L_000001b13e457340;  1 drivers
+v000001b13e427830_0 .net "F", 0 0, L_000001b13e46de90;  1 drivers
+v000001b13e426930_0 .net "G", 0 0, L_000001b13e46ed00;  1 drivers
+v000001b13e426d90_0 .net "H", 0 0, L_000001b13e46e130;  1 drivers
+S_000001b13e437610 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 65, 2 65 0, S_000001b13e43afe0;
+ .timescale -9 -12;
+P_000001b13e375a20 .param/l "i" 1 2 65, +C4<01>;
+S_000001b13e437de0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e437610;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46db80 .functor NAND 1, L_000001b13e456440, L_000001b13e456440, C4<1>, C4<1>;
+L_000001b13e46e600 .functor NAND 1, L_000001b13e4568a0, L_000001b13e4568a0, C4<1>, C4<1>;
+L_000001b13e46ddb0 .functor NAND 1, L_000001b13e46db80, L_000001b13e46e600, C4<1>, C4<1>;
+v000001b13e426f70_0 .net "A", 0 0, L_000001b13e456440;  1 drivers
+v000001b13e427970_0 .net "B", 0 0, L_000001b13e4568a0;  1 drivers
+v000001b13e4269d0_0 .net "F", 0 0, L_000001b13e46ddb0;  1 drivers
+v000001b13e426a70_0 .net "G", 0 0, L_000001b13e46db80;  1 drivers
+v000001b13e426bb0_0 .net "H", 0 0, L_000001b13e46e600;  1 drivers
+S_000001b13e438290 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 65, 2 65 0, S_000001b13e43afe0;
+ .timescale -9 -12;
+P_000001b13e375aa0 .param/l "i" 1 2 65, +C4<010>;
+S_000001b13e438420 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e438290;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e750 .functor NAND 1, L_000001b13e4561c0, L_000001b13e4561c0, C4<1>, C4<1>;
+L_000001b13e46e0c0 .functor NAND 1, L_000001b13e455d60, L_000001b13e455d60, C4<1>, C4<1>;
+L_000001b13e46ee50 .functor NAND 1, L_000001b13e46e750, L_000001b13e46e0c0, C4<1>, C4<1>;
+v000001b13e427f10_0 .net "A", 0 0, L_000001b13e4561c0;  1 drivers
+v000001b13e427a10_0 .net "B", 0 0, L_000001b13e455d60;  1 drivers
+v000001b13e426c50_0 .net "F", 0 0, L_000001b13e46ee50;  1 drivers
+v000001b13e427ab0_0 .net "G", 0 0, L_000001b13e46e750;  1 drivers
+v000001b13e425c10_0 .net "H", 0 0, L_000001b13e46e0c0;  1 drivers
+S_000001b13e43e370 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 65, 2 65 0, S_000001b13e43afe0;
+ .timescale -9 -12;
+P_000001b13e377460 .param/l "i" 1 2 65, +C4<011>;
+S_000001b13e43e500 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43e370;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e7c0 .functor NAND 1, L_000001b13e455ae0, L_000001b13e455ae0, C4<1>, C4<1>;
+L_000001b13e46e830 .functor NAND 1, L_000001b13e456bc0, L_000001b13e456bc0, C4<1>, C4<1>;
+L_000001b13e46dbf0 .functor NAND 1, L_000001b13e46e7c0, L_000001b13e46e830, C4<1>, C4<1>;
+v000001b13e426cf0_0 .net "A", 0 0, L_000001b13e455ae0;  1 drivers
+v000001b13e425d50_0 .net "B", 0 0, L_000001b13e456bc0;  1 drivers
+v000001b13e425e90_0 .net "F", 0 0, L_000001b13e46dbf0;  1 drivers
+v000001b13e427010_0 .net "G", 0 0, L_000001b13e46e7c0;  1 drivers
+v000001b13e425f30_0 .net "H", 0 0, L_000001b13e46e830;  1 drivers
+S_000001b13e43b940 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 65, 2 65 0, S_000001b13e43afe0;
+ .timescale -9 -12;
+P_000001b13e376ea0 .param/l "i" 1 2 65, +C4<0100>;
+S_000001b13e43e1e0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43b940;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e8a0 .functor NAND 1, L_000001b13e4563a0, L_000001b13e4563a0, C4<1>, C4<1>;
+L_000001b13e46ed70 .functor NAND 1, L_000001b13e456940, L_000001b13e456940, C4<1>, C4<1>;
+L_000001b13e46ede0 .functor NAND 1, L_000001b13e46e8a0, L_000001b13e46ed70, C4<1>, C4<1>;
+v000001b13e440360_0 .net "A", 0 0, L_000001b13e4563a0;  1 drivers
+v000001b13e440220_0 .net "B", 0 0, L_000001b13e456940;  1 drivers
+v000001b13e441440_0 .net "F", 0 0, L_000001b13e46ede0;  1 drivers
+v000001b13e440040_0 .net "G", 0 0, L_000001b13e46e8a0;  1 drivers
+v000001b13e440400_0 .net "H", 0 0, L_000001b13e46ed70;  1 drivers
+S_000001b13e43c430 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 65, 2 65 0, S_000001b13e43afe0;
+ .timescale -9 -12;
+P_000001b13e376b20 .param/l "i" 1 2 65, +C4<0101>;
+S_000001b13e43d0b0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43c430;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46d870 .functor NAND 1, L_000001b13e455e00, L_000001b13e455e00, C4<1>, C4<1>;
+L_000001b13e46d9c0 .functor NAND 1, L_000001b13e456f80, L_000001b13e456f80, C4<1>, C4<1>;
+L_000001b13e46eec0 .functor NAND 1, L_000001b13e46d870, L_000001b13e46d9c0, C4<1>, C4<1>;
+v000001b13e4411c0_0 .net "A", 0 0, L_000001b13e455e00;  1 drivers
+v000001b13e43f500_0 .net "B", 0 0, L_000001b13e456f80;  1 drivers
+v000001b13e4407c0_0 .net "F", 0 0, L_000001b13e46eec0;  1 drivers
+v000001b13e4418a0_0 .net "G", 0 0, L_000001b13e46d870;  1 drivers
+v000001b13e4402c0_0 .net "H", 0 0, L_000001b13e46d9c0;  1 drivers
+S_000001b13e43cc00 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 65, 2 65 0, S_000001b13e43afe0;
+ .timescale -9 -12;
+P_000001b13e377160 .param/l "i" 1 2 65, +C4<0110>;
+S_000001b13e43d240 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43cc00;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e910 .functor NAND 1, L_000001b13e455680, L_000001b13e455680, C4<1>, C4<1>;
+L_000001b13e46dc60 .functor NAND 1, L_000001b13e456da0, L_000001b13e456da0, C4<1>, C4<1>;
+L_000001b13e46dcd0 .functor NAND 1, L_000001b13e46e910, L_000001b13e46dc60, C4<1>, C4<1>;
+v000001b13e43fdc0_0 .net "A", 0 0, L_000001b13e455680;  1 drivers
+v000001b13e440680_0 .net "B", 0 0, L_000001b13e456da0;  1 drivers
+v000001b13e440a40_0 .net "F", 0 0, L_000001b13e46dcd0;  1 drivers
+v000001b13e440720_0 .net "G", 0 0, L_000001b13e46e910;  1 drivers
+v000001b13e4405e0_0 .net "H", 0 0, L_000001b13e46dc60;  1 drivers
+S_000001b13e43bf80 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 65, 2 65 0, S_000001b13e43afe0;
+ .timescale -9 -12;
+P_000001b13e376fe0 .param/l "i" 1 2 65, +C4<0111>;
+S_000001b13e43c110 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43bf80;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46e980 .functor NAND 1, L_000001b13e455ea0, L_000001b13e455ea0, C4<1>, C4<1>;
+L_000001b13e46ef30 .functor NAND 1, L_000001b13e457a20, L_000001b13e457a20, C4<1>, C4<1>;
+L_000001b13e46d3a0 .functor NAND 1, L_000001b13e46e980, L_000001b13e46ef30, C4<1>, C4<1>;
+v000001b13e440ae0_0 .net "A", 0 0, L_000001b13e455ea0;  1 drivers
+v000001b13e440860_0 .net "B", 0 0, L_000001b13e457a20;  1 drivers
+v000001b13e4404a0_0 .net "F", 0 0, L_000001b13e46d3a0;  1 drivers
+v000001b13e4416c0_0 .net "G", 0 0, L_000001b13e46e980;  1 drivers
+v000001b13e441800_0 .net "H", 0 0, L_000001b13e46ef30;  1 drivers
+S_000001b13e43cd90 .scope module, "or2" "or8b" 2 115, 2 61 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e43fd20_0 .net "A", 7 0, L_000001b13e452d40;  alias, 1 drivers
+v000001b13e442c00_0 .net "B", 7 0, L_000001b13e456580;  alias, 1 drivers
+v000001b13e4437e0_0 .net "F", 7 0, L_000001b13e458920;  alias, 1 drivers
+L_000001b13e455720 .part L_000001b13e452d40, 0, 1;
+L_000001b13e4577a0 .part L_000001b13e456580, 0, 1;
+L_000001b13e456d00 .part L_000001b13e452d40, 1, 1;
+L_000001b13e457160 .part L_000001b13e456580, 1, 1;
+L_000001b13e455f40 .part L_000001b13e452d40, 2, 1;
+L_000001b13e4572a0 .part L_000001b13e456580, 2, 1;
+L_000001b13e457980 .part L_000001b13e452d40, 3, 1;
+L_000001b13e455860 .part L_000001b13e456580, 3, 1;
+L_000001b13e455900 .part L_000001b13e452d40, 4, 1;
+L_000001b13e456620 .part L_000001b13e456580, 4, 1;
+L_000001b13e4559a0 .part L_000001b13e452d40, 5, 1;
+L_000001b13e455a40 .part L_000001b13e456580, 5, 1;
+L_000001b13e455fe0 .part L_000001b13e452d40, 6, 1;
+L_000001b13e456120 .part L_000001b13e456580, 6, 1;
+LS_000001b13e458920_0_0 .concat8 [ 1 1 1 1], L_000001b13e46d4f0, L_000001b13e46d640, L_000001b13e4700b0, L_000001b13e470970;
+LS_000001b13e458920_0_4 .concat8 [ 1 1 1 1], L_000001b13e4709e0, L_000001b13e470a50, L_000001b13e46fe10, L_000001b13e46f010;
+L_000001b13e458920 .concat8 [ 4 4 0 0], LS_000001b13e458920_0_0, LS_000001b13e458920_0_4;
+L_000001b13e4596e0 .part L_000001b13e452d40, 7, 1;
+L_000001b13e457fc0 .part L_000001b13e456580, 7, 1;
+S_000001b13e43e690 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 65, 2 65 0, S_000001b13e43cd90;
+ .timescale -9 -12;
+P_000001b13e377220 .param/l "i" 1 2 65, +C4<00>;
+S_000001b13e43d3d0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43e690;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46d410 .functor NAND 1, L_000001b13e455720, L_000001b13e455720, C4<1>, C4<1>;
+L_000001b13e46d480 .functor NAND 1, L_000001b13e4577a0, L_000001b13e4577a0, C4<1>, C4<1>;
+L_000001b13e46d4f0 .functor NAND 1, L_000001b13e46d410, L_000001b13e46d480, C4<1>, C4<1>;
+v000001b13e440cc0_0 .net "A", 0 0, L_000001b13e455720;  1 drivers
+v000001b13e4414e0_0 .net "B", 0 0, L_000001b13e4577a0;  1 drivers
+v000001b13e440fe0_0 .net "F", 0 0, L_000001b13e46d4f0;  1 drivers
+v000001b13e441300_0 .net "G", 0 0, L_000001b13e46d410;  1 drivers
+v000001b13e43ffa0_0 .net "H", 0 0, L_000001b13e46d480;  1 drivers
+S_000001b13e43d560 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 65, 2 65 0, S_000001b13e43cd90;
+ .timescale -9 -12;
+P_000001b13e377120 .param/l "i" 1 2 65, +C4<01>;
+S_000001b13e43ca70 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43d560;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46d560 .functor NAND 1, L_000001b13e456d00, L_000001b13e456d00, C4<1>, C4<1>;
+L_000001b13e46d5d0 .functor NAND 1, L_000001b13e457160, L_000001b13e457160, C4<1>, C4<1>;
+L_000001b13e46d640 .functor NAND 1, L_000001b13e46d560, L_000001b13e46d5d0, C4<1>, C4<1>;
+v000001b13e440900_0 .net "A", 0 0, L_000001b13e456d00;  1 drivers
+v000001b13e441080_0 .net "B", 0 0, L_000001b13e457160;  1 drivers
+v000001b13e43fc80_0 .net "F", 0 0, L_000001b13e46d640;  1 drivers
+v000001b13e440c20_0 .net "G", 0 0, L_000001b13e46d560;  1 drivers
+v000001b13e440ea0_0 .net "H", 0 0, L_000001b13e46d5d0;  1 drivers
+S_000001b13e43d880 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 65, 2 65 0, S_000001b13e43cd90;
+ .timescale -9 -12;
+P_000001b13e377720 .param/l "i" 1 2 65, +C4<010>;
+S_000001b13e43e820 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43d880;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46da30 .functor NAND 1, L_000001b13e455f40, L_000001b13e455f40, C4<1>, C4<1>;
+L_000001b13e470ac0 .functor NAND 1, L_000001b13e4572a0, L_000001b13e4572a0, C4<1>, C4<1>;
+L_000001b13e4700b0 .functor NAND 1, L_000001b13e46da30, L_000001b13e470ac0, C4<1>, C4<1>;
+v000001b13e440b80_0 .net "A", 0 0, L_000001b13e455f40;  1 drivers
+v000001b13e43f820_0 .net "B", 0 0, L_000001b13e4572a0;  1 drivers
+v000001b13e43fe60_0 .net "F", 0 0, L_000001b13e4700b0;  1 drivers
+v000001b13e441760_0 .net "G", 0 0, L_000001b13e46da30;  1 drivers
+v000001b13e4419e0_0 .net "H", 0 0, L_000001b13e470ac0;  1 drivers
+S_000001b13e43bad0 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 65, 2 65 0, S_000001b13e43cd90;
+ .timescale -9 -12;
+P_000001b13e3769a0 .param/l "i" 1 2 65, +C4<011>;
+S_000001b13e43e9b0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43bad0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e470510 .functor NAND 1, L_000001b13e457980, L_000001b13e457980, C4<1>, C4<1>;
+L_000001b13e46f860 .functor NAND 1, L_000001b13e455860, L_000001b13e455860, C4<1>, C4<1>;
+L_000001b13e470970 .functor NAND 1, L_000001b13e470510, L_000001b13e46f860, C4<1>, C4<1>;
+v000001b13e440540_0 .net "A", 0 0, L_000001b13e457980;  1 drivers
+v000001b13e4400e0_0 .net "B", 0 0, L_000001b13e455860;  1 drivers
+v000001b13e43f8c0_0 .net "F", 0 0, L_000001b13e470970;  1 drivers
+v000001b13e441580_0 .net "G", 0 0, L_000001b13e470510;  1 drivers
+v000001b13e441a80_0 .net "H", 0 0, L_000001b13e46f860;  1 drivers
+S_000001b13e43c750 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 65, 2 65 0, S_000001b13e43cd90;
+ .timescale -9 -12;
+P_000001b13e377060 .param/l "i" 1 2 65, +C4<0100>;
+S_000001b13e43eb40 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43c750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4705f0 .functor NAND 1, L_000001b13e455900, L_000001b13e455900, C4<1>, C4<1>;
+L_000001b13e46f8d0 .functor NAND 1, L_000001b13e456620, L_000001b13e456620, C4<1>, C4<1>;
+L_000001b13e4709e0 .functor NAND 1, L_000001b13e4705f0, L_000001b13e46f8d0, C4<1>, C4<1>;
+v000001b13e43faa0_0 .net "A", 0 0, L_000001b13e455900;  1 drivers
+v000001b13e440d60_0 .net "B", 0 0, L_000001b13e456620;  1 drivers
+v000001b13e43f320_0 .net "F", 0 0, L_000001b13e4709e0;  1 drivers
+v000001b13e440180_0 .net "G", 0 0, L_000001b13e4705f0;  1 drivers
+v000001b13e43f3c0_0 .net "H", 0 0, L_000001b13e46f8d0;  1 drivers
+S_000001b13e43e050 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 65, 2 65 0, S_000001b13e43cd90;
+ .timescale -9 -12;
+P_000001b13e3778e0 .param/l "i" 1 2 65, +C4<0101>;
+S_000001b13e43bc60 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43e050;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46f9b0 .functor NAND 1, L_000001b13e4559a0, L_000001b13e4559a0, C4<1>, C4<1>;
+L_000001b13e470580 .functor NAND 1, L_000001b13e455a40, L_000001b13e455a40, C4<1>, C4<1>;
+L_000001b13e470a50 .functor NAND 1, L_000001b13e46f9b0, L_000001b13e470580, C4<1>, C4<1>;
+v000001b13e440e00_0 .net "A", 0 0, L_000001b13e4559a0;  1 drivers
+v000001b13e43f780_0 .net "B", 0 0, L_000001b13e455a40;  1 drivers
+v000001b13e440f40_0 .net "F", 0 0, L_000001b13e470a50;  1 drivers
+v000001b13e441120_0 .net "G", 0 0, L_000001b13e46f9b0;  1 drivers
+v000001b13e4413a0_0 .net "H", 0 0, L_000001b13e470580;  1 drivers
+S_000001b13e43ecd0 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 65, 2 65 0, S_000001b13e43cd90;
+ .timescale -9 -12;
+P_000001b13e3772a0 .param/l "i" 1 2 65, +C4<0110>;
+S_000001b13e43bdf0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43ecd0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46f940 .functor NAND 1, L_000001b13e455fe0, L_000001b13e455fe0, C4<1>, C4<1>;
+L_000001b13e46fc50 .functor NAND 1, L_000001b13e456120, L_000001b13e456120, C4<1>, C4<1>;
+L_000001b13e46fe10 .functor NAND 1, L_000001b13e46f940, L_000001b13e46fc50, C4<1>, C4<1>;
+v000001b13e43fbe0_0 .net "A", 0 0, L_000001b13e455fe0;  1 drivers
+v000001b13e441260_0 .net "B", 0 0, L_000001b13e456120;  1 drivers
+v000001b13e441620_0 .net "F", 0 0, L_000001b13e46fe10;  1 drivers
+v000001b13e43f5a0_0 .net "G", 0 0, L_000001b13e46f940;  1 drivers
+v000001b13e43f640_0 .net "H", 0 0, L_000001b13e46fc50;  1 drivers
+S_000001b13e43ee60 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 65, 2 65 0, S_000001b13e43cd90;
+ .timescale -9 -12;
+P_000001b13e377520 .param/l "i" 1 2 65, +C4<0111>;
+S_000001b13e43c8e0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43ee60;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e470b30 .functor NAND 1, L_000001b13e4596e0, L_000001b13e4596e0, C4<1>, C4<1>;
+L_000001b13e46efa0 .functor NAND 1, L_000001b13e457fc0, L_000001b13e457fc0, C4<1>, C4<1>;
+L_000001b13e46f010 .functor NAND 1, L_000001b13e470b30, L_000001b13e46efa0, C4<1>, C4<1>;
+v000001b13e43f6e0_0 .net "A", 0 0, L_000001b13e4596e0;  1 drivers
+v000001b13e43f960_0 .net "B", 0 0, L_000001b13e457fc0;  1 drivers
+v000001b13e43ff00_0 .net "F", 0 0, L_000001b13e46f010;  1 drivers
+v000001b13e43fa00_0 .net "G", 0 0, L_000001b13e470b30;  1 drivers
+v000001b13e43fb40_0 .net "H", 0 0, L_000001b13e46efa0;  1 drivers
+S_000001b13e43c2a0 .scope module, "or3" "or8b" 2 116, 2 61 0, S_000001b13e1c4750;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+v000001b13e443100_0 .net "A", 7 0, L_000001b13e458920;  alias, 1 drivers
+v000001b13e442ac0_0 .net "B", 7 0, L_000001b13e456800;  alias, 1 drivers
+v000001b13e444280_0 .net "F", 7 0, L_000001b13e458ce0;  alias, 1 drivers
+L_000001b13e458740 .part L_000001b13e458920, 0, 1;
+L_000001b13e459e60 .part L_000001b13e456800, 0, 1;
+L_000001b13e4590a0 .part L_000001b13e458920, 1, 1;
+L_000001b13e45a0e0 .part L_000001b13e456800, 1, 1;
+L_000001b13e457f20 .part L_000001b13e458920, 2, 1;
+L_000001b13e458380 .part L_000001b13e456800, 2, 1;
+L_000001b13e459320 .part L_000001b13e458920, 3, 1;
+L_000001b13e458420 .part L_000001b13e456800, 3, 1;
+L_000001b13e4581a0 .part L_000001b13e458920, 4, 1;
+L_000001b13e45a180 .part L_000001b13e456800, 4, 1;
+L_000001b13e459140 .part L_000001b13e458920, 5, 1;
+L_000001b13e4587e0 .part L_000001b13e456800, 5, 1;
+L_000001b13e458060 .part L_000001b13e458920, 6, 1;
+L_000001b13e458880 .part L_000001b13e456800, 6, 1;
+LS_000001b13e458ce0_0_0 .concat8 [ 1 1 1 1], L_000001b13e4702e0, L_000001b13e46fb00, L_000001b13e470350, L_000001b13e46f160;
+LS_000001b13e458ce0_0_4 .concat8 [ 1 1 1 1], L_000001b13e46fe80, L_000001b13e470190, L_000001b13e470120, L_000001b13e470270;
+L_000001b13e458ce0 .concat8 [ 4 4 0 0], LS_000001b13e458ce0_0_0, LS_000001b13e458ce0_0_4;
+L_000001b13e458ec0 .part L_000001b13e458920, 7, 1;
+L_000001b13e4593c0 .part L_000001b13e456800, 7, 1;
+S_000001b13e43cf20 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 65, 2 65 0, S_000001b13e43c2a0;
+ .timescale -9 -12;
+P_000001b13e377560 .param/l "i" 1 2 65, +C4<00>;
+S_000001b13e43d6f0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43cf20;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46f080 .functor NAND 1, L_000001b13e458740, L_000001b13e458740, C4<1>, C4<1>;
+L_000001b13e470820 .functor NAND 1, L_000001b13e459e60, L_000001b13e459e60, C4<1>, C4<1>;
+L_000001b13e4702e0 .functor NAND 1, L_000001b13e46f080, L_000001b13e470820, C4<1>, C4<1>;
+v000001b13e442e80_0 .net "A", 0 0, L_000001b13e458740;  1 drivers
+v000001b13e4420c0_0 .net "B", 0 0, L_000001b13e459e60;  1 drivers
+v000001b13e443b00_0 .net "F", 0 0, L_000001b13e4702e0;  1 drivers
+v000001b13e4425c0_0 .net "G", 0 0, L_000001b13e46f080;  1 drivers
+v000001b13e4441e0_0 .net "H", 0 0, L_000001b13e470820;  1 drivers
+S_000001b13e43da10 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 65, 2 65 0, S_000001b13e43c2a0;
+ .timescale -9 -12;
+P_000001b13e3772e0 .param/l "i" 1 2 65, +C4<01>;
+S_000001b13e43dba0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43da10;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46f0f0 .functor NAND 1, L_000001b13e4590a0, L_000001b13e4590a0, C4<1>, C4<1>;
+L_000001b13e46ffd0 .functor NAND 1, L_000001b13e45a0e0, L_000001b13e45a0e0, C4<1>, C4<1>;
+L_000001b13e46fb00 .functor NAND 1, L_000001b13e46f0f0, L_000001b13e46ffd0, C4<1>, C4<1>;
+v000001b13e4423e0_0 .net "A", 0 0, L_000001b13e4590a0;  1 drivers
+v000001b13e442480_0 .net "B", 0 0, L_000001b13e45a0e0;  1 drivers
+v000001b13e442340_0 .net "F", 0 0, L_000001b13e46fb00;  1 drivers
+v000001b13e443380_0 .net "G", 0 0, L_000001b13e46f0f0;  1 drivers
+v000001b13e442f20_0 .net "H", 0 0, L_000001b13e46ffd0;  1 drivers
+S_000001b13e43dd30 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 65, 2 65 0, S_000001b13e43c2a0;
+ .timescale -9 -12;
+P_000001b13e376ae0 .param/l "i" 1 2 65, +C4<010>;
+S_000001b13e43dec0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43dd30;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46fa20 .functor NAND 1, L_000001b13e457f20, L_000001b13e457f20, C4<1>, C4<1>;
+L_000001b13e46fa90 .functor NAND 1, L_000001b13e458380, L_000001b13e458380, C4<1>, C4<1>;
+L_000001b13e470350 .functor NAND 1, L_000001b13e46fa20, L_000001b13e46fa90, C4<1>, C4<1>;
+v000001b13e4432e0_0 .net "A", 0 0, L_000001b13e457f20;  1 drivers
+v000001b13e441c60_0 .net "B", 0 0, L_000001b13e458380;  1 drivers
+v000001b13e441f80_0 .net "F", 0 0, L_000001b13e470350;  1 drivers
+v000001b13e443d80_0 .net "G", 0 0, L_000001b13e46fa20;  1 drivers
+v000001b13e442b60_0 .net "H", 0 0, L_000001b13e46fa90;  1 drivers
+S_000001b13e43eff0 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 65, 2 65 0, S_000001b13e43c2a0;
+ .timescale -9 -12;
+P_000001b13e376ee0 .param/l "i" 1 2 65, +C4<011>;
+S_000001b13e43b7b0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43eff0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46fd30 .functor NAND 1, L_000001b13e459320, L_000001b13e459320, C4<1>, C4<1>;
+L_000001b13e46fda0 .functor NAND 1, L_000001b13e458420, L_000001b13e458420, C4<1>, C4<1>;
+L_000001b13e46f160 .functor NAND 1, L_000001b13e46fd30, L_000001b13e46fda0, C4<1>, C4<1>;
+v000001b13e444000_0 .net "A", 0 0, L_000001b13e459320;  1 drivers
+v000001b13e4440a0_0 .net "B", 0 0, L_000001b13e458420;  1 drivers
+v000001b13e442200_0 .net "F", 0 0, L_000001b13e46f160;  1 drivers
+v000001b13e4427a0_0 .net "G", 0 0, L_000001b13e46fd30;  1 drivers
+v000001b13e442020_0 .net "H", 0 0, L_000001b13e46fda0;  1 drivers
+S_000001b13e43b300 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 65, 2 65 0, S_000001b13e43c2a0;
+ .timescale -9 -12;
+P_000001b13e376f60 .param/l "i" 1 2 65, +C4<0100>;
+S_000001b13e43c5c0 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43b300;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e470040 .functor NAND 1, L_000001b13e4581a0, L_000001b13e4581a0, C4<1>, C4<1>;
+L_000001b13e46fbe0 .functor NAND 1, L_000001b13e45a180, L_000001b13e45a180, C4<1>, C4<1>;
+L_000001b13e46fe80 .functor NAND 1, L_000001b13e470040, L_000001b13e46fbe0, C4<1>, C4<1>;
+v000001b13e443e20_0 .net "A", 0 0, L_000001b13e4581a0;  1 drivers
+v000001b13e443740_0 .net "B", 0 0, L_000001b13e45a180;  1 drivers
+v000001b13e442de0_0 .net "F", 0 0, L_000001b13e46fe80;  1 drivers
+v000001b13e4436a0_0 .net "G", 0 0, L_000001b13e470040;  1 drivers
+v000001b13e443420_0 .net "H", 0 0, L_000001b13e46fbe0;  1 drivers
+S_000001b13e43b490 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 65, 2 65 0, S_000001b13e43c2a0;
+ .timescale -9 -12;
+P_000001b13e376d20 .param/l "i" 1 2 65, +C4<0101>;
+S_000001b13e43b620 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e43b490;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46fb70 .functor NAND 1, L_000001b13e459140, L_000001b13e459140, C4<1>, C4<1>;
+L_000001b13e470660 .functor NAND 1, L_000001b13e4587e0, L_000001b13e4587e0, C4<1>, C4<1>;
+L_000001b13e470190 .functor NAND 1, L_000001b13e46fb70, L_000001b13e470660, C4<1>, C4<1>;
+v000001b13e443c40_0 .net "A", 0 0, L_000001b13e459140;  1 drivers
+v000001b13e441bc0_0 .net "B", 0 0, L_000001b13e4587e0;  1 drivers
+v000001b13e443240_0 .net "F", 0 0, L_000001b13e470190;  1 drivers
+v000001b13e442fc0_0 .net "G", 0 0, L_000001b13e46fb70;  1 drivers
+v000001b13e443880_0 .net "H", 0 0, L_000001b13e470660;  1 drivers
+S_000001b13e449260 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 65, 2 65 0, S_000001b13e43c2a0;
+ .timescale -9 -12;
+P_000001b13e3771e0 .param/l "i" 1 2 65, +C4<0110>;
+S_000001b13e44a840 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e449260;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46ff60 .functor NAND 1, L_000001b13e458060, L_000001b13e458060, C4<1>, C4<1>;
+L_000001b13e46f5c0 .functor NAND 1, L_000001b13e458880, L_000001b13e458880, C4<1>, C4<1>;
+L_000001b13e470120 .functor NAND 1, L_000001b13e46ff60, L_000001b13e46f5c0, C4<1>, C4<1>;
+v000001b13e4434c0_0 .net "A", 0 0, L_000001b13e458060;  1 drivers
+v000001b13e443560_0 .net "B", 0 0, L_000001b13e458880;  1 drivers
+v000001b13e443920_0 .net "F", 0 0, L_000001b13e470120;  1 drivers
+v000001b13e442ca0_0 .net "G", 0 0, L_000001b13e46ff60;  1 drivers
+v000001b13e4439c0_0 .net "H", 0 0, L_000001b13e46f5c0;  1 drivers
+S_000001b13e447c80 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 65, 2 65 0, S_000001b13e43c2a0;
+ .timescale -9 -12;
+P_000001b13e377320 .param/l "i" 1 2 65, +C4<0111>;
+S_000001b13e44b010 .scope module, "OR_inst" "or1b" 2 66, 2 17 0, S_000001b13e447c80;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e4707b0 .functor NAND 1, L_000001b13e458ec0, L_000001b13e458ec0, C4<1>, C4<1>;
+L_000001b13e4706d0 .functor NAND 1, L_000001b13e4593c0, L_000001b13e4593c0, C4<1>, C4<1>;
+L_000001b13e470270 .functor NAND 1, L_000001b13e4707b0, L_000001b13e4706d0, C4<1>, C4<1>;
+v000001b13e443060_0 .net "A", 0 0, L_000001b13e458ec0;  1 drivers
+v000001b13e443600_0 .net "B", 0 0, L_000001b13e4593c0;  1 drivers
+v000001b13e443a60_0 .net "F", 0 0, L_000001b13e470270;  1 drivers
+v000001b13e442160_0 .net "G", 0 0, L_000001b13e4707b0;  1 drivers
+v000001b13e442840_0 .net "H", 0 0, L_000001b13e4706d0;  1 drivers
+S_000001b13e1c48e0 .scope module, "not8b_tb" "not8b_tb" 3 3;
+ .timescale -9 -12;
+v000001b13e4445a0_0 .var "A_tb", 7 0;
+v000001b13e445360_0 .net "F_tb", 7 0, L_000001b13e459fa0;  1 drivers
+S_000001b13e449ee0 .scope module, "DUT" "not8b" 3 12, 2 39 0, S_000001b13e1c48e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+v000001b13e446620_0 .net "A", 7 0, v000001b13e4445a0_0;  1 drivers
+v000001b13e446440_0 .net "F", 7 0, L_000001b13e459fa0;  alias, 1 drivers
+L_000001b13e459d20 .part v000001b13e4445a0_0, 0, 1;
+L_000001b13e459be0 .part v000001b13e4445a0_0, 1, 1;
+L_000001b13e4582e0 .part v000001b13e4445a0_0, 2, 1;
+L_000001b13e457b60 .part v000001b13e4445a0_0, 3, 1;
+L_000001b13e459f00 .part v000001b13e4445a0_0, 4, 1;
+L_000001b13e4591e0 .part v000001b13e4445a0_0, 5, 1;
+L_000001b13e458600 .part v000001b13e4445a0_0, 6, 1;
+LS_000001b13e459fa0_0_0 .concat8 [ 1 1 1 1], L_000001b13e470740, L_000001b13e470890, L_000001b13e46f710, L_000001b13e46f1d0;
+LS_000001b13e459fa0_0_4 .concat8 [ 1 1 1 1], L_000001b13e46f630, L_000001b13e46fef0, L_000001b13e470900, L_000001b13e46f240;
+L_000001b13e459fa0 .concat8 [ 4 4 0 0], LS_000001b13e459fa0_0_0, LS_000001b13e459fa0_0_4;
+L_000001b13e4589c0 .part v000001b13e4445a0_0, 7, 1;
+S_000001b13e4482c0 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 43, 2 43 0, S_000001b13e449ee0;
+ .timescale -9 -12;
+P_000001b13e372ae0 .param/l "i" 1 2 43, +C4<00>;
+S_000001b13e448450 .scope module, "NOT_inst" "not1b" 2 44, 2 2 0, S_000001b13e4482c0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e470740 .functor NAND 1, L_000001b13e459d20, L_000001b13e459d20, C4<1>, C4<1>;
+v000001b13e4443c0_0 .net "A", 0 0, L_000001b13e459d20;  1 drivers
+v000001b13e444a00_0 .net "F", 0 0, L_000001b13e470740;  1 drivers
+S_000001b13e447640 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 43, 2 43 0, S_000001b13e449ee0;
+ .timescale -9 -12;
+P_000001b13e377360 .param/l "i" 1 2 43, +C4<01>;
+S_000001b13e4477d0 .scope module, "NOT_inst" "not1b" 2 44, 2 2 0, S_000001b13e447640;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e470890 .functor NAND 1, L_000001b13e459be0, L_000001b13e459be0, C4<1>, C4<1>;
+v000001b13e445180_0 .net "A", 0 0, L_000001b13e459be0;  1 drivers
+v000001b13e4466c0_0 .net "F", 0 0, L_000001b13e470890;  1 drivers
+S_000001b13e448c20 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 43, 2 43 0, S_000001b13e449ee0;
+ .timescale -9 -12;
+P_000001b13e3775e0 .param/l "i" 1 2 43, +C4<010>;
+S_000001b13e44a520 .scope module, "NOT_inst" "not1b" 2 44, 2 2 0, S_000001b13e448c20;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e46f710 .functor NAND 1, L_000001b13e4582e0, L_000001b13e4582e0, C4<1>, C4<1>;
+v000001b13e4469e0_0 .net "A", 0 0, L_000001b13e4582e0;  1 drivers
+v000001b13e446300_0 .net "F", 0 0, L_000001b13e46f710;  1 drivers
+S_000001b13e449710 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 43, 2 43 0, S_000001b13e449ee0;
+ .timescale -9 -12;
+P_000001b13e376d60 .param/l "i" 1 2 43, +C4<011>;
+S_000001b13e4493f0 .scope module, "NOT_inst" "not1b" 2 44, 2 2 0, S_000001b13e449710;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e46f1d0 .functor NAND 1, L_000001b13e457b60, L_000001b13e457b60, C4<1>, C4<1>;
+v000001b13e444c80_0 .net "A", 0 0, L_000001b13e457b60;  1 drivers
+v000001b13e445c20_0 .net "F", 0 0, L_000001b13e46f1d0;  1 drivers
+S_000001b13e44ae80 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 43, 2 43 0, S_000001b13e449ee0;
+ .timescale -9 -12;
+P_000001b13e376be0 .param/l "i" 1 2 43, +C4<0100>;
+S_000001b13e447fa0 .scope module, "NOT_inst" "not1b" 2 44, 2 2 0, S_000001b13e44ae80;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e46f630 .functor NAND 1, L_000001b13e459f00, L_000001b13e459f00, C4<1>, C4<1>;
+v000001b13e4457c0_0 .net "A", 0 0, L_000001b13e459f00;  1 drivers
+v000001b13e4459a0_0 .net "F", 0 0, L_000001b13e46f630;  1 drivers
+S_000001b13e4485e0 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 43, 2 43 0, S_000001b13e449ee0;
+ .timescale -9 -12;
+P_000001b13e377860 .param/l "i" 1 2 43, +C4<0101>;
+S_000001b13e44a9d0 .scope module, "NOT_inst" "not1b" 2 44, 2 2 0, S_000001b13e4485e0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e46fef0 .functor NAND 1, L_000001b13e4591e0, L_000001b13e4591e0, C4<1>, C4<1>;
+v000001b13e4448c0_0 .net "A", 0 0, L_000001b13e4591e0;  1 drivers
+v000001b13e444320_0 .net "F", 0 0, L_000001b13e46fef0;  1 drivers
+S_000001b13e447320 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 43, 2 43 0, S_000001b13e449ee0;
+ .timescale -9 -12;
+P_000001b13e3773a0 .param/l "i" 1 2 43, +C4<0110>;
+S_000001b13e448db0 .scope module, "NOT_inst" "not1b" 2 44, 2 2 0, S_000001b13e447320;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e470900 .functor NAND 1, L_000001b13e458600, L_000001b13e458600, C4<1>, C4<1>;
+v000001b13e446580_0 .net "A", 0 0, L_000001b13e458600;  1 drivers
+v000001b13e445b80_0 .net "F", 0 0, L_000001b13e470900;  1 drivers
+S_000001b13e448900 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 43, 2 43 0, S_000001b13e449ee0;
+ .timescale -9 -12;
+P_000001b13e3778a0 .param/l "i" 1 2 43, +C4<0111>;
+S_000001b13e44a390 .scope module, "NOT_inst" "not1b" 2 44, 2 2 0, S_000001b13e448900;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+L_000001b13e46f240 .functor NAND 1, L_000001b13e4589c0, L_000001b13e4589c0, C4<1>, C4<1>;
+v000001b13e445ea0_0 .net "A", 0 0, L_000001b13e4589c0;  1 drivers
+v000001b13e4454a0_0 .net "F", 0 0, L_000001b13e46f240;  1 drivers
+S_000001b13e1ba540 .scope module, "xor8b" "xor8b" 2 73;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 8 "F";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /INPUT 8 "B";
+o000001b13e3ac778 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e4470c0_0 .net "A", 7 0, o000001b13e3ac778;  0 drivers
+o000001b13e3ac7a8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001b13e446b20_0 .net "B", 7 0, o000001b13e3ac7a8;  0 drivers
+v000001b13e446bc0_0 .net "F", 7 0, L_000001b13e458f60;  1 drivers
+L_000001b13e458ba0 .part o000001b13e3ac778, 0, 1;
+L_000001b13e458a60 .part o000001b13e3ac7a8, 0, 1;
+L_000001b13e4584c0 .part o000001b13e3ac778, 1, 1;
+L_000001b13e459960 .part o000001b13e3ac7a8, 1, 1;
+L_000001b13e459c80 .part o000001b13e3ac778, 2, 1;
+L_000001b13e459a00 .part o000001b13e3ac7a8, 2, 1;
+L_000001b13e459280 .part o000001b13e3ac778, 3, 1;
+L_000001b13e458b00 .part o000001b13e3ac7a8, 3, 1;
+L_000001b13e458100 .part o000001b13e3ac778, 4, 1;
+L_000001b13e4586a0 .part o000001b13e3ac7a8, 4, 1;
+L_000001b13e459dc0 .part o000001b13e3ac778, 5, 1;
+L_000001b13e45a040 .part o000001b13e3ac7a8, 5, 1;
+L_000001b13e458240 .part o000001b13e3ac778, 6, 1;
+L_000001b13e458c40 .part o000001b13e3ac7a8, 6, 1;
+LS_000001b13e458f60_0_0 .concat8 [ 1 1 1 1], L_000001b13e46f320, L_000001b13e46f550, L_000001b13e4703c0, L_000001b13e4712a0;
+LS_000001b13e458f60_0_4 .concat8 [ 1 1 1 1], L_000001b13e470e40, L_000001b13e470ba0, L_000001b13e4711c0, L_000001b13e470dd0;
+L_000001b13e458f60 .concat8 [ 4 4 0 0], LS_000001b13e458f60_0_0, LS_000001b13e458f60_0_4;
+L_000001b13e459820 .part o000001b13e3ac778, 7, 1;
+L_000001b13e459b40 .part o000001b13e3ac7a8, 7, 1;
+S_000001b13e447960 .scope generate, "bit_slice[0]" "bit_slice[0]" 2 77, 2 77 0, S_000001b13e1ba540;
+ .timescale -9 -12;
+P_000001b13e376a60 .param/l "i" 1 2 77, +C4<00>;
+S_000001b13e44ab60 .scope module, "XOR_inst" "xor1b" 2 78, 2 27 0, S_000001b13e447960;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46f7f0 .functor NAND 1, L_000001b13e458ba0, L_000001b13e458a60, C4<1>, C4<1>;
+L_000001b13e46f400 .functor NAND 1, L_000001b13e458ba0, L_000001b13e46f7f0, C4<1>, C4<1>;
+L_000001b13e46f2b0 .functor NAND 1, L_000001b13e458a60, L_000001b13e46f7f0, C4<1>, C4<1>;
+L_000001b13e46f320 .functor NAND 1, L_000001b13e46f400, L_000001b13e46f2b0, C4<1>, C4<1>;
+v000001b13e4452c0_0 .net "A", 0 0, L_000001b13e458ba0;  1 drivers
+v000001b13e445680_0 .net "B", 0 0, L_000001b13e458a60;  1 drivers
+v000001b13e444aa0_0 .net "F", 0 0, L_000001b13e46f320;  1 drivers
+v000001b13e4464e0_0 .net "G", 0 0, L_000001b13e46f400;  1 drivers
+v000001b13e4446e0_0 .net "H", 0 0, L_000001b13e46f2b0;  1 drivers
+v000001b13e446a80_0 .net "P", 0 0, L_000001b13e46f7f0;  1 drivers
+S_000001b13e448130 .scope generate, "bit_slice[1]" "bit_slice[1]" 2 77, 2 77 0, S_000001b13e1ba540;
+ .timescale -9 -12;
+P_000001b13e376aa0 .param/l "i" 1 2 77, +C4<01>;
+S_000001b13e4474b0 .scope module, "XOR_inst" "xor1b" 2 78, 2 27 0, S_000001b13e448130;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46f390 .functor NAND 1, L_000001b13e4584c0, L_000001b13e459960, C4<1>, C4<1>;
+L_000001b13e46f780 .functor NAND 1, L_000001b13e4584c0, L_000001b13e46f390, C4<1>, C4<1>;
+L_000001b13e46fcc0 .functor NAND 1, L_000001b13e459960, L_000001b13e46f390, C4<1>, C4<1>;
+L_000001b13e46f550 .functor NAND 1, L_000001b13e46f780, L_000001b13e46fcc0, C4<1>, C4<1>;
+v000001b13e445400_0 .net "A", 0 0, L_000001b13e4584c0;  1 drivers
+v000001b13e446760_0 .net "B", 0 0, L_000001b13e459960;  1 drivers
+v000001b13e444460_0 .net "F", 0 0, L_000001b13e46f550;  1 drivers
+v000001b13e445a40_0 .net "G", 0 0, L_000001b13e46f780;  1 drivers
+v000001b13e444500_0 .net "H", 0 0, L_000001b13e46fcc0;  1 drivers
+v000001b13e445f40_0 .net "P", 0 0, L_000001b13e46f390;  1 drivers
+S_000001b13e44acf0 .scope generate, "bit_slice[2]" "bit_slice[2]" 2 77, 2 77 0, S_000001b13e1ba540;
+ .timescale -9 -12;
+P_000001b13e377620 .param/l "i" 1 2 77, +C4<010>;
+S_000001b13e448a90 .scope module, "XOR_inst" "xor1b" 2 78, 2 27 0, S_000001b13e44acf0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e470200 .functor NAND 1, L_000001b13e459c80, L_000001b13e459a00, C4<1>, C4<1>;
+L_000001b13e46f470 .functor NAND 1, L_000001b13e459c80, L_000001b13e470200, C4<1>, C4<1>;
+L_000001b13e46f4e0 .functor NAND 1, L_000001b13e459a00, L_000001b13e470200, C4<1>, C4<1>;
+L_000001b13e4703c0 .functor NAND 1, L_000001b13e46f470, L_000001b13e46f4e0, C4<1>, C4<1>;
+v000001b13e445220_0 .net "A", 0 0, L_000001b13e459c80;  1 drivers
+v000001b13e446800_0 .net "B", 0 0, L_000001b13e459a00;  1 drivers
+v000001b13e4468a0_0 .net "F", 0 0, L_000001b13e4703c0;  1 drivers
+v000001b13e444820_0 .net "G", 0 0, L_000001b13e46f470;  1 drivers
+v000001b13e445ae0_0 .net "H", 0 0, L_000001b13e46f4e0;  1 drivers
+v000001b13e446260_0 .net "P", 0 0, L_000001b13e470200;  1 drivers
+S_000001b13e448f40 .scope generate, "bit_slice[3]" "bit_slice[3]" 2 77, 2 77 0, S_000001b13e1ba540;
+ .timescale -9 -12;
+P_000001b13e3776a0 .param/l "i" 1 2 77, +C4<011>;
+S_000001b13e44a6b0 .scope module, "XOR_inst" "xor1b" 2 78, 2 27 0, S_000001b13e448f40;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e46f6a0 .functor NAND 1, L_000001b13e459280, L_000001b13e458b00, C4<1>, C4<1>;
+L_000001b13e470430 .functor NAND 1, L_000001b13e459280, L_000001b13e46f6a0, C4<1>, C4<1>;
+L_000001b13e4704a0 .functor NAND 1, L_000001b13e458b00, L_000001b13e46f6a0, C4<1>, C4<1>;
+L_000001b13e4712a0 .functor NAND 1, L_000001b13e470430, L_000001b13e4704a0, C4<1>, C4<1>;
+v000001b13e446940_0 .net "A", 0 0, L_000001b13e459280;  1 drivers
+v000001b13e444b40_0 .net "B", 0 0, L_000001b13e458b00;  1 drivers
+v000001b13e444fa0_0 .net "F", 0 0, L_000001b13e4712a0;  1 drivers
+v000001b13e444640_0 .net "G", 0 0, L_000001b13e470430;  1 drivers
+v000001b13e444be0_0 .net "H", 0 0, L_000001b13e4704a0;  1 drivers
+v000001b13e445fe0_0 .net "P", 0 0, L_000001b13e46f6a0;  1 drivers
+S_000001b13e448770 .scope generate, "bit_slice[4]" "bit_slice[4]" 2 77, 2 77 0, S_000001b13e1ba540;
+ .timescale -9 -12;
+P_000001b13e376c60 .param/l "i" 1 2 77, +C4<0100>;
+S_000001b13e449580 .scope module, "XOR_inst" "xor1b" 2 78, 2 27 0, S_000001b13e448770;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e470eb0 .functor NAND 1, L_000001b13e458100, L_000001b13e4586a0, C4<1>, C4<1>;
+L_000001b13e470f90 .functor NAND 1, L_000001b13e458100, L_000001b13e470eb0, C4<1>, C4<1>;
+L_000001b13e471230 .functor NAND 1, L_000001b13e4586a0, L_000001b13e470eb0, C4<1>, C4<1>;
+L_000001b13e470e40 .functor NAND 1, L_000001b13e470f90, L_000001b13e471230, C4<1>, C4<1>;
+v000001b13e445cc0_0 .net "A", 0 0, L_000001b13e458100;  1 drivers
+v000001b13e445540_0 .net "B", 0 0, L_000001b13e4586a0;  1 drivers
+v000001b13e445d60_0 .net "F", 0 0, L_000001b13e470e40;  1 drivers
+v000001b13e444d20_0 .net "G", 0 0, L_000001b13e470f90;  1 drivers
+v000001b13e445e00_0 .net "H", 0 0, L_000001b13e471230;  1 drivers
+v000001b13e444dc0_0 .net "P", 0 0, L_000001b13e470eb0;  1 drivers
+S_000001b13e447af0 .scope generate, "bit_slice[5]" "bit_slice[5]" 2 77, 2 77 0, S_000001b13e1ba540;
+ .timescale -9 -12;
+P_000001b13e376e60 .param/l "i" 1 2 77, +C4<0101>;
+S_000001b13e4490d0 .scope module, "XOR_inst" "xor1b" 2 78, 2 27 0, S_000001b13e447af0;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e470c10 .functor NAND 1, L_000001b13e459dc0, L_000001b13e45a040, C4<1>, C4<1>;
+L_000001b13e470f20 .functor NAND 1, L_000001b13e459dc0, L_000001b13e470c10, C4<1>, C4<1>;
+L_000001b13e4710e0 .functor NAND 1, L_000001b13e45a040, L_000001b13e470c10, C4<1>, C4<1>;
+L_000001b13e470ba0 .functor NAND 1, L_000001b13e470f20, L_000001b13e4710e0, C4<1>, C4<1>;
+v000001b13e4455e0_0 .net "A", 0 0, L_000001b13e459dc0;  1 drivers
+v000001b13e444f00_0 .net "B", 0 0, L_000001b13e45a040;  1 drivers
+v000001b13e444780_0 .net "F", 0 0, L_000001b13e470ba0;  1 drivers
+v000001b13e444e60_0 .net "G", 0 0, L_000001b13e470f20;  1 drivers
+v000001b13e445040_0 .net "H", 0 0, L_000001b13e4710e0;  1 drivers
+v000001b13e4450e0_0 .net "P", 0 0, L_000001b13e470c10;  1 drivers
+S_000001b13e447e10 .scope generate, "bit_slice[6]" "bit_slice[6]" 2 77, 2 77 0, S_000001b13e1ba540;
+ .timescale -9 -12;
+P_000001b13e377a60 .param/l "i" 1 2 77, +C4<0110>;
+S_000001b13e4498a0 .scope module, "XOR_inst" "xor1b" 2 78, 2 27 0, S_000001b13e447e10;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e471000 .functor NAND 1, L_000001b13e458240, L_000001b13e458c40, C4<1>, C4<1>;
+L_000001b13e471150 .functor NAND 1, L_000001b13e458240, L_000001b13e471000, C4<1>, C4<1>;
+L_000001b13e471070 .functor NAND 1, L_000001b13e458c40, L_000001b13e471000, C4<1>, C4<1>;
+L_000001b13e4711c0 .functor NAND 1, L_000001b13e471150, L_000001b13e471070, C4<1>, C4<1>;
+v000001b13e446080_0 .net "A", 0 0, L_000001b13e458240;  1 drivers
+v000001b13e445720_0 .net "B", 0 0, L_000001b13e458c40;  1 drivers
+v000001b13e445860_0 .net "F", 0 0, L_000001b13e4711c0;  1 drivers
+v000001b13e446120_0 .net "G", 0 0, L_000001b13e471150;  1 drivers
+v000001b13e4461c0_0 .net "H", 0 0, L_000001b13e471070;  1 drivers
+v000001b13e446d00_0 .net "P", 0 0, L_000001b13e471000;  1 drivers
+S_000001b13e449a30 .scope generate, "bit_slice[7]" "bit_slice[7]" 2 77, 2 77 0, S_000001b13e1ba540;
+ .timescale -9 -12;
+P_000001b13e3785e0 .param/l "i" 1 2 77, +C4<0111>;
+S_000001b13e449bc0 .scope module, "XOR_inst" "xor1b" 2 78, 2 27 0, S_000001b13e449a30;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "F";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001b13e470c80 .functor NAND 1, L_000001b13e459820, L_000001b13e459b40, C4<1>, C4<1>;
+L_000001b13e470cf0 .functor NAND 1, L_000001b13e459820, L_000001b13e470c80, C4<1>, C4<1>;
+L_000001b13e470d60 .functor NAND 1, L_000001b13e459b40, L_000001b13e470c80, C4<1>, C4<1>;
+L_000001b13e470dd0 .functor NAND 1, L_000001b13e470cf0, L_000001b13e470d60, C4<1>, C4<1>;
+v000001b13e447160_0 .net "A", 0 0, L_000001b13e459820;  1 drivers
+v000001b13e446f80_0 .net "B", 0 0, L_000001b13e459b40;  1 drivers
+v000001b13e447020_0 .net "F", 0 0, L_000001b13e470dd0;  1 drivers
+v000001b13e447200_0 .net "G", 0 0, L_000001b13e470cf0;  1 drivers
+v000001b13e446c60_0 .net "H", 0 0, L_000001b13e470d60;  1 drivers
+v000001b13e446da0_0 .net "P", 0 0, L_000001b13e470c80;  1 drivers
+    .scope S_000001b13e1c48e0;
+T_0 ;
+    %vpi_call 3 16 "$dumpfile", "not8b_tb.vcd" {0 0 0};
+    %vpi_call 3 17 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001b13e1c48e0 {0 0 0};
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v000001b13e4445a0_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v000001b13e4445a0_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 101, 0, 8;
+    %store/vec4 v000001b13e4445a0_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 170, 0, 8;
+    %store/vec4 v000001b13e4445a0_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 89, 0, 8;
+    %store/vec4 v000001b13e4445a0_0, 0, 8;
+    %delay 10000, 0;
+    %vpi_call 3 40 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "lib1.v";
+    "not8b_tb.v";
