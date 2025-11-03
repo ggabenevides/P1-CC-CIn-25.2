@@ -1,0 +1,68 @@
+$date
+	Sat Nov 01 16:11:24 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module half_adder_tb $end
+$var wire 1 ! S_tb $end
+$var wire 1 " C_tb $end
+$var reg 1 # A_tb $end
+$var reg 1 $ B_tb $end
+$scope module DUT $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 ! S $end
+$var wire 1 " C $end
+$scope module and1 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 " F $end
+$var wire 1 % P $end
+$upscope $end
+$scope module xor1 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 ! F $end
+$var wire 1 & G $end
+$var wire 1 ' H $end
+$var wire 1 ( P $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1(
+1'
+1&
+1%
+0$
+0#
+0"
+0!
+$end
+#10000
+1!
+0'
+1$
+#20000
+1'
+0&
+0$
+1#
+#30000
+0!
+1"
+1&
+0%
+0(
+1'
+1$
+#40000

@@ -69,6 +69,21 @@ module or8b (output wire [7:0] F, input wire [7:0] A, input wire [7:0] B);
 
 endmodule
 
+module or8b_bw (output wire F, input wire [7:0] A);
+  
+  //declarando fios intermediarios
+  wire temp0, temp1, temp2, temp3, temp4, temp5;
+
+  or1b or0bw (.F(temp0), .A(A[0]), .B(A[1]));
+  or1b or1bw (.F(temp1), .A(temp0), .B(A[2]));
+  or1b or2bw (.F(temp2), .A(temp1), .B(A[3]));
+  or1b or3bw (.F(temp3), .A(temp2), .B(A[4]));
+  or1b or4bw (.F(temp4), .A(temp3), .B(A[5]));
+  or1b or5bw (.F(temp5), .A(temp4), .B(A[6]));
+  or1b or6bw (.F(F), .A(temp5), .B(A[7]));
+
+endmodule
+
 // multiplexadores p seleção na ula
 module  xor8b (output wire [7:0] F, input wire [7:0] A, input wire [7:0] B);
   
@@ -193,5 +208,46 @@ module adder8b (output wire [7:0] Sum,
 
         // FA7 (MSB)
         full_adder FA7 (.S (Sum[7]), .Cout (Cout), .A (A[7]), .B (B[7]), .Cin (C[6]));
+
+endmodule
+
+// demultiplexador pra usar na lógica de flags
+module dmux8_1to8 (
+    output wire [7:0] Y0, Y1, Y2, Y3, Y4, Y5, Y6, Y7, // 8 Saídas de 8 bits
+    input wire [7:0] A,                               // Entrada de Dados de 8 bits
+    input wire [2:0] Sel                              // Seleção de 3 bits
+);
+
+    // Fios internos de controle complementares (complementos do Sel)
+    wire comp_S0, comp_S1, comp_S2;
+    
+    // Mintermo 0 (Sel=000)
+    not1b inst_not_S0 (.F(comp_S0), .A(Sel[0]));
+    not1b inst_not_S1 (.F(comp_S1), .A(Sel[1]));
+    not1b inst_not_S2 (.F(comp_S2), .A(Sel[2]));
+    
+    // Y0 (Sel=000): A & ~S2 & ~S1 & ~S0
+    and8b inst_and_Y0 (.F(Y0), .A(A), .B({8{comp_S2 & comp_S1 & comp_S0}}));
+    
+    // Y1 (Sel=001): A & ~S2 & ~S1 & S0
+    and8b inst_and_Y1 (.F(Y1), .A(A), .B({8{comp_S2 & comp_S1 & Sel[0]}}));
+
+    // Y2 (Sel=010): A & ~S2 & S1 & ~S0
+    and8b inst_and_Y2 (.F(Y2), .A(A), .B({8{comp_S2 & Sel[1] & comp_S0}}));
+
+    // Y3 (Sel=011): A & ~S2 & S1 & S0
+    and8b inst_and_Y3 (.F(Y3), .A(A), .B({8{comp_S2 & Sel[1] & Sel[0]}}));
+    
+    // Y4 (Sel=100): A & S2 & ~S1 & ~S0
+    and8b inst_and_Y4 (.F(Y4), .A(A), .B({8{Sel[2] & comp_S1 & comp_S0}}));
+
+    // Y5 (Sel=101): A & S2 & ~S1 & S0
+    and8b inst_and_Y5 (.F(Y5), .A(A), .B({8{Sel[2] & comp_S1 & Sel[0]}}));
+
+    // Y6 (Sel=110): A & S2 & S1 & ~S0
+    and8b inst_and_Y6 (.F(Y6), .A(A), .B({8{Sel[2] & Sel[1] & comp_S0}}));
+
+    // Y7 (Sel=111): A & S2 & S1 & S0
+    and8b inst_and_Y7 (.F(Y7), .A(A), .B({8{Sel[2] & Sel[1] & Sel[0]}}));
 
 endmodule

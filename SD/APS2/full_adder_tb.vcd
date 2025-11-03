@@ -1,0 +1,164 @@
+$date
+	Sat Nov 01 22:18:00 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module full_adder_tb $end
+$var wire 1 ! S_tb $end
+$var wire 1 " Cout_tb $end
+$var reg 1 # A_tb $end
+$var reg 1 $ B_tb $end
+$var reg 1 % Cin_tb $end
+$scope module DUT $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 % Cin $end
+$var wire 1 & Sum1 $end
+$var wire 1 ! S $end
+$var wire 1 " Cout $end
+$var wire 1 ' C2 $end
+$var wire 1 ( C1 $end
+$scope module HA1 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 & S $end
+$var wire 1 ( C $end
+$scope module and1 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 ( F $end
+$var wire 1 ) P $end
+$upscope $end
+$scope module xor1 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 & F $end
+$var wire 1 * G $end
+$var wire 1 + H $end
+$var wire 1 , P $end
+$upscope $end
+$upscope $end
+$scope module HA2 $end
+$var wire 1 & A $end
+$var wire 1 % B $end
+$var wire 1 ! S $end
+$var wire 1 ' C $end
+$scope module and1 $end
+$var wire 1 & A $end
+$var wire 1 % B $end
+$var wire 1 ' F $end
+$var wire 1 - P $end
+$upscope $end
+$scope module xor1 $end
+$var wire 1 & A $end
+$var wire 1 % B $end
+$var wire 1 ! F $end
+$var wire 1 . G $end
+$var wire 1 / H $end
+$var wire 1 0 P $end
+$upscope $end
+$upscope $end
+$scope module or1 $end
+$var wire 1 ( A $end
+$var wire 1 ' B $end
+$var wire 1 " F $end
+$var wire 1 1 G $end
+$var wire 1 2 H $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+12
+11
+10
+1/
+1.
+1-
+1,
+1+
+1*
+1)
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#10000
+1!
+0/
+1%
+#20000
+0.
+1!
+1&
+1/
+0+
+0%
+1$
+#30000
+1"
+02
+0!
+1'
+1.
+0-
+00
+1/
+1%
+#40000
+0"
+12
+1!
+0'
+0.
+1-
+10
+1+
+0*
+0%
+0$
+1#
+#50000
+1"
+02
+0!
+1'
+1.
+0-
+00
+1/
+1%
+#60000
+12
+0!
+01
+0&
+0'
+1.
+1(
+1*
+1-
+10
+0)
+0,
+1+
+0%
+1$
+#70000
+1!
+0/
+1%
+#80000
