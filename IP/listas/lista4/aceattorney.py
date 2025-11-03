@@ -93,7 +93,7 @@ if pressionou:
             print("Phoenix Wright: ELISSON!!!")
             print()
             print("Elisson: N-NÃÃÃÃÃOOOOO! COMO... ELE TE CONTOU?! MEU PLANO ERA PERFEITO!")
-            veredito = "INOCENTE"
+        veredito = "INOCENTE"
         print()
     elif not joao_presente: # falta de provas 
             print("Phoenix Wright: A promotoria não pode sequer provar que meu cliente tocou na arma do crime! Não há digitais dele!")
@@ -124,9 +124,8 @@ print(f"Juiz: O veredito para o caso de João Guilherme é: {veredito}!")
 print()
 
 if veredito == "INOCENTE":
-    if pressionou and elisson_presente: #elisson confessou
+    if pressionou and elisson_presente and modificacao_posterior: #elisson confessou
         print("Juiz: Que esta corte jamais esqueça o dia em que a verdade foi revelada contra todas as probabilidades.")
     print("A reputação do escritório Fey & Co. continua impecável.")
 else:
     print("Edgeworth... Você ainda não venceu o debate final.")
-
