@@ -22,8 +22,101 @@ time_lance = [["Electabuzz", "eletrico", 180, 45, "Soco de Trovão", 75, "eletri
 
 # funcoes 
 # calcular o dano que um pokemon irá causar em outro baseado tanto no tipo como poder de ataque e defesa do oponente
+def calculo_dano (tipo_ataque, poder_ataque, tipo_defesa, poder_defesa):
+    multiplicador_tipo = 1
+    dano_final = 0
+    if tipo_ataque == "fogo":
+        if tipo_defesa == "grama":
+            multiplicador_tipo = 2
+        elif tipo_defesa == "água":
+            multiplicador_tipo = 0.5
+    elif tipo_ataque == "grama":
+        if tipo_defesa == "água":
+            multiplicador_tipo = 2
+        elif tipo_defesa == "fogo":
+            multiplicador_tipo = 0.5
+    elif tipo_ataque == "água":
+        if tipo_defesa == "fogo":
+            multiplicador_tipo = 2
+        elif tipo_defesa == "grama":
+            multiplicador_tipo = 0.5
+    elif tipo_ataque == "elétrico":
+        if tipo_defesa == "água":
+            multiplicador_tipo = 2
+    dano_final = (poder_ataque - ( poder_defesa / 2)) * multiplicador_tipo
+    if dano_final < 1:
+        dano_final = 1
+    return dano_final, multiplicador_tipo
+    
 # decidir quem começa o combate entre dois pokemons em cada turno
+def decisao_turno (pokemon_jogador, velocidade_jogador, pokemon_oponente, velocidade_oponente):
+    pokemon_que_começa = ""
+    if velocidade_jogador > velocidade_oponente:
+        pokemon_que_começa = pokemon_jogador
+    elif velocidade_jogador < velocidade_oponente:
+        pokemon_que_começa = pokemon_oponente
+    elif velocidade_jogador == velocidade_oponente:
+        pokemon_que_começa = pokemon_jogador
+    return pokemon_que_começa
+
 # função principal em que as batalhas de turnos entre os pokemons irão ocorrer
+# batalha - rodada - turno
+def rodada (lista_pokemon_jogador, lista_pokemon_oponente, numero_rodada):
+    turno = 1
+    primeiro_pokemon = decisao_turno(lista_pokemon_jogador[0], lista_pokemon_jogador[7], lista_pokemon_oponente[0], lista_pokemon_oponente[7])
+    if primeiro_pokemon == lista_pokemon_jogador[0]:
+        segundo_pokemon = lista_pokemon_oponente[0]
+        lista_primeiro_pokemon = lista_pokemon_jogador.copy()
+        lista_segundo_pokemon = lista_pokemon_oponente.copy()
+        print_inicio_turno1 = f"{primeiro_pokemon} usa {lista_primeiro_pokemon[5]}!"
+        print_inicio_turno2 = f"{segundo_pokemon} do oponente usa {lista_segundo_pokemon[5]}!"
+    else: 
+        segundo_pokemon = lista_pokemon_jogador[0]
+        lista_primeiro_pokemon = lista_pokemon_oponente.copy()
+        lista_segundo_pokemon = lista_pokemon_jogador.copy()
+        print_inicio_turno1 = f"{segundo_pokemon} usa {lista_segundo_pokemon[5]}!"
+        print_inicio_turno2 = f"{primeiro_pokemon} do oponente usa {lista_primeiro_pokemon[5]}!"
+    print(f"--- Rodada {numero_rodada} ---")
+    print(f"{lista_pokemon_jogador[0]}, eu escolho você!")
+    print(f"{lista_pokemon_oponente[0]}, vai!")
+    print("--------------------")
+    print()
+    hp_atual_pokemon1 = lista_primeiro_pokemon[2]
+    hp_atual_pokemon2 = lista_segundo_pokemon[2]
+    while hp_atual_pokemon1 > 0 and hp_atual_pokemon2 > 0:
+        print(f"-- Turno {turno} --")
+        print()
+
+        # ataque do primeiro pokemon
+        dano = calculo_dano(lista_primeiro_pokemon[1], lista_primeiro_pokemon[6], lista_segundo_pokemon[1], lista_segundo_pokemon[6])
+        print(print_inicio_turno1)
+        if dano[1] == 2:
+            print(f"{lista_primeiro_pokemon[5]} é super efetivo!")
+        elif dano[1] == 0.5:
+            print(f"{lista_primeiro_pokemon[5]} não é muito efetivo...")
+        hp_atual_pokemon2 -= dano[0]
+        print(f"Causou {dano[0]} de dano. HP de {segundo_pokemon} agora é {hp_atual_pokemon2}/{lista_segundo_pokemon[2]}.")
+        print()
+
+        # ataque do segundo pokemon
+        dano = calculo_dano(lista_segundo_pokemon[1], lista_segundo_pokemon[6], lista_primeiro_pokemon[1], lista_primeiro_pokemon[6])
+        print(print_inicio_turno2)
+        if dano[1] == 2:
+            print(f"{lista_segundo_pokemon[5]} é super efetivo!")
+        elif dano[1] == 0.5:
+            print(f"{lista_segundo_pokemon[5]} não é muito efetivo...")
+        hp_atual_pokemon1 -= dano[0]
+        print(f"Causou {dano[0]} de dano. HP de {primeiro_pokemon} agora é {hp_atual_pokemon1}/{lista_primeiro_pokemon[2]}.")
+        print()
+    else: # atribuindo pokemon derrotado
+        if hp_atual_pokemon1 == 0:
+            pokemon_derrotado = primeiro_pokemon
+        elif hp_atual_pokemon2 == 0:
+            pokemon_derrotado = segundo_pokemon
+        print(f"{pokemon_derrotado} foi derrotado!")
+    return pokemon_derrotado
+
+# função da batalha 
 
 # programa 
 print("Hora de montar seu time Pokémon!")
@@ -38,4 +131,5 @@ print()
 print("====================")
 print("A BATALHA VAI COMEÇAR!")
 print("====================")
+print()
 
