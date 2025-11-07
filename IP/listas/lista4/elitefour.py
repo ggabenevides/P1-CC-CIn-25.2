@@ -41,13 +41,15 @@ def calculo_dano (tipo_ataque, poder_ataque, tipo_defesa, poder_defesa):
             multiplicador_tipo = 2
         elif tipo_defesa == "grama":
             multiplicador_tipo = 0.5
+        elif tipo_defesa == "eletrico":
+            multiplicador_tipo = 0.5
     elif tipo_ataque == "eletrico":
         if tipo_defesa == "agua":
             multiplicador_tipo = 2
     dano_final = (poder_ataque - ( poder_defesa / 2)) * multiplicador_tipo
     if dano_final < 1:
         dano_final = 1
-    return int(dano_final), multiplicador_tipo
+    return [int(dano_final), multiplicador_tipo]
     
 # decidir quem começa o combate entre dois pokemons em cada turno
 def decisao_turno (pokemon_jogador, velocidade_jogador, pokemon_oponente, velocidade_oponente):
@@ -62,7 +64,7 @@ def decisao_turno (pokemon_jogador, velocidade_jogador, pokemon_oponente, veloci
 
 # função principal em que as batalhas de turnos entre os pokemons irão ocorrer
 # batalha - rodada - turno
-def rodada (lista_pokemon_jogador, lista_pokemon_oponente, numero_rodada, ultimo_pokemon_vencedor="", vida_pokemon_vencedor=""):
+def rodada (lista_pokemon_jogador, lista_pokemon_oponente, numero_rodada, ultimo_time_vencedor="", vida_pokemon_vencedor=""):
     turno = 1
     primeiro_pokemon = decisao_turno(lista_pokemon_jogador[0], int(lista_pokemon_jogador[7]), lista_pokemon_oponente[0], int(lista_pokemon_oponente[7]))
     if primeiro_pokemon == lista_pokemon_jogador[0]:
@@ -71,22 +73,26 @@ def rodada (lista_pokemon_jogador, lista_pokemon_oponente, numero_rodada, ultimo
         lista_segundo_pokemon = lista_pokemon_oponente.copy()
         print_inicio_turno1 = f"{primeiro_pokemon} usa {lista_primeiro_pokemon[4]}!"
         print_inicio_turno2 = f"{segundo_pokemon} do oponente usa {lista_segundo_pokemon[4]}!"
+        time1 = "jogador"
+        time2 = "oponente"
     else: 
         segundo_pokemon = lista_pokemon_jogador[0]
         lista_primeiro_pokemon = lista_pokemon_oponente.copy()
         lista_segundo_pokemon = lista_pokemon_jogador.copy()
         print_inicio_turno1 = f"{primeiro_pokemon} do oponente usa {lista_primeiro_pokemon[4]}!"
         print_inicio_turno2 = f"{segundo_pokemon} usa {lista_segundo_pokemon[4]}!"
+        time1 = "oponente"
+        time2 = "jogador"
     print(f"--- Rodada {numero_rodada} ---")
     print(f"{lista_pokemon_jogador[0]}, eu escolho você!")
     print(f"{lista_pokemon_oponente[0]}, vai!")
     print("--------------------")
     print()
-    if ultimo_pokemon_vencedor == primeiro_pokemon:
+    if ultimo_time_vencedor == time1:
         hp_atual_pokemon1 = vida_pokemon_vencedor
     else:
         hp_atual_pokemon1 = int(lista_primeiro_pokemon[2])
-    if ultimo_pokemon_vencedor == segundo_pokemon:
+    if ultimo_time_vencedor == time2:
         hp_atual_pokemon2 = vida_pokemon_vencedor
     else:
         hp_atual_pokemon2 = int(lista_segundo_pokemon[2])
@@ -129,7 +135,7 @@ def rodada (lista_pokemon_jogador, lista_pokemon_oponente, numero_rodada, ultimo
             vida_restante = hp_atual_pokemon1
         else:
             vida_restante = hp_atual_pokemon2
-    return pokemon_derrotado, vida_restante
+    return [pokemon_derrotado, vida_restante]
 
 # programa 
 print("Hora de montar seu time Pokémon!")
@@ -153,13 +159,13 @@ pontos_jogador = 0
 pontos_oponente = 0
 pokemons_derotados_jogador = []
 pokemons_derrotados_oponente = []
-pokemon_vencedor = ""
+time_vencedor = ""
 vida_pokemon_vencedor = ""
 while len(time_jogador)>0 and len(time_oponente)>0:
     if rodada == 1:
         result_rodada = rodada(time_jogador[0], time_oponente[0], num_rodada)
     else:
-        result_rodada = rodada(time_jogador[0], time_oponente[0], num_rodada, pokemon_vencedor, vida_pokemon_vencedor)
+        result_rodada = rodada(time_jogador[0], time_oponente[0], num_rodada, time_vencedor, vida_pokemon_vencedor)
     pokemon_derrotado = result_rodada[0]
     vida_pokemon_vencedor = result_rodada[1]
     if pokemon_derrotado == time_oponente[0][0]:
@@ -168,14 +174,14 @@ while len(time_jogador)>0 and len(time_oponente)>0:
         time_oponente.pop(0)
         print(f"{pokemon_derrotado} do oponente foi derrotado!")
         vida_pokemon_vencedor = result_rodada[1]
-        pokemon_vencedor = time_jogador[0][0]
+        time_vencedor = "jogador"
     elif pokemon_derrotado == time_jogador[0][0]:
         pontos_oponente += 1
         pokemons_derotados_jogador.append(time_jogador[0][0])
         time_jogador.pop(0)
         print(f"{pokemon_derrotado} foi derrotado!")
         vida_pokemon_vencedor = result_rodada[1]
-        pokemon_vencedor = time_oponente[0][0]
+        time_vencedor = "oponente"
     print()
     print("--------------------")
     print()
