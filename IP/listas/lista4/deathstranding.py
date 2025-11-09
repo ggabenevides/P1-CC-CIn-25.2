@@ -22,35 +22,39 @@ def calculo_distancia(x1, y1, x2, y2):
 def deslocamento_sam(matriz, movimento, matriz_base):
     posicao_sam_coluna = 0
     posicao_sam_linha = 0
-    nova_posicao_sam_linha = 0
-    nova_posicao_sam_coluna = 0
-    for i in range(6):
-        for j in range(6):
+    nova_posicao_sam_linha = -1 # valores iniciais inválidos
+    nova_posicao_sam_coluna = -1 
+    
+    for i in range(5, -1, -1):
+        for j in range(5, -1, -1):
             if matriz[i][j] == "S":
                 posicao_sam_linha = int(i)
                 posicao_sam_coluna = int(j)
-    if movimento == "W": 
-        if posicao_sam_linha < 5:
-            nova_posicao_sam_linha = posicao_sam_linha-1
-            nova_posicao_sam_coluna = posicao_sam_coluna
-    if movimento == "S":
+
+    if movimento == "W": # mover para CIMA 
         if posicao_sam_linha > 0:
-            nova_posicao_sam_linha = posicao_sam_linha+1
+            nova_posicao_sam_linha = posicao_sam_linha - 1
             nova_posicao_sam_coluna = posicao_sam_coluna
-    if movimento == "D":
+    elif movimento == "S": # mover para BAIXO 
+        if posicao_sam_linha < 5:
+            nova_posicao_sam_linha = posicao_sam_linha + 1
+            nova_posicao_sam_coluna = posicao_sam_coluna
+    elif movimento == "D": # mover para DIREITA
         if posicao_sam_coluna < 5:
             nova_posicao_sam_linha = posicao_sam_linha
-            nova_posicao_sam_coluna = posicao_sam_coluna+1
-    if movimento == "A":
+            nova_posicao_sam_coluna = posicao_sam_coluna + 1
+    elif movimento == "A": # mover para ESQUERDA
         if posicao_sam_coluna > 0:
             nova_posicao_sam_linha = posicao_sam_linha
-            nova_posicao_sam_coluna = posicao_sam_coluna-1
-    # atualizando matriz
-    matriz[nova_posicao_sam_linha][nova_posicao_sam_coluna] = "S"
-    if matriz_base[posicao_sam_linha][posicao_sam_coluna] == "P":
-        matriz[posicao_sam_linha][posicao_sam_coluna] = "P"
-    elif matriz_base[posicao_sam_linha][posicao_sam_coluna] == "F":
-        matriz[posicao_sam_linha][posicao_sam_coluna] = "F"
+            nova_posicao_sam_coluna = posicao_sam_coluna - 1
+
+    # atualizando matriz APENAS se o movimento foi válido
+    if (nova_posicao_sam_linha != -1 or nova_posicao_sam_coluna != -1) and matriz[nova_posicao_sam_linha][nova_posicao_sam_coluna] != "I":
+        # posição de onde Sam estava
+        matriz[posicao_sam_linha][posicao_sam_coluna] = matriz_base[posicao_sam_linha][posicao_sam_coluna]
+        # nova posição de Sam
+        matriz[nova_posicao_sam_linha][nova_posicao_sam_coluna] = "S"
+        
     return matriz
 
 # checar se sam esta num piso incediario
@@ -110,7 +114,7 @@ def teletransporte_neil(matriz, matriz_base):
             if matriz[i][j] == "S":
                 posicao_sam_linha = int(i)
                 posicao_sam_coluna = int(j)
-            if matriz[i][j] == "P" or matriz[i][j] == "F":
+            if matriz[i][j] == "P" or matriz[i][j] == "F" or matriz[i][j] == "N":
                 posicao_teste_linha = int(i)
                 posicao_teste_coluna = int(j)
             distancia_teste = calculo_distancia(posicao_teste_linha, posicao_teste_coluna, posicao_sam_linha, posicao_sam_coluna)
@@ -125,19 +129,24 @@ def teletransporte_neil(matriz, matriz_base):
         posicao = maior_distancia_posicoes[-1]
     else:
         posicao = lista_posicoes[lista_distancias.index(maior_distancia)]
+
     nova_linha_neil = posicao[0]
     nova_coluna_neil = posicao[1]
+
     for i in range(6):
         for j in range(6):
             if matriz[i][j] == "N":
                 posicao_neil_linha = int(i)
                 posicao_neil_coluna = int(j)
-    matriz[nova_linha_neil][nova_coluna_neil] = "N" # nova posicao de neil apos o teletransporte
-    # ajustando posicao que neil estava anteriormente
-    if matriz_base[posicao_neil_linha][posicao_neil_coluna] == "P": 
-        matriz[posicao_neil_linha][posicao_neil_coluna] = "P"
-    elif matriz_base[posicao_neil_linha][posicao_neil_coluna] == "F":
-        matriz[posicao_neil_linha][posicao_neil_coluna] = "F"
+
+    # ajustando posicoes, se ele tiver se mexido
+    if nova_coluna_neil != posicao_neil_coluna or nova_linha_neil != posicao_neil_linha:
+        matriz[nova_linha_neil][nova_coluna_neil] = "N" # nova posicao de neil apos o teletransporte   
+        if matriz_base[posicao_neil_linha][posicao_neil_coluna] == "P": 
+            matriz[posicao_neil_linha][posicao_neil_coluna] = "P"
+        elif matriz_base[posicao_neil_linha][posicao_neil_coluna] == "F":
+            matriz[posicao_neil_linha][posicao_neil_coluna] = "F"
+
     return matriz
 
 #programa
@@ -164,9 +173,7 @@ for i in range(6):
 while hp_neil>0 and hp_sam>0:
     entrada = input()
     contagem_acoes += 1
-    dano_fogo = check_dano_fogo(matriz_espaco, matriz_base)
-    if dano_fogo:
-        hp_neil -= 5
+
     if entrada == "Atirar": # sam vai atirar 
         dano_em_neil = atirar_sam(matriz_espaco, arma) 
         hp_neil -= dano_em_neil
@@ -174,18 +181,17 @@ while hp_neil>0 and hp_sam>0:
             hits_em_neil += 1    
     if contagem_acoes % 4 == 0 and hp_neil>0: # neil vai atirar 
         print(">>> Você recebe um disparo de Neil! <<<")
-        hits_fogo += 1
         hp_sam -= 15
         dano_neil += 15
-    elif entrada in movimentos_wasd: #deslocamento na matriz
+    if entrada in movimentos_wasd: #deslocamento na matriz
         matriz_espaco = deslocamento_sam(matriz_espaco, entrada, matriz_base)
-    elif entrada in armas:
+    if entrada in armas:
         arma = entrada
         print(f"Arma trocada para {arma}.")
     if hp_sam<=40 and not sem_cura:
         print("Dollman: A Fragile comeu todos os criptobiontes da DHV Magalhães... Se curar não é uma opção. Tome cuidado, Sam.")
         sem_cura = True
-    if hits_em_neil == 3:
+    if hits_em_neil == 3 and hp_neil>0:
         hits_em_neil = 0
         matriz_espaco = teletransporte_neil(matriz_espaco, matriz_base)
         for i in range (6):
@@ -194,14 +200,18 @@ while hp_neil>0 and hp_sam>0:
                     print(f"{matriz_espaco[i][j]} ", end="")
                 else: 
                     print(matriz_espaco[i][j])
+    dano_fogo = check_dano_fogo(matriz_espaco, matriz_base)
+    if dano_fogo:
+        hp_sam -= 5
+        hits_fogo += 1    
 else: 
     likes = 1000 - (dano_neil * 8) - (hits_fogo * 10)
-    if hp_neil == 0:
+    if hp_neil <= 0:
         print()
         print("MISSÃO COMPLETA! - Investigue a Anomalia")
         print("========================================")
         print(f"Likes recebidos: 👍 {likes}")
-    elif hp_sam == 0:
+    elif hp_sam <= 0:
         print()
         print("MISSÃO FALHOU")
         print("==============")
