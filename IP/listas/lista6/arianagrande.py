@@ -25,18 +25,22 @@ else: # reabastecimento
         if entrada != "ACABOU, a Glinda está pronta!":
             entrada = entrada.split(" ")
             categoria_recebida = entrada[5]
-            quantidade_recebida = int(entrada[1])
-            item_recebido = entrada[-2][:-1] 
 
-            # lógica de estoque 
             flag_chave_existente = exigencias.get(categoria_recebida, "chave inexistente")
+
             if flag_chave_existente != "chave inexistente":
-                exigencias.update({categoria_recebida : (item_recebido, quantidade - quantidade_recebida)})
+                tupla_exigencia = exigencias[categoria_recebida] # (item, quantidade)
+                quantidade_recebida = int(entrada[1])
+                item_recebido = entrada[-1][:-1] 
+
+                # lógica de estoque 
+                exigencias.update({categoria_recebida : (item_recebido, tupla_exigencia[1] - quantidade_recebida)})
 
     else:
         # relatorio final
         print("Relatório de Balanço Final:")
-        categorias = exigencias.keys()
+
+        categorias = tuple(exigencias.keys())
         for i in range(len(categorias)):
             if exigencias[categorias[i]][1] <= 0:
                 frase = "Você entregou TUDO! O mimo tá mais que garantido."
