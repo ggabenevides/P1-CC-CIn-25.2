@@ -16,8 +16,6 @@ def achar_pessoa_pela_musica (vida_amorosa, musica):
     for pessoa in tuple(vida_amorosa.keys()):
         if musica in vida_amorosa[pessoa][0]:
             return pessoa
-        else:
-            return None
         
 ataque_ye = "Que grande mentira! Taylor Swift só mente"
 entrada = ""
@@ -42,7 +40,7 @@ while entrada != "Já chega de fatos sobre a Taylor, vai fazer a lista de IP":
 
     elif entrada == "Quais são todas as músicas relacionadas a essa pessoa?":
         pessoa = input()
-        print(f"Cartas de amor ou indiretas, as músicas dedicadas a {pessoa} são: ", end="")
+        print(f"Cartas de amor ou indiretas, as músicas dedicadas a {pessoa} são: ")
         for musica in vida_amorosa[pessoa][0]:
             if vida_amorosa[pessoa][0].index(musica) == -1:
                 print(musica)
@@ -51,7 +49,7 @@ while entrada != "Já chega de fatos sobre a Taylor, vai fazer a lista de IP":
 
     elif entrada == "O que aconteceu nessa era?":
         era = input()
-        print(carreira[era])
+        print(carreira[era][0])
 
     elif entrada == "Wayne nunca deixará Taylor vencer! O CIn precisa manter o hate na diva pop, eu vou alterar as informações":
         era = input()

@@ -27,7 +27,7 @@ def ad_musica (duracoes_limite, generos_permitidos, setlist, dados_novos, ato_at
                 if nome == "Talk Talk featuring troye sivan":
                     print("A MAIOR AMIZADE DO POP NO PALCO? Talk to them in your own made-up language!")
                 elif nome == "Von dutch a. g. cook remix featuring addison rae":
-                    print("‘CAUSE THEY’RE JUST LIVING THAT LIFE! Addison Rae, a maior revelação do pop desde Britney Spears, no palco ao lado da sua amiga Charli XCX!")
+                    print("CAUSE THEY’RE JUST LIVING THAT LIFE! Addison Rae, a maior revelação do pop desde Britney Spears, no palco ao lado da sua amiga Charli XCX!")
                 elif nome == "Guess featuring billie eilish":
                     print("Hey, Billie, you there?")
                 print(f"{nome} adicionada ao {ato_atual} ;).")
@@ -63,6 +63,9 @@ while entrada != "FIM_SHOW":
             duracao_1 = resultado[1]
             musicas_adicionadas = resultado[2]
             musicas_descartadas = resultado[3]
+        else:
+            if len(setlist[ato]) == 0:
+                print("Nenhuma música adicionada a este Ato.")
 
     duracao_2 = 0
     print()
@@ -78,6 +81,9 @@ while entrada != "FIM_SHOW":
             duracao_2 = resultado[1]
             musicas_adicionadas = resultado[2]
             musicas_descartadas = resultado[3]
+        else:
+            if len(setlist[ato]) == 0:
+                print("Nenhuma música adicionada a este Ato.")
 
     duracao_3 = 0
     print()
@@ -93,10 +99,13 @@ while entrada != "FIM_SHOW":
             duracao_3 = resultado[1]
             musicas_adicionadas = resultado[2]
             musicas_descartadas = resultado[3]
+        else:
+            if len(setlist[ato]) == 0:
+                print("Nenhuma música adicionada a este Ato.")
     print()
-duracoes_atos = (duracao_1, duracao_2, duracao_3)
 
 # relatorio final
+duracoes_atos = (duracao_1, duracao_2, duracao_3)
 vibes_atos = ("Abertura", "Sentimental", "Encerramento")
 set_curto = False
 
