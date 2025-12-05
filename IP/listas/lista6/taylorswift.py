@@ -1,7 +1,7 @@
 vida_amorosa = {"Jake Gyllenhaal": (("All too Well", "We are never ever getting back together", "Red"), 2010),
                 "Joe Jonas": (("Forever & Always", "Holy Ground"), 2008),
                 "Taylor Lautner": (("Back to December", "I can see you", "Midnight rain"), 2009),
-                "Tom Hiddleston": (("Getaway Car"), 2016),
+                "Tom Hiddleston": (("Getaway Car",), 2016),
                 "Joe Alwyn": (("Paper Rings", "Lover", "So Long London"), 2020),
                 "Harry Styles":  (("Style", "Out of the Woods", "All You Had to Do Was Stay"), 2012),
                 "Travis Kelce": (("The Fate of Ophelia", "The Alchemy", "Wi$h Li$t"), 2023)}
@@ -20,6 +20,7 @@ def achar_pessoa_pela_musica (vida_amorosa, musica):
 ataque_ye = "Que grande mentira! Taylor Swift só mente"
 entrada = ""
 eras_roubadas = []
+sabotagem_ye = False
 
 while entrada != "Já chega de fatos sobre a Taylor, vai fazer a lista de IP":
     entrada = input()
@@ -40,21 +41,26 @@ while entrada != "Já chega de fatos sobre a Taylor, vai fazer a lista de IP":
 
     elif entrada == "Quais são todas as músicas relacionadas a essa pessoa?":
         pessoa = input()
-        print(f"Cartas de amor ou indiretas, as músicas dedicadas a {pessoa} são: ")
+        print(f"Cartas de amor ou indiretas, as músicas dedicadas a {pessoa} são: ", end="")
         for musica in vida_amorosa[pessoa][0]:
-            if vida_amorosa[pessoa][0].index(musica) == -1:
+            if vida_amorosa[pessoa][0].index(musica) == len(vida_amorosa[pessoa][0])-1:
                 print(musica)
             else:
                 print(f"{musica}, ", end="")
 
     elif entrada == "O que aconteceu nessa era?":
         era = input()
-        print(carreira[era][0])
+        if sabotagem_ye and len(carreira[era])>1: # a unica era que vai ter len>1 é a que foi sabotada, evitando que apos uma sabotagem, o programa entre nessa condição pra uma era que não foi sabotada
+            print(carreira[era][0][0], end=" ")
+            print(carreira[era][1])
+        else:
+            print(carreira[era][0][0])
 
     elif entrada == "Wayne nunca deixará Taylor vencer! O CIn precisa manter o hate na diva pop, eu vou alterar as informações":
         era = input()
         carreira[era].append(ataque_ye)
         print("Cuidado, há um impostor no guia... Informações comprometidas")
+        sabotagem_ye = True
 
     elif entrada == "Scooter não liga que ela comprou todos os álbuns de volta, ele vai roubar tudo dessa era":
         era = input()
