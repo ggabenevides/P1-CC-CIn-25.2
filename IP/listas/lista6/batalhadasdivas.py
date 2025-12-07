@@ -40,6 +40,11 @@ conflitos = {
     'Dua Lipa': ('Taylor Swift',),
     'Doja Cat': ('Nicki Minaj', 'Sabrina Carpenter'),}
 
+def encontrar_posicao_chave(dicionario, chave_procurada):
+    for indice, chave in enumerate(dicionario):
+        if chave == chave_procurada:
+            return indice
+
 def sort_dict_recursiva(dicionario):
     # caso base
     if not dicionario:
@@ -66,42 +71,38 @@ def print_placar_ordenado(divas, fase):
         print()
         print(f"=== PLACAR DA {fase}ª FASE ===")
         for diva in divas:
-            print(f"{diva} --- {divas[diva]['pontuacao']}")
+            print(f"{diva} --- {int(divas[diva]['pontuacao'])}")
 
 
-def criando_nome (string, index_inicial):
+def sao_permutacoes(str1, str2):
+
+    if len(str1) != len(str2):
+        return False
+
+    contador1 = {}
+    contador2 = {}
+
     
-    # se a string estiver vazia, retorna vazio
-    if not string:
-        return ""
-    
-    if index_inicial == 0:
-        # primeiro nome
-        index_espaco = string.find(' ')
-        if index_espaco == -1: 
-            # se não houver espaço (nome único), retorna a string inteira
-            return string
-        # retorna a substring do início (índice 0) até o primeiro espaço
-        return string[:index_espaco]
-    else:
-        # último nome
-        index_ultimo_espaco = string.rfind(' ')
-        if index_ultimo_espaco == -1: 
-            return string
-        # retorna a substring do índice após o último espaço (+1) até o final
-        return string[index_ultimo_espaco + 1:]
+    for char in str1:
+        
+        contador1[char] = contador1.get(char, 0) + 1
 
+    for char in str2:
+        contador2[char] = contador2.get(char, 0) + 1
+
+    return contador1 == contador2
 
 def identificando_nome_verdadeiro (divas_estadunidenses, diva):
-    ultimo_nome = criando_nome(diva, -1)
-    permutou = False
+    permutou = False 
+    ja_identificou = False
     for i in range(len(divas_estadunidenses)):
-        # criando substring do nome sem usar split :(
-        primeiro_nome = criando_nome(divas_estadunidenses[i], 0)
-        # se o ultimo nome da diva for o primeiro nome de alguma das divas americanas, então a diva permutou o nome, e seu nome real tá na tupla
-        if primeiro_nome == ultimo_nome:
-            nome_real = divas_estadunidenses[i]
-            permutou = True
+        if not ja_identificou:
+            permutou = sao_permutacoes(divas_estadunidenses[i], diva)
+            # se o ultimo nome da diva for o primeiro nome de alguma das divas americanas, então a diva permutou o nome, e seu nome real tá na tupla
+            if permutou:
+                nome_real = divas_estadunidenses[i]
+                ja_identificou = True
+            
     if not permutou: # se ela não permutou, então o nome fornecido já é o real
         nome_real = diva
     return nome_real
@@ -131,10 +132,10 @@ while entrada != "FIM DAS INSCRIÇÕES":
             pontuacao -= 50 # só por ser americana ela ja perde 50 pontos
             diva_apenas_americana = True
             # pode ser que ela tenha tentado se disfarçar como brasileira, perde 50 pontos além dos obrigatórios por ser americana
-            if dados[1] == "Brasil":
+            if dados[1] != "EUA":
                 pontuacao -= 50
                 diva_americana_trapaceando = True
-                dados[1] = "Estados Unidos"
+                dados[1] = "EUA"
             # ou que ela seja a azealia banks tentando passar; não sendo a azealia, ela pode entrar
             if dados[0] == "Azealia Banks":
                 print(f"Eita, climão! Parece que o histórico de polêmicas de {dados[0]} falou mais alto. A produção barrou a entrada e aqui no Brasil ela não canta!")
@@ -168,40 +169,158 @@ else:
     print()
 
 # fase 2
-divas_remanescentes = divas.copy() # essa biblioteca vai garantir que o mesmo duelo não aconteça duas vezes
-vencedor = "ninguem"
-duelo_aconteceu = False
-for diva in divas:
-    del divas_remanescentes[diva] # para que, caso a rival esteja na competição, o duelo não aconteca de novo
-    pontuacao_diva = divas[diva]['pontuacao']
-    rivais = conflitos.get(diva, "diva não tem rivais")
-    if rivais != "diva não tem rivais":
-        for rival in rivais:
-            #checar se a rival tá jogando
-            info_rival = divas_remanescentes.get(rival, "rival não está participando")
-            if info_rival != "rival não está participando":
-                pontuacao_rival = divas[rival]['pontuacao']
-                duelo_aconteceu = True
-                print(f"DRAMA! A rivalidade entre {diva} e {rival} vai ser resolvida no palco, AGORA!")
-                # comparacao das pontuacoes 
-                if pontuacao_diva == pontuacao_rival:
-                    vencedor = "ninguem"
-                    del divas[diva]
-                    del divas[rival]
-                    print(f"Eliminada(s): {diva}, {rival}")
-                if pontuacao_diva > pontuacao_rival:
-                    vencedor = diva
-                    del divas[rival]
-                    print(f"Eliminada(s): {rival}")
-                elif pontuacao_diva < pontuacao_rival:
-                    vencedor = rival
-                    del divas[diva]
-                    print(f"Eliminada(s): {diva}")
+divas = sort_dict_recursiva(divas)
+if len(divas)>0:
+    divas_remanescentes = divas.copy() # essa biblioteca vai garantir que o mesmo duelo não aconteça duas vezes
+    duelos = {}
+    duelo_aconteceu = False
+    for diva in divas:
+        diva_eliminada = False
+        del divas_remanescentes[diva] # para que, caso a rival esteja na competição, o duelo não aconteca de novo
+        pontuacao_diva = divas[diva]['pontuacao']
+        rivais = conflitos.get(diva, "diva não tem rivais")
+        if rivais != "diva não tem rivais":
+            for rival in rivais:
+                #checar se a rival tá jogando
+                if not diva_eliminada:
+                    info_rival = divas_remanescentes.get(rival, "rival não está participando")
+                    if info_rival != "rival não está participando":
+                        pontuacao_rival = divas[rival]['pontuacao']
+                        duelo_aconteceu = True
+                        # comparacao das pontuacoes 
+                        if pontuacao_diva == pontuacao_rival:
+                            duelos[(diva, rival)] = (diva, rival) # chave = duelo, valor = eliminada(s)
+                            diva_eliminada = True
+                        if pontuacao_diva > pontuacao_rival:
+                            duelos[(diva, rival)] = (rival,)
+                        elif pontuacao_diva < pontuacao_rival:
+                            duelos[(diva, rival)] = (diva,)
+                            diva_eliminada = True
+                            
+    # prints da fase 2
+    if not duelo_aconteceu:
+        print("O palco estava montado. Os holofotes, ligados. Mas o conflito não apareceu. Fase 2 cancelada: as divas escolheram reinar em paz.")
+        print()
+    else:
+        print("SALTO ALTO NO TABLADO! HORA DO DUELO!")
+        for duelo in duelos:
+            diva = duelo[0]
+            rival = duelo[1]
+            print(f"DRAMA! A rivalidade entre {diva} e {rival} vai ser resolvida no palco, AGORA!")
+            if len(duelos[duelo]) == 1:
+                print(f"Eliminada(s): {duelos[duelo][0]}")
+                del divas[duelos[duelo][0]]
+            else:
+                print(f"Eliminada(s): {duelos[duelo][0]} e {duelos[duelo][1]}")
+                del divas[duelos[duelo][0]]
+                del divas[duelos[duelo][1]]            
+        print_placar_ordenado(divas, 2)
+        print()
 
-if not duelo_aconteceu:
-    print("O palco estava montado. Os holofotes, ligados. Mas o conflito não apareceu. Fase 2 cancelada: as divas escolheram reinar em paz.")
+# fase 3
+divas = sort_dict_recursiva(divas)
+if len(divas) > 0:
+    gaga_presente = False
+    bey_presente = False
+    anitta_presente = False
+
+    gaga_condicao = False
+    bey_condicao = False
+    anitta_condicao = False
+
+    for diva in divas:
+        if diva == 'Lady Gaga':
+            gaga_presente = True
+        elif diva == 'Beyoncé':
+            bey_presente = True
+        elif diva == 'Anitta':
+            anitta_presente = True
+
+    if gaga_presente:
+        if encontrar_posicao_chave(divas, 'Lady Gaga') not in (0, 1, 2): # condicao p habilidade ser ativada
+            gaga_condicao = True
+            menor_pontuacao = min(divas, key=lambda chave: divas[chave]["pontuacao"])
+            if menor_pontuacao != 'Lady Gaga' and (int(divas[menor_pontuacao]['pontuacao']) <= int(divas['Lady Gaga']['pontuacao'])*1.25):
+                # sucesso
+                divas['Lady Gaga']['pontuacao'] += int(divas[menor_pontuacao]['pontuacao'])
+                del divas[menor_pontuacao]
+                resultado_gaga =  f'ARRASOU! O blefe de Lady Gaga funcionou! Ela enganou os jurados com seu "Poker Face" e roubou a cena de {menor_pontuacao}!'
+            else:
+                # falha
+                del divas['Lady Gaga']
+                resultado_gaga = 'QUE REVIRAVOLTA! O público não caiu no "Poker Face" de Lady Gaga! A farsa foi descoberta e ela está eliminada!'
+
+    if bey_presente:
+        if len(divas) >= 3:
+            bey_condicao = True
+            divas_temp = divas.copy()
+            menor_pontuacao1 = min(divas_temp, key=lambda chave: divas[chave]["pontuacao"])
+            del divas_temp[menor_pontuacao1]
+            menor_pontuacao2 = min(divas_temp, key=lambda chave: divas[chave]["pontuacao"])
+            if divas[menor_pontuacao1]['pontuacao'] + divas[menor_pontuacao2]['pontuacao'] <= divas['Beyoncé']['pontuacao']:
+                acrescimo1 = divas[menor_pontuacao1]['pontuacao']*0.1
+                acrescimo2 = divas[menor_pontuacao2]['pontuacao']*0.1
+                divas[menor_pontuacao1]['pontuacao'] += acrescimo1
+                divas[menor_pontuacao2]['pontuacao'] += acrescimo2
+                divas['Beyoncé']['pontuacao'] += acrescimo1 + acrescimo1
+                resultado_bey = 'PAREM TUDO! Queen Bey ativou a "Formation"! Ela reorganizou o jogo, elevou as novatas e saiu ainda mais forte!'
+            else:
+                del divas['Beyoncé']
+                resultado_bey = 'CHOQUE! A estratégia de Beyoncé foi ousada demais! A "Formation" não convenceu e ela foi desclassificada por manipulação!'
+
+    if anitta_presente:
+        if encontrar_posicao_chave(divas, 'Anitta') != 0:
+            maior_pontuacao = max(divas, key=lambda chave: divas[chave]["pontuacao"])
+            anitta_condicao = True
+            if int(divas['Anitta']['informacoes gerais'][2]) >= int(divas[maior_pontuacao]['informacoes gerais'][2])*0.9:
+                acrescimo = (divas[maior_pontuacao]['pontuacao'] - divas['Anitta']['pontuacao'])*0.25
+                divas[maior_pontuacao]['pontuacao'] -= acrescimo
+                divas['Anitta']['pontuacao'] += acrescimo
+                resultado_anitta = f'A PATROA TÁ ON! Anitta usou "Envolver" e fez {maior_pontuacao} dançar conforme sua música, virando o placar a seu favor!'
+            else:
+                divas['Anitta']['pontuacao'] -= 75
+                resultado_anitta = 'DEU RUIM! A tentativa de "Envolver" de Anitta não funcionou! A jogada foi arriscada e o público não comprou a ideia.'
+
+    # prints fase 3
+    if not gaga_condicao and not bey_condicao and not anitta_condicao:
+        print("Silêncio no palco... Nenhuma habilidade especial foi ativada.")
+        print()
+    else:
+        print("O PALCO VAI TREMER! HORA DAS JOGADAS ESPECIAIS!")
+        if gaga_presente and gaga_condicao:
+            print(resultado_gaga)
+        if bey_condicao and bey_condicao:
+            print(resultado_bey)
+        if anitta_presente and anitta_condicao:
+            print(resultado_anitta)
+        print_placar_ordenado(divas, 3)
+        print()
+
+# resultado final
+taylor_presente = False
+if len(divas) > 0:
+    vencedora = max(divas, key=lambda chave: divas[chave]["pontuacao"])
+    # checando empates e desempatando
+    for diva in divas:
+        if diva != vencedora and divas[diva]['pontuacao'] == divas[vencedora]['pontuacao']:
+            if divas[diva]['informacoes gerais'][2] > divas[vencedora]['informacoes gerais'][2]:
+                vencedora = diva
+            elif divas[diva]['informacoes gerais'][2] == divas[vencedora]['informacoes gerais'][2]:
+                if diva < vencedora:
+                    vencedora = diva
+    # prints vencedora
+    print('=== HABEMUS DIVAM! ===')
+    print('A GUERRA ACABOU! A nova dona do palco, a chefe do Réveillon, a única... é ELA!')
+    for diva in divas:
+        if diva == 'Taylor Swift':
+            taylor_presente = True
+    if taylor_presente and encontrar_posicao_chave(divas, 'Taylor Swift') in (1, 2): # se a taylor está no top 3 mas não é a vencedora
+        print(f'PARABÉNS, {vencedora[0:3].upper()}... TAYLOR SWIFT!!!')
+        print('MAS O QUE É ISSO?! Uma reviravolta de última hora! O conselheiro Filipe Moreira acaba de invadir a sala de controle! Alegando fazer parte de uma "comissão cinterna" de Swifties, ele anulou o resultado final e declarou que a verdadeira Era do Réveillon pertence à Taylor Swift! O show está garantido... e a rainha dele também!')
+    else:
+        print(f'PARABÉNS, {vencedora.upper()}!!! O Rei pode descansar em paz (no gelo), pois o show está garantido!')
+        
 else:
-    print_placar_ordenado(divas, 2)
-
-
-
+    print('INACREDITÁVEL! A Batalha das Divas terminou em caos, sem nenhuma vencedora! O palco está vazio... MAS O CALOR DA BRIGA FEZ O IMPOSSÍVEL! O Rei descongelou, subiu ao palco, olhou para a confusão e disse:')
+    print('Obrigado pela ajuda, meninas, mas o show já tem atração... e Esse Cara Sou Eu.')
+    print('O RÉVEILLON ESTÁ SALVO!')
