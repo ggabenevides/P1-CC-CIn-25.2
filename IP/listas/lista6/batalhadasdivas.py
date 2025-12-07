@@ -75,20 +75,21 @@ def print_placar_ordenado(divas, fase):
 
 
 def sao_permutacoes(str1, str2):
+    str1 = str1.lower()
+    str2 = str2.lower()
 
-    if len(str1) != len(str2):
-        return False
 
     contador1 = {}
     contador2 = {}
 
     
     for char in str1:
-        
-        contador1[char] = contador1.get(char, 0) + 1
+        if char != " ":
+            contador1[char] = contador1.get(char, 0) + 1
 
     for char in str2:
-        contador2[char] = contador2.get(char, 0) + 1
+        if char != " ":
+            contador2[char] = contador2.get(char, 0) + 1
 
     return contador1 == contador2
 
@@ -219,7 +220,7 @@ if len(divas)>0:
 
 # fase 3
 divas = sort_dict_recursiva(divas)
-if len(divas) > 0:
+if len(divas) > 1:
     gaga_presente = False
     bey_presente = False
     anitta_presente = False
@@ -262,7 +263,7 @@ if len(divas) > 0:
                 acrescimo2 = divas[menor_pontuacao2]['pontuacao']*0.1
                 divas[menor_pontuacao1]['pontuacao'] += acrescimo1
                 divas[menor_pontuacao2]['pontuacao'] += acrescimo2
-                divas['Beyoncé']['pontuacao'] += acrescimo1 + acrescimo1
+                divas['Beyoncé']['pontuacao'] += acrescimo2 + acrescimo1
                 resultado_bey = 'PAREM TUDO! Queen Bey ativou a "Formation"! Ela reorganizou o jogo, elevou as novatas e saiu ainda mais forte!'
             else:
                 del divas['Beyoncé']
