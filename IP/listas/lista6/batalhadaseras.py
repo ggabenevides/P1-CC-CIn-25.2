@@ -189,11 +189,10 @@ else:
 
     for diva_nome in divas_ordenadas:
         data = divas_ordenadas[diva_nome]
-        if data['musicas'] > 0:
-            print(f"{posicao}° {diva_nome} com {data['media']} Streams por música")
-            if posicao == 1:
-                diva_campea_fase1 = diva_nome
-            posicao += 1
+        print(f"{posicao}° {diva_nome} com {data['media']} Streams por música")
+        if posicao == 1:
+            diva_campea_fase1 = diva_nome
+        posicao += 1
 
     # prints especificos de vitoria
     if diva_campea_fase1 == "Katy Perry":
@@ -214,9 +213,13 @@ else:
         if len(partes) == 2:
             musica_voto = partes[0]
             diva_voto = partes[1]
+            cantora_certa = False
+            for era in eras_por_diva[diva_voto]:
+                if musica_voto in musicas_por_era[era]:
+                    cantora_certa = True
             
             # validacao da entrada
-            if musica_voto not in dados_musicas:
+            if musica_voto not in dados_musicas or not cantora_certa:
                 print("Essa musica não pertence ao catálogo, tente outra")
             else:
                 # armazenando dados, se a entrada nao foi invalidada
@@ -312,7 +315,7 @@ else:
 
             fan_descriptografado = ""
             diva_descriptografada = ""
-            while not (fan_descriptografado == diva_descriptografada == "FIM"):
+            while not (fan_descriptografado.upper() == diva_descriptografada.upper() == "FIM"):
                 
                 entrada_fase3 = input()
                 partes = entrada_fase3.split(' - ')
@@ -325,7 +328,7 @@ else:
                 fan_descriptografado = cifra_de_cesar(fan_cripto, chave_fan)
                 diva_descriptografada = cifra_de_cesar(diva_cripto, chave_diva)
 
-                if not (fan_descriptografado == diva_descriptografada == "FIM"):
+                if not (fan_descriptografado.upper() == diva_descriptografada.upper() == "FIM"):
                     # validacao
                     if diva_descriptografada in votos_finais:
                         votos_finais[diva_descriptografada] = votos_finais.get(diva_descriptografada, 0) + 1
