@@ -15,6 +15,20 @@ def cifra_de_cesar(texto_criptografado, chave):
             texto_descriptografado += ' '
 
         i += 1
+
+    # deixar as palavras capitalizadas pra ficar igual as referencias
+    base = ''
+    texto_descriptografado = texto_descriptografado.split(' ')
+    
+    for palavra in texto_descriptografado:
+        palavra = palavra.capitalize()
+        base += palavra
+        base += ' '
+
+    texto_descriptografado = ''
+    for i in range(len(base) - 1):
+        texto_descriptografado += base[i]
+    
     return texto_descriptografado
 
 def obter_dados_diva(musica_dict, diva_name, eras_por_diva, musicas_por_era):
@@ -104,7 +118,7 @@ musicas_por_era = {
     "Future Nostalgia" : ("Future Nostalgia", "Don't Start Now", "Cool", "Physical", "Levitating", "Pretty Please", "Hallucinate", "Love Again", "Break My Heart", "Good in Bed", "Boys Will Be Boys", "Fever"),
     "Radical Optimism" : ("End of an Era", "Houdini", "Training Season", "These Walls", "Whatcha Doing", "French Exit", "Illusion", "Falling Forever", "Anything for Love", "Maria", "Happy for You"),
     "SOUR" : ("Brutal", "Traitor", "Drivers License", "1 Step Forward, 3 Steps Back", "Deja Vu", "Good 4 U", "Enough For You", "Happier", "Jealousy, Jealousy", "Favorite Crime", "Hope Ur Ok"),
-    "GUTS" : ("All-American Bitch", "Bad Idea Right?", "Vampire", "Lacy", "Ballad Of A Homeschooled Girl", "Making The Bed", "Logical", "Get Him Back!", "Love Is Embarrassing", "The Grudge", "Pretty Isn't Pretty", "Teenage Dream"),
+    "GUTS" : ("All-American Bitch", "Bad Idea Right?", "Vampire", "Lacy", "Ballad Of A Homeschooled Girl", "Making The Bed", "Logical", "Get Him Back!", "Love Is Embarrassing", "The Grudge", "Pretty Isn't Pretty", "Teenage Dream 2"),
     "Teenage Dream" : ("Teenage Dream", "Last Friday Night (T.G.I.F.)", "California Gurls", "Firework", "Peacock", "Circle the Drain", "The One That Got Away", "E.T.", "Who Am I Living For?", "Pearl", "Hummingbird Heartbeat", "Not Like the Movies"),
     "Prism" : ("Roar", "Legendary Lovers", "Birthday", "Walking on Air", "Unconditionally", "Dark Horse", "This Is How We Do", "International Smile", "Ghost", "Love Me", "This Moment", "Double Rainbow", "By theGrace of God")
 }
@@ -124,14 +138,17 @@ dados_musicas = {}
 contagem_por_era = {"Future Nostalgia": 0, "Radical Optimism": 0, "Prism": 0, "Teenage Dream": 0, "GUTS": 0, "SOUR": 0}
 
 entrada_fase1 = input()
+
 while entrada_fase1 != "FIM":
     partes = entrada_fase1.split(' - ')
-    
     if len(partes) == 4:
         musica = partes[0]
         diva = partes[1]
         era = partes[2]
         num_streams = int(partes[3])
+        if musica == 'Teenage Dream' and diva == 'Olivia Rodrigo':
+            musica = 'Teenage Dream 2'
+
         
         valido = True
 
@@ -213,6 +230,8 @@ else:
         if len(partes) == 2:
             musica_voto = partes[0]
             diva_voto = partes[1]
+            if musica_voto == 'Teenage Dream' and diva_voto == 'Olivia Rodrigo':
+                musica_voto = 'Teenage Dream 2'
             cantora_certa = False
             for era in eras_por_diva[diva_voto]:
                 if musica_voto in musicas_por_era[era]:
@@ -289,7 +308,10 @@ else:
                         if diva_m < diva_campea_musica:
                             musica_campea = musica
                             diva_campea_musica = diva_m
-                        
+
+        if musica_campea == 'Teenage Dream 2':
+            musica_campea = 'Teenage Dream'
+
         print(f"E a música campeã foi {musica_campea}!")
 
         if diva_campea_musica == diva_campea_fase1:
@@ -382,6 +404,9 @@ else:
                     if fan_votos > max_votos_fan:
                         max_votos_fan = fan_votos
                         maior_fan = fan_nome
+                    elif fan_votos == max_votos_fan:
+                        if maior_fan > fan_nome:
+                            maior_fan = fan_nome
                         
                 print(f"A campeã final é {vencedora_votos}")
                 print(f"E o(A) maior fã da diva {vencedora_votos} é {maior_fan}")
