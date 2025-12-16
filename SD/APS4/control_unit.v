@@ -108,25 +108,25 @@ module control_unit
                     end
             
                 // sequência LDA_IMM 
-                S4_LDA_IMM : next_state = S5_LDA_IMM; // Get operand into MAR
-                S5_LDA_IMM : next_state = S6_LDA_IMM; // Load A
-                S6_LDA_IMM : next_state = S0_FETCH;   // Finish
+                S4_LDA_IMM : next_state = S5_LDA_IMM; // operando vai para o MAR
+                S5_LDA_IMM : next_state = S6_LDA_IMM; // carregar A
+                S6_LDA_IMM : next_state = S0_FETCH;   // fim
                                      
                 // sequência LDA_DIR
-                S4_LDA_DIR : next_state = S5_LDA_DIR; // Get address LSB to MAR
-                S5_LDA_DIR : next_state = S6_LDA_DIR; // Increment PC
-                S6_LDA_DIR : next_state = S7_LDA_DIR; // Get address MSB to MAR (upper bits of MAR)
-                S7_LDA_DIR : next_state = S8_LDA_DIR; // Data fetch to B
-                S8_LDA_DIR : next_state = S0_FETCH;   // Load A and finish
+                S4_LDA_DIR : next_state = S5_LDA_DIR; // LSB do endereço vai para o MAR
+                S5_LDA_DIR : next_state = S6_LDA_DIR; // incrementa PC
+                S6_LDA_DIR : next_state = S7_LDA_DIR; // MSB do endereço vai para o MAR (upper bits of MAR)
+                S7_LDA_DIR : next_state = S8_LDA_DIR; // busca de dados para B
+                S8_LDA_DIR : next_state = S0_FETCH;   // carregar A e finalizar
 
                 // sequência STA_DIR 
-                S4_STA_DIR : next_state = S5_STA_DIR; // Get address LSB to MAR
-                S5_STA_DIR : next_state = S6_STA_DIR; // Increment PC, get MSB to MAR
-                S6_STA_DIR : next_state = S0_FETCH;   // Write A to memory location
+                S4_STA_DIR : next_state = S5_STA_DIR; // LSB do endereço vai para o MAR
+                S5_STA_DIR : next_state = S6_STA_DIR; // incrementa PC, MSB para MAR
+                S6_STA_DIR : next_state = S0_FETCH;   // escrever A em endereço de memória
 
                 // sequência ADD_IMM
-                S4_ADD_IMM : next_state = S5_ADD_IMM; // Get operand into MAR
-                S5_ADD_IMM : next_state = S6_ADD_IMM; // Load B
+                S4_ADD_IMM : next_state = S5_ADD_IMM; // operando vai para MAR
+                S5_ADD_IMM : next_state = S6_ADD_IMM; // carregar B
                 S6_ADD_IMM : next_state = S0_FETCH;   // ADD A+B -> A
                 
                 default : next_state = S0_FETCH;
@@ -145,41 +145,41 @@ module control_unit
             B_Load = 0;
             CCR_Load = 0;
             write = 0;
-            Bus1_Sel = SEL_PC;      // Default to PC on Bus1
-            Bus2_Sel = SEL_BUS1;    // Default to Bus1 on Main Bus
-            ALU_Sel = ALU_PASS_B;   // Default ALU to pass (no operation)
+            Bus1_Sel = SEL_PC;     
+            Bus2_Sel = SEL_BUS1;    
+            ALU_Sel = ALU_PASS_B;   
 
             case (current_state)
                 
                 // FETCH CYCLE
                 S0_FETCH : 
-                    begin // Put PC onto MAR (MAR <- PC)
+                    begin // MAR <- PC
                         MAR_Load = 1;
                         Bus1_Sel = SEL_PC; 
                         Bus2_Sel = SEL_BUS1; 
                     end
                     
                 S1_FETCH : 
-                    begin // Increment PC (PC <- PC + 1)
+                    begin // PC <- PC + 1
                         PC_Inc = 1;
-                        Bus1_Sel = SEL_PC; // PC input to ALU
+                        Bus1_Sel = SEL_PC; // PC input para ALU
                         Bus2_Sel = SEL_BUS1; 
-                        ALU_Sel = ALU_INC; // ALU performs +1
+                        ALU_Sel = ALU_INC; // ALU faz +1
                     end
                     
                 S2_FETCH : 
-                    begin // Load Instruction Register (IR <- M[MAR])
+                    begin // carregar registro de instruções (IR <- M[MAR])
                         IR_Load = 1;
-                        Bus1_Sel = SEL_PC; // Don't care
-                        Bus2_Sel = SEL_MEM; // M[MAR] to Main Bus
+                        Bus1_Sel = SEL_PC; // don't care
+                        Bus2_Sel = SEL_MEM; // M[MAR] para Main Bus
                     end
                 
                 S3_DECODE : 
-                    begin // Decode: No operation needed, control unit transitions
+                    begin // decode: No operation needed, control unit transitions
                     end
 
-                // --- LDA_IMM (Load A Immediate) ---
-                // Instruction: [OPCODE] [DATA]
+                // LDA_IMM 
+                // instrução: [OPCODE] [DATA]
                 S4_LDA_IMM : 
                     begin // Get operand address/data LSB into MAR (MAR <- PC)
                         // Assuming 1-byte immediate data. M[PC] is the data.
