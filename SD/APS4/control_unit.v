@@ -175,111 +175,110 @@ module control_unit
                     end
                 
                 S3_DECODE : 
-                    begin // decode: No operation needed, control unit transitions
+                    begin // decode: sem operações necessárias
                     end
 
                 // LDA_IMM 
                 // instrução: [OPCODE] [DATA]
                 S4_LDA_IMM : 
-                    begin // Get operand address/data LSB into MAR (MAR <- PC)
-                        // Assuming 1-byte immediate data. M[PC] is the data.
+                    begin // MAR <- PC
                         MAR_Load = 1;
                         Bus1_Sel = SEL_PC; 
                         Bus2_Sel = SEL_BUS1; 
                     end
                 S5_LDA_IMM : 
-                    begin // Increment PC (PC <- PC + 1)
+                    begin // PC <- PC + 1
                         PC_Inc = 1;
                         Bus1_Sel = SEL_PC; 
                         Bus2_Sel = SEL_BUS1; 
                         ALU_Sel = ALU_INC; 
                     end
                 S6_LDA_IMM : 
-                    begin // Load A (A <- M[MAR])
+                    begin // A <- M[MAR]
                         A_Load = 1;
-                        Bus2_Sel = SEL_MEM; // M[MAR] to Main Bus
+                        Bus2_Sel = SEL_MEM; // M[MAR] para Main Bus
                     end
 
-                // --- LDA_DIR (Load A Direct) ---
-                // Instruction: [OPCODE] [ADDR_LSB] [ADDR_MSB] (2-byte address)
+                // LDA_DIR 
+                // instrução: [OPCODE] [ADDR_LSB] [ADDR_MSB] (2-byte address)
                 S4_LDA_DIR : 
-                    begin // Get Address LSB into MAR (MAR <- PC)
+                    begin // MAR <- PC
                         MAR_Load = 1; 
                         Bus1_Sel = SEL_PC; 
                         Bus2_Sel = SEL_BUS1; 
                     end
                 S5_LDA_DIR : 
-                    begin // Increment PC and put LSB of address into MAR LSB
+                    begin // incrementa PC and put LSB of address into MAR LSB
                         PC_Inc = 1;
                         Bus1_Sel = SEL_PC; 
                         Bus2_Sel = SEL_BUS1; 
                         ALU_Sel = ALU_INC; 
                     end
                 S6_LDA_DIR : 
-                    begin // Get Address MSB from memory into MAR MSB
-                        MAR_Load = 1; // Load MAR (MSB part)
-                        Bus2_Sel = SEL_MEM; // M[MAR] (which is ADDR_LSB) to MAR (upper bits)
+                    begin // leva o MSB do endereço para o MSB do MAR
+                        MAR_Load = 1; // carrega MAR (MSB)
+                        Bus2_Sel = SEL_MEM; // M[MAR] (ADDR_LSB) para MAR (upper bits)
                     end
                 S7_LDA_DIR : 
-                    begin // MAR is now loaded with the full data address. Data fetch to B
+                    begin // busca de dados para B
                         B_Load = 1;
-                        Bus2_Sel = SEL_MEM; // M[MAR] (Data) to B
+                        Bus2_Sel = SEL_MEM; // M[MAR] (Data) para B
                     end
                 S8_LDA_DIR : 
-                    begin // Load A from B (A <- B)
+                    begin // A <- B
                         A_Load = 1;
                         Bus1_Sel = SEL_B;
                         Bus2_Sel = SEL_BUS1; 
                     end
 
-                // --- STA_DIR (Store A Direct) ---
-                // Instruction: [OPCODE] [ADDR_LSB] [ADDR_MSB]
+                // STA_DIR 
+                // instrução: [OPCODE] [ADDR_LSB] [ADDR_MSB]
                 S4_STA_DIR : 
-                    begin // Get Address LSB into MAR (MAR <- PC)
+                    begin // MAR <- PC
                         MAR_Load = 1; 
                         Bus1_Sel = SEL_PC; 
                         Bus2_Sel = SEL_BUS1; 
                     end
                 S5_STA_DIR : 
-                    begin // Increment PC and get Address MSB from memory into MAR MSB
+                    begin // incrementa PC e leva o MSB do endereço para o MSB do MAR
                         PC_Inc = 1;
                         MAR_Load = 1; 
                         Bus2_Sel = SEL_MEM; 
                         ALU_Sel = ALU_INC;
                     end
                 S6_STA_DIR : 
-                    begin // Write A to memory at M[MAR] (M[MAR] <- A)
+                    begin // M[MAR] <- A
                         write = 1;
-                        Bus1_Sel = SEL_A; // A to memory data bus
+                        Bus1_Sel = SEL_A; // A para o bus de dados da memória
                         Bus2_Sel = SEL_BUS1; 
                     end
 
-                // --- ADD_IMM (Add Immediate) ---
-                // Instruction: [OPCODE] [DATA]
+                // ADD_IMM 
+                // instrução: [OPCODE] [DATA]
                 S4_ADD_IMM : 
-                    begin // Get operand address/data LSB into MAR (MAR <- PC)
+                    begin // MAR <- PC (LSB)
                         MAR_Load = 1;
                         Bus1_Sel = SEL_PC; 
                         Bus2_Sel = SEL_BUS1; 
                     end
                 S5_ADD_IMM : 
-                    begin // Increment PC and Load B (B <- M[MAR])
-                        PC_Inc = 1; // Increment PC
-                        B_Load = 1; // Load B
-                        Bus2_Sel = SEL_MEM; // M[MAR] to B
+                    begin // incrementa PC and carrega B (B <- M[MAR])
+                        PC_Inc = 1; 
+                        B_Load = 1; 
+                        Bus2_Sel = SEL_MEM; // M[MAR] para B
                         ALU_Sel = ALU_INC; 
                     end
                 S6_ADD_IMM : 
-                    begin // ADD A+B -> A (A <- A + B)
+                    begin // A <- A + B
                         A_Load = 1;
-                        CCR_Load = 1; // Update Condition Codes
-                        Bus1_Sel = SEL_A; // A to ALU input
-                        ALU_Sel = ALU_ADD; // A+B operation
-                        Bus2_Sel = SEL_ALU; // ALU result to A register
+                        CCR_Load = 1; // atualizando codigos de condição
+                        Bus1_Sel = SEL_A; // A vai para ALU input
+                        ALU_Sel = ALU_ADD; // A+B 
+                        Bus2_Sel = SEL_ALU; // resultado da ALU vai para o registro de A
                     end
                 
                 default : 
-                    begin // Catch-all or error state, transition to fetch
+                    begin
                     end
             endcase
         end
