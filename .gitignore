@@ -1,0 +1,10 @@
+# Arquivos gerados por simulação Verilog (Icarus Verilog / GTKWave)
+*.vvp
+*.vcd
+
+# Arquivos compilados Python
+__pycache__/
+*.pyc
+
+# Executáveis
+bin/
